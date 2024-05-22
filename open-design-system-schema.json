@@ -1,0 +1,289 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Design System",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Automatically generated unique identifier for each item."
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "description"
+            ]
+        },
+        "colors": {
+            "type": "object",
+            "properties": {},
+            "patternProperties": {
+                ".*": {
+                    "type": "object",
+                    "properties": {
+                        "light": {
+                            "type": "object",
+                            "properties": {
+                                "hex": {
+                                    "type": "string",
+                                    "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+                                },
+                                "rgba": {
+                                    "type": "object",
+                                    "properties": {
+                                        "red": {
+                                            "type": "string"
+                                        },
+                                        "green": {
+                                            "type": "string"
+                                        },
+                                        "blue": {
+                                            "type": "string"
+                                        },
+                                        "alpha": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "hex",
+                                "rgba"
+                            ]
+                        },
+                        "dark": {
+                            "type": "object",
+                            "properties": {
+                                "hex": {
+                                    "type": "string",
+                                    "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+                                },
+                                "rgba": {
+                                    "type": "object",
+                                    "properties": {
+                                        "red": {
+                                            "type": "string"
+                                        },
+                                        "green": {
+                                            "type": "string"
+                                        },
+                                        "blue": {
+                                            "type": "string"
+                                        },
+                                        "alpha": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "hex",
+                                "rgba"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "light",
+                        "dark"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "typography": {
+            "type": "object",
+            "properties": {},
+            "patternProperties": {
+                ".*": {
+                    "type": "object",
+                    "properties": {
+                        "fontFamily": {
+                            "type": "string"
+                        },
+                        "fontSize": {
+                            "type": "string"
+                        },
+                        "fontWeight": {
+                            "type": "string"
+                        },
+                        "lineHeight": {
+                            "type": "string"
+                        },
+                        "letterSpacing": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "fontFamily",
+                        "fontSize",
+                        "fontWeight",
+                        "lineHeight",
+                        "letterSpacing"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "spacing": {
+            "type": "object",
+            "properties": {},
+            "patternProperties": {
+                ".*": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true
+        },
+        "borders": {
+            "type": "object",
+            "properties": {
+                "radius": {
+                    "type": "object",
+                    "properties": {},
+                    "patternProperties": {
+                        ".*": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": true
+                },
+                "width": {
+                    "type": "string"
+                },
+                "style": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true
+        },
+        "shadows": {
+            "type": "object",
+            "properties": {},
+            "patternProperties": {
+                ".*": {
+                    "type": "object",
+                    "properties": {
+                        "elevation": {
+                            "type": "string"
+                        },
+                        "shadowColor": {
+                            "type": "string",
+                            "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+                        },
+                        "shadowOpacity": {
+                            "type": "number"
+                        },
+                        "shadowOffset": {
+                            "type": "object",
+                            "properties": {
+                                "width": {
+                                    "type": "number"
+                                },
+                                "height": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "shadowRadius": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "elevation",
+                        "shadowColor",
+                        "shadowOpacity",
+                        "shadowOffset",
+                        "shadowRadius"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "primitives": {
+            "button": {
+                "type": "object",
+                "properties": {
+                    "default": {
+                        "type": "object",
+                        "properties": {
+                            "fontSize": {
+                                "type": "string"
+                            },
+                            "padding": {
+                                "type": "string"
+                            },
+                            "borderRadius": {
+                                "type": "string"
+                            }
+                        },
+                        "additionalProperties": true
+                    },
+                    "size": {
+                        "type": "object",
+                        "properties": {},
+                        "patternProperties": {
+                            ".*": {
+                                "type": "object",
+                                "properties": {
+                                    "fontSize": {
+                                        "type": "string"
+                                    },
+                                    "padding": {
+                                        "type": "string"
+                                    },
+                                    "borderRadius": {
+                                        "type": "string"
+                                    }
+                                },
+                                "additionalProperties": true
+                            }
+                        },
+                        "additionalProperties": true
+                    },
+                    "variant": {
+                        "type": "object",
+                        "properties": {},
+                        "patternProperties": {
+                            ".*": {
+                                "type": "object",
+                                "properties": {
+                                    "backgroundColor": {
+                                        "type": "string"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "borderColor": {
+                                        "type": "string"
+                                    }
+                                },
+                                "additionalProperties": true
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                },
+                "additionalProperties": true
+            }
+        },
+        "additionalProperties": true
+    },
+    "required": [
+        "id",
+        "meta",
+        "colors",
+        "typography",
+        "spacing",
+        "borders",
+        "shadows",
+        "primitives"
+    ]
+}
