@@ -3,32 +3,31 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+  Form
 } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
 
 import designSystemSchema from "./form-schema"
 import defaultSystemDesign from './open-design-system.json'
 import { ColorField } from "./fields/color-field"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible"
 import { TypographyField } from "./fields/typography-field"
+import { SpacingField } from "./fields/spacing-field"
+import { SurfaceField } from "./fields/surface-field"
+import { fromSchemaToForm, fromFormToSchema } from "./form-utils"
+import { DesignSystem } from "open-design-system.schema"
 
 export function DesignSystemForm() {
+  const defaultValues = fromSchemaToForm(defaultSystemDesign as unknown as DesignSystem);
+  console.log({ defaultValues })
   const form = useForm<z.infer<typeof designSystemSchema>>({
     resolver: zodResolver(designSystemSchema),
-    defaultValues: defaultSystemDesign,
+    defaultValues
   })
 
   function onSubmit(values: z.infer<typeof designSystemSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values)
+    console.log(fromFormToSchema(values))
   }
 
   return (
@@ -58,7 +57,7 @@ export function DesignSystemForm() {
             <ChevronRightIcon className="h-5 w-5 transition-all" />
           </CollapsibleTrigger>
           <CollapsibleContent className="p-4">
-            <h4>TBD</h4>
+            <SpacingField />
           </CollapsibleContent>
         </Collapsible>
         <Collapsible className="space-y-4">
@@ -67,7 +66,7 @@ export function DesignSystemForm() {
             <ChevronRightIcon className="h-5 w-5 transition-all" />
           </CollapsibleTrigger>
           <CollapsibleContent className="p-4">
-            <h4>TBD</h4>
+            <SurfaceField />
           </CollapsibleContent>
         </Collapsible>
         <Collapsible className="space-y-4">

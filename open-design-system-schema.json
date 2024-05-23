@@ -29,6 +29,21 @@
                 ".*": {
                     "type": "object",
                     "properties": {
+                        "meta": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "description"
+                            ]
+                        },
                         "light": {
                             "type": "object",
                             "properties": {
@@ -91,6 +106,7 @@
                         }
                     },
                     "required": [
+                        "meta",
                         "light",
                         "dark"
                     ]
@@ -105,6 +121,21 @@
                 ".*": {
                     "type": "object",
                     "properties": {
+                        "meta": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "description"
+                            ]
+                        },
                         "fontFamily": {
                             "type": "string"
                         },
@@ -122,6 +153,7 @@
                         }
                     },
                     "required": [
+                        "meta",
                         "fontFamily",
                         "fontSize",
                         "fontWeight",
@@ -137,32 +169,83 @@
             "properties": {},
             "patternProperties": {
                 ".*": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "meta": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "description"
+                            ]
+                        },
+                        "value": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "meta",
+                        "value"
+                    ]
                 }
             },
             "additionalProperties": true
         },
-        "borders": {
+        "surface": {
             "type": "object",
-            "properties": {
-                "radius": {
+            "properties": {},
+            "patternProperties": {
+                ".*": {
                     "type": "object",
-                    "properties": {},
-                    "patternProperties": {
-                        ".*": {
+                    "properties": {
+                        "meta": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "description"
+                            ]
+                        },
+                        "borderColor": {
+                            "type": "string"
+                        },
+                        "borderRadius": {
+                            "type": "string"
+                        },
+                        "borderWidth": {
+                            "type": "string"
+                        },
+                        "boxShadow": {
+                            "type": "string"
+                        },
+                        "backgroundColor": {
                             "type": "string"
                         }
                     },
-                    "additionalProperties": true
-                },
-                "width": {
-                    "type": "string"
-                },
-                "style": {
-                    "type": "string"
+                    "required": [
+                        "meta",
+                        "borderColor",
+                        "borderRadius",
+                        "borderWidth",
+                        "boxShadow",
+                        "backgroundColor"
+                    ]
                 }
-            },
-            "additionalProperties": true
+            }
         },
         "shadows": {
             "type": "object",
@@ -171,6 +254,21 @@
                 ".*": {
                     "type": "object",
                     "properties": {
+                        "meta": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "description"
+                            ]
+                        },
                         "elevation": {
                             "type": "string"
                         },
@@ -197,6 +295,7 @@
                         }
                     },
                     "required": [
+                        "meta",
                         "elevation",
                         "shadowColor",
                         "shadowOpacity",
@@ -208,70 +307,91 @@
             "additionalProperties": true
         },
         "primitives": {
-            "button": {
-                "type": "object",
-                "properties": {
-                    "default": {
-                        "type": "object",
-                        "properties": {
-                            "fontSize": {
-                                "type": "string"
-                            },
-                            "padding": {
-                                "type": "string"
-                            },
-                            "borderRadius": {
-                                "type": "string"
-                            }
-                        },
-                        "additionalProperties": true
-                    },
-                    "size": {
-                        "type": "object",
-                        "properties": {},
-                        "patternProperties": {
-                            ".*": {
-                                "type": "object",
-                                "properties": {
-                                    "fontSize": {
-                                        "type": "string"
-                                    },
-                                    "padding": {
-                                        "type": "string"
-                                    },
-                                    "borderRadius": {
-                                        "type": "string"
-                                    }
+            "type": "object",
+            "properties": {},
+            "patternProperties": {
+                ".*": {
+                    "type": "object",
+                    "properties": {
+                        "meta": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
                                 },
-                                "additionalProperties": true
-                            }
+                                "description": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "description"
+                            ]
                         },
-                        "additionalProperties": true
-                    },
-                    "variant": {
-                        "type": "object",
-                        "properties": {},
-                        "patternProperties": {
-                            ".*": {
-                                "type": "object",
-                                "properties": {
-                                    "backgroundColor": {
-                                        "type": "string"
-                                    },
-                                    "color": {
-                                        "type": "string"
-                                    },
-                                    "borderColor": {
-                                        "type": "string"
-                                    }
+                        "default": {
+                            "type": "object",
+                            "properties": {
+                                "fontSize": {
+                                    "type": "string"
                                 },
-                                "additionalProperties": true
-                            }
+                                "padding": {
+                                    "type": "string"
+                                },
+                                "borderRadius": {
+                                    "type": "string"
+                                }
+                            },
+                            "additionalProperties": true
                         },
-                        "additionalProperties": true
-                    }
-                },
-                "additionalProperties": true
+                        "size": {
+                            "type": "object",
+                            "properties": {},
+                            "patternProperties": {
+                                ".*": {
+                                    "type": "object",
+                                    "properties": {
+                                        "fontSize": {
+                                            "type": "string"
+                                        },
+                                        "padding": {
+                                            "type": "string"
+                                        },
+                                        "borderRadius": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "additionalProperties": true
+                                }
+                            },
+                            "additionalProperties": true
+                        },
+                        "variant": {
+                            "type": "object",
+                            "properties": {},
+                            "patternProperties": {
+                                ".*": {
+                                    "type": "object",
+                                    "properties": {
+                                        "backgroundColor": {
+                                            "type": "string"
+                                        },
+                                        "color": {
+                                            "type": "string"
+                                        },
+                                        "borderColor": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "additionalProperties": true
+                                }
+                            },
+                            "additionalProperties": true
+                        }
+                    },
+                    "required": [
+                        "meta"
+                    ]
+                }
             }
         },
         "additionalProperties": true
@@ -282,7 +402,7 @@
         "colors",
         "typography",
         "spacing",
-        "borders",
+        "surface",
         "shadows",
         "primitives"
     ]

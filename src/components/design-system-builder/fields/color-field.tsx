@@ -135,21 +135,21 @@ export function ColorField() {
                 <div className='gap-4 p-4 border-2 border-dotted' key={field.id}>
                     <div className='grid gap-2 mb-2'>
                     <Controller
-                        name={`colors.${index}.name`}
+                        name={`colors.${index}.meta.name`}
                         control={control}
                         render={({ field }) => (
                             <Input {...field} placeholder="Color Name" />
                         )}
                     />
                     <Controller
-                        name={`colors.${index}.description`}
+                        name={`colors.${index}.meta.description`}
                         control={control}
                         render={({ field }) => (
                             <Input {...field} placeholder="Description" />
                         )}
                     />
                     </div>
-                    <ColorSelectionField name={`colors.${index}.value`} />
+                    <ColorSelectionField name={`colors.${index}`} />
                 </div>
             ))}
             <Button type="button" className='mt-4' onClick={() => append({ name: '', description: '', value: { light: { hex: '', rgba: { red: '', green: '', blue: '', alpha: '' } }, dark: { hex: '', rgba: { red: '', green: '', blue: '', alpha: '' } } } })}>Add Color</Button>

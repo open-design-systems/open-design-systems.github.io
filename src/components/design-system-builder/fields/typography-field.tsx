@@ -42,7 +42,7 @@ export const TypographyField = () => {
                 <div className='gap-4 p-4 border-2 border-dotted' key={field.id}>
                     <div className='grid gap-2 mb-2'>
                         <Controller
-                            name={`typography.${index}.name`}
+                            name={`typography.${index}.meta.name`}
                             control={control}
                             render={({ field }) => (
                                 <Input {...field} placeholder="Name" />
@@ -50,7 +50,7 @@ export const TypographyField = () => {
                             )}
                         />
                         <Controller
-                            name={`typography.${index}.description`}
+                            name={`typography.${index}.meta.description`}
                             control={control}
                             render={({ field }) => (
                                 <Input {...field} placeholder="Description" />

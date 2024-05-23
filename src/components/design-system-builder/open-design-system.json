@@ -7,6 +7,10 @@
     },
     "colors": {
       "primary": {
+        "meta": {
+          "name": "primary",
+          "description": ""
+        },
         "light": {
           "hex": "#6200ea",
           "rgba": {
@@ -27,6 +31,10 @@
         }
       },
       "secondary": {
+        "meta": {
+          "name": "secondary",
+          "description": ""
+        },
         "light": {
           "hex": "#03dac6",
           "rgba": {
@@ -47,6 +55,10 @@
         }
       },
       "background": {
+        "meta": {
+          "name": "background",
+          "description": ""
+        },
         "light": {
           "hex": "#ffffff",
           "rgba": {
@@ -69,38 +81,84 @@
     },
     "typography": {
       "body": {
-        "fontFamily": "Roboto, Arial, sans-serif",
-        "fontSize": "16px",
+        "meta": {
+          "name": "body",
+          "description": ""
+        },
+        "fontFamily": "Roboto",
+        "fontSize": "16",
         "fontWeight": "400",
         "lineHeight": "1.5",
-        "letterSpacing": "0.5px"
+        "letterSpacing": "0.5"
       },
       "heading": {
-        "fontFamily": "Roboto, Arial, sans-serif",
-        "fontSize": "24px",
+        "meta": {
+          "name": "heading",
+          "description": ""
+        },
+        "fontFamily": "Oswald",
+        "fontSize": "24",
         "fontWeight": "700",
         "lineHeight": "1.3",
-        "letterSpacing": "0.2px"
+        "letterSpacing": "0.2"
       }
     },
     "spacing": {
-      "xs": "4px",
-      "sm": "8px",
-      "md": "16px",
-      "lg": "24px",
-      "xl": "32px"
-    },
-    "borders": {
-      "radius": {
-        "small": "4px",
-        "medium": "8px",
-        "large": "16px"
+      "xs": {
+        "meta": {
+          "name": "xs",
+          "description": ""
+        },
+        "value": "4"
       },
-      "width": "1px",
-      "style": "solid"
+      "sm": {
+        "meta": {
+          "name": "sm",
+          "description": ""
+        },
+        "value": "8"
+      },
+      "md": {
+        "meta": {
+          "name": "md",
+          "description": ""
+        },
+        "value": "16"
+      },
+      "lg": {
+        "meta": {
+          "name": "lg",
+          "description": ""
+        },
+        "value": "24"
+      },
+      "xl": {
+        "meta": {
+          "name": "xl",
+          "description": ""
+        },
+        "value": "32"
+      }
+    },
+    "surface": {
+      "box": {
+        "meta": {
+          "name": "box",
+          "description": ""
+        },
+        "borderColor": "colors.background",
+        "borderRadius": "5",
+        "borderWidth": "1",
+        "boxShadow": "inset",
+        "backgroundColor": "colors.background"
+      }
     },
     "shadows": {
       "elevation1": {
+        "meta": {
+          "name": "elevation1",
+          "description": ""
+        },
         "elevation": "1dp",
         "shadowColor": "#000000",
         "shadowOpacity": 0.1,
@@ -108,49 +166,15 @@
         "shadowRadius": 1.0
       },
       "elevation2": {
+        "meta": {
+          "name": "elevation2",
+          "description": ""
+        },
         "elevation": "2dp",
         "shadowColor": "#000000",
         "shadowOpacity": 0.2,
         "shadowOffset": { "width": 0, "height": 2 },
         "shadowRadius": 2.0
-      }
-    },
-    "primitives": {
-      "button": {
-        "default": {
-          "fontSize": "16px",
-          "padding": "8px 16px",
-          "borderRadius": "4px"
-        },
-        "size": {
-          "small": {
-            "fontSize": "14px",
-            "padding": "4px 8px",
-            "borderRadius": "2px"
-          },
-          "medium": {
-            "fontSize": "16px",
-            "padding": "8px 16px",
-            "borderRadius": "4px"
-          },
-          "large": {
-            "fontSize": "18px",
-            "padding": "12px 24px",
-            "borderRadius": "8px"
-          }
-        },
-        "variant": {
-          "primary": {
-            "backgroundColor": "{colors.primary.light.hex}",
-            "color": "{colors.background.light.hex}",
-            "borderColor": "{colors.primary.light.hex}"
-          },
-          "secondary": {
-            "backgroundColor": "{colors.secondary.light.hex}",
-            "color": "{colors.background.light.hex}",
-            "borderColor": "{colors.secondary.light.hex}"
-          }
-        }
       }
     }
   }
