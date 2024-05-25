@@ -12,6 +12,7 @@ import { ColorField } from "./fields/color-field"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible"
 import { TypographyField } from "./fields/typography-field"
 import { SpacingField } from "./fields/spacing-field"
+import { ShadowField } from "./fields/shadow-field"
 import { SurfaceField } from "./fields/surface-field"
 import { fromSchemaToForm, fromFormToSchema } from "./form-utils"
 import { DesignSystem } from "open-design-system.schema"
@@ -75,7 +76,7 @@ export function DesignSystemForm() {
             <ChevronRightIcon className="h-5 w-5 transition-all" />
           </CollapsibleTrigger>
           <CollapsibleContent className="p-4">
-            <h4>TBD</h4>
+            <ShadowField />
           </CollapsibleContent>
         </Collapsible>
 
