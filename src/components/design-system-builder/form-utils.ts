@@ -27,7 +27,7 @@ export function fromSchemaToForm(schema: DesignSystem): DesignSystemFormSchema {
         typography: Object.values(schema.typography),
         spacing: Object.values(schema.spacing),
         surface: Object.values(schema.surface).map(mapColors(schema.colors)),
-        shadows: Object.values(schema.shadows)
+        shadow: Object.values(schema.shadow)
     }
 }
 
@@ -39,6 +39,6 @@ export function fromFormToSchema(data: DesignSystemFormSchema): DesignSystem {
         typography: data.typography.reduce((items, item) => ({ ...items, [item.meta.name]: item}), {}),
         spacing: data.spacing.reduce((items, item) => ({ ...items, [item.meta.name]: item}), {}),
         surface: data.surface.reduce((items, item) => ({ ...items, [item.meta.name]: item}), {}),
-        shadows: data.shadows.reduce((items, item) => ({ ...items, [item.meta.name]: item}), {})
+        shadow: data.shadow.reduce((items, item) => ({ ...items, [item.meta.name]: item}), {})
     }
 }

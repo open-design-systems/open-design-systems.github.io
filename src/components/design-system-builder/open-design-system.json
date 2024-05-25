@@ -153,14 +153,14 @@
         "backgroundColor": "colors.background"
       }
     },
-    "shadows": {
+    "shadow": {
       "elevation1": {
         "meta": {
           "name": "elevation1",
           "description": ""
         },
         "elevation": "1dp",
-        "shadowColor": "#000000",
+        "shadowColor": "colors.background",
         "shadowOpacity": 0.1,
         "shadowOffset": { "width": 0, "height": 1 },
         "shadowRadius": 1.0
@@ -171,7 +171,7 @@
           "description": ""
         },
         "elevation": "2dp",
-        "shadowColor": "#000000",
+        "shadowColor": "colors.background",
         "shadowOpacity": 0.2,
         "shadowOffset": { "width": 0, "height": 2 },
         "shadowRadius": 2.0

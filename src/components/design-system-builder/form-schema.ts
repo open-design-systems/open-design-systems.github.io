@@ -47,7 +47,7 @@ const surfaceSchema = z.object({
   backgroundColor: z.string().optional(),
 });
 
-const shadowsSchema = z.object({
+const shadowSchema = z.object({
   meta: metaSchema,
   shadowColor: z.string(),
   shadowOpacity: z.number(),
@@ -65,7 +65,7 @@ const designSystemSchema = z.object({
   typography: z.array(typographySchema),
   spacing: z.array(spacingSchema),
   surface: z.array(surfaceSchema),
-  shadows: z.array(shadowsSchema)
+  shadow: z.array(shadowSchema)
 });
 
 export default designSystemSchema;

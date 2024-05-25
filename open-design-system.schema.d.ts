@@ -71,7 +71,7 @@ export interface DesignSystem {
     surface: {
         [surfaceName: string]: Surface
     }
-    shadows: {
+    shadow: {
         [shadowName: string]: Shadow
     }
 }

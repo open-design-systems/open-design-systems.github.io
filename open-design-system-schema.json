@@ -247,7 +247,7 @@
                 }
             }
         },
-        "shadows": {
+        "shadow": {
             "type": "object",
             "properties": {},
             "patternProperties": {
@@ -274,7 +274,7 @@
                         },
                         "shadowColor": {
                             "type": "string",
-                            "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+                            "pattern": "string"
                         },
                         "shadowOpacity": {
                             "type": "number"
@@ -403,7 +403,7 @@
         "typography",
         "spacing",
         "surface",
-        "shadows",
+        "shadow",
         "primitives"
     ]
 }
