@@ -53,6 +53,24 @@ export interface Shadow extends WithMeta {
     shadowRadius: number
 }
 
+export interface PrimitiveBase extends WithMeta {
+    type: 'button' | 'text'
+}
+
+export interface ButtonPrimitive extends PrimitiveBase {
+    type: "button"
+    surfaceId: string
+    typographyId: string
+    spacingId: string
+}
+
+export interface TextPrimitive extends PrimitiveBase {
+    type: "text"
+  typographyId: string
+}
+
+type Primitive = ButtonPrimitive | TextPrimitive;
+
 export interface DesignSystem {
     /**
      * Automatically generated unique identifier for each item.
@@ -73,5 +91,8 @@ export interface DesignSystem {
     }
     shadows: {
         [shadowName: string]: Shadow
+    },
+    primitives: {
+        [primitiveName: string]: Primitive
     }
 }

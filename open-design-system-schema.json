@@ -328,74 +328,45 @@
                                 "description"
                             ]
                         },
-                        "default": {
-                            "type": "object",
-                            "properties": {
-                                "fontSize": {
-                                    "type": "string"
-                                },
-                                "padding": {
-                                    "type": "string"
-                                },
-                                "borderRadius": {
-                                    "type": "string"
-                                }
-                            },
-                            "additionalProperties": true
+                        "type": {
+                            "type": "string",
+                            "enum": ["button", "text"]
                         },
-                        "size": {
-                            "type": "object",
-                            "properties": {},
-                            "patternProperties": {
-                                ".*": {
-                                    "type": "object",
-                                    "properties": {
-                                        "fontSize": {
-                                            "type": "string"
-                                        },
-                                        "padding": {
-                                            "type": "string"
-                                        },
-                                        "borderRadius": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "additionalProperties": true
-                                }
-                            },
-                            "additionalProperties": true
+                        "surfaceId": {
+                            "type": "string"
                         },
-                        "variant": {
-                            "type": "object",
-                            "properties": {},
-                            "patternProperties": {
-                                ".*": {
-                                    "type": "object",
-                                    "properties": {
-                                        "backgroundColor": {
-                                            "type": "string"
-                                        },
-                                        "color": {
-                                            "type": "string"
-                                        },
-                                        "borderColor": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "additionalProperties": true
-                                }
-                            },
-                            "additionalProperties": true
+                        "typographyId": {
+                            "type": "string"
+                        },
+                        "spacingId": {
+                            "type": "string"
                         }
                     },
                     "required": [
-                        "meta"
-                    ]
+                        "meta",
+                        "type"
+                    ],
+                    "if": {
+                        "properties": {
+                            "type": { "const": "button" }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "surfaceId",
+                            "typographyId",
+                            "spacingId"
+                        ]
+                    },
+                    "else": {
+                        "required": [
+                            "typographyId"
+                        ]
+                    }
                 }
-            }
+            },
+            "additionalProperties": true
         },
-        "additionalProperties": true
-    },
     "required": [
         "id",
         "meta",

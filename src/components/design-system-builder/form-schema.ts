@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { nanoid } from 'nanoid'
 
-const metaSchema =  z.object({
+const metaSchema = z.object({
   name: z.string(),
   description: z.string(),
 })
@@ -58,6 +58,22 @@ const shadowsSchema = z.object({
   shadowRadius: z.number()
 })
 
+const primitiveButtonSchema = z.object({
+  meta: metaSchema,
+  type: z.literal('button'),
+  surfaceId: z.string(),
+  typographyId: z.string(),
+  spacingId: z.string(),
+});
+
+const primitiveTextSchema = z.object({
+  meta: metaSchema,
+  type: z.literal('text'),
+  typographyId: z.string(),
+});
+
+export const primitivesSchema = z.union([primitiveButtonSchema, primitiveTextSchema])
+
 const designSystemSchema = z.object({
   id: z.string().default(() => nanoid()),
   meta: metaSchema,
@@ -65,7 +81,8 @@ const designSystemSchema = z.object({
   typography: z.array(typographySchema),
   spacing: z.array(spacingSchema),
   surface: z.array(surfaceSchema),
-  shadows: z.array(shadowsSchema)
+  shadows: z.array(shadowsSchema),
+  primitives: z.array(primitivesSchema),
 });
 
 export default designSystemSchema;

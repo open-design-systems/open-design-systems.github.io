@@ -160,7 +160,7 @@
           "description": ""
         },
         "elevation": "1dp",
-        "shadowColor": "#000000",
+        "shadowColor": "colors.primary",
         "shadowOpacity": 0.1,
         "shadowOffset": { "width": 0, "height": 1 },
         "shadowRadius": 1.0
@@ -171,11 +171,23 @@
           "description": ""
         },
         "elevation": "2dp",
-        "shadowColor": "#000000",
+        "shadowColor": "colors.primary",
         "shadowOpacity": 0.2,
         "shadowOffset": { "width": 0, "height": 2 },
         "shadowRadius": 2.0
       }
+    },
+    "primitives": {
+      "button": {
+        "type": "button",
+        "meta": {
+          "name": "primary",
+          "description": ""
+        },
+        "spacingId": "spacing.md",
+        "surfaceId": "surface.box",
+        "typographyId": "typography.body"
+      }      
     }
   }
   

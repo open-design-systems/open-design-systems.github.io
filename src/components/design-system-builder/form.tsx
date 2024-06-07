@@ -15,24 +15,29 @@ import { SpacingField } from "./fields/spacing-field"
 import { SurfaceField } from "./fields/surface-field"
 import { fromSchemaToForm, fromFormToSchema } from "./form-utils"
 import { DesignSystem } from "open-design-system.schema"
+import { ShadowsField } from "./fields/shadow-field"
+import { PrimitivesField } from "./fields/primitive-field"
 
-export function DesignSystemForm() {
+export function DesignSystemForm({ onSubmit }) {
   const defaultValues = fromSchemaToForm(defaultSystemDesign as unknown as DesignSystem);
-  console.log({ defaultValues })
   const form = useForm<z.infer<typeof designSystemSchema>>({
     resolver: zodResolver(designSystemSchema),
     defaultValues
   })
 
-  function onSubmit(values: z.infer<typeof designSystemSchema>) {
+  function onSubmitForm(values: z.infer<typeof designSystemSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(fromFormToSchema(values))
+    onSubmit(fromFormToSchema(values))
+  }
+
+  function onError(err) {
+    console.log(err)
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmitForm, onError)} className="space-y-8">
         <Collapsible className="space-y-4">
           <CollapsibleTrigger className="flex items-center justify-between text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
             Colors
@@ -53,7 +58,7 @@ export function DesignSystemForm() {
         </Collapsible>
         <Collapsible className="space-y-4">
           <CollapsibleTrigger className="flex items-center justify-between text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
-            Spacing
+            Spacings
             <ChevronRightIcon className="h-5 w-5 transition-all" />
           </CollapsibleTrigger>
           <CollapsibleContent className="p-4">
@@ -62,7 +67,7 @@ export function DesignSystemForm() {
         </Collapsible>
         <Collapsible className="space-y-4">
           <CollapsibleTrigger className="flex items-center justify-between text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
-            Borders
+            Surfaces
             <ChevronRightIcon className="h-5 w-5 transition-all" />
           </CollapsibleTrigger>
           <CollapsibleContent className="p-4">
@@ -75,11 +80,20 @@ export function DesignSystemForm() {
             <ChevronRightIcon className="h-5 w-5 transition-all" />
           </CollapsibleTrigger>
           <CollapsibleContent className="p-4">
-            <h4>TBD</h4>
+            <ShadowsField />
+          </CollapsibleContent>
+        </Collapsible>
+        <Collapsible className="space-y-4">
+          <CollapsibleTrigger className="flex items-center justify-between text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
+            Primitives
+            <ChevronRightIcon className="h-5 w-5 transition-all" />
+          </CollapsibleTrigger>
+          <CollapsibleContent className="p-4">
+            <PrimitivesField />
           </CollapsibleContent>
         </Collapsible>
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit">View Open Design System</Button>
       </form>
     </Form>
   )

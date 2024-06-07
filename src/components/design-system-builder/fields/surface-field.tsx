@@ -10,8 +10,6 @@ export const SurfaceField = () => {
         control,
         name: 'colors',
     });
-
-    console.log({ colors })
     
     const { fields, append } = useFieldArray({
         control,
