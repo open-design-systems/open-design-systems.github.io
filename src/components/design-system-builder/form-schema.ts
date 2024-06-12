@@ -1,10 +1,11 @@
-import { z } from 'zod';
-import { nanoid } from 'nanoid'
+import { z } from "zod";
+import { nanoid } from "nanoid";
 
-const metaSchema = z.object({
+export const metaSchema = z.object({
+  id: z.string().default(() => nanoid()),
   name: z.string(),
   description: z.string(),
-})
+});
 
 const rgbaSchema = z.object({
   red: z.string(),
@@ -16,12 +17,12 @@ const rgbaSchema = z.object({
 const rawColorSchema = z.object({
   hex: z.string().regex(/^#(?:[0-9a-fA-F]{3}){1,2}$/),
   rgba: rgbaSchema,
-})
+});
 
 const colorSchema = z.object({
   meta: metaSchema,
   light: rawColorSchema,
-  dark: rawColorSchema
+  dark: rawColorSchema,
 });
 
 const typographySchema = z.object({
@@ -53,26 +54,29 @@ const shadowsSchema = z.object({
   shadowOpacity: z.number(),
   shadowOffset: z.object({
     width: z.number(),
-    height: z.number()
+    height: z.number(),
   }),
-  shadowRadius: z.number()
-})
+  shadowRadius: z.number(),
+});
 
-const primitiveButtonSchema = z.object({
+export const primitiveButtonSchema = z.object({
   meta: metaSchema,
-  type: z.literal('button'),
+  type: z.literal("button"),
   surfaceId: z.string(),
   typographyId: z.string(),
   spacingId: z.string(),
 });
 
-const primitiveTextSchema = z.object({
+export const primitiveTextSchema = z.object({
   meta: metaSchema,
-  type: z.literal('text'),
+  type: z.literal("text"),
   typographyId: z.string(),
 });
 
-export const primitivesSchema = z.union([primitiveButtonSchema, primitiveTextSchema])
+export const primitivesSchema = z.union([
+  primitiveButtonSchema,
+  primitiveTextSchema,
+]);
 
 const designSystemSchema = z.object({
   id: z.string().default(() => nanoid()),

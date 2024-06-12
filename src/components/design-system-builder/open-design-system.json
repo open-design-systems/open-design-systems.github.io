@@ -1,193 +1,206 @@
 {
-    "$schema": "../../../open-design-system-schema.json",
-    "id": "default-system",
-    "meta": {
-      "name": "Default Design System",
-      "description": "A basic design system with default values based on Material Design."
-    },
-    "colors": {
-      "primary": {
-        "meta": {
-          "name": "primary",
-          "description": ""
-        },
-        "light": {
-          "hex": "#6200ea",
-          "rgba": {
-            "red": "98",
-            "green": "0",
-            "blue": "234",
-            "alpha": "255"
-          }
-        },
-        "dark": {
-          "hex": "#3700b3",
-          "rgba": {
-            "red": "55",
-            "green": "0",
-            "blue": "179",
-            "alpha": "255"
-          }
+  "$schema": "../../../open-design-system-schema.json",
+  "id": "default-system",
+  "meta": {
+    "name": "Default Design System",
+    "description": "A basic design system with default values based on Material Design."
+  },
+  "colors": {
+    "primary": {
+      "meta": {
+        "id": "colors.primary",
+        "name": "primary",
+        "description": ""
+      },
+      "light": {
+        "hex": "#6200ea",
+        "rgba": {
+          "red": "98",
+          "green": "0",
+          "blue": "234",
+          "alpha": "255"
         }
       },
-      "secondary": {
-        "meta": {
-          "name": "secondary",
-          "description": ""
-        },
-        "light": {
-          "hex": "#03dac6",
-          "rgba": {
-            "red": "3",
-            "green": "218",
-            "blue": "198",
-            "alpha": "255"
-          }
-        },
-        "dark": {
-          "hex": "#018786",
-          "rgba": {
-            "red": "1",
-            "green": "135",
-            "blue": "134",
-            "alpha": "255"
-          }
-        }
-      },
-      "background": {
-        "meta": {
-          "name": "background",
-          "description": ""
-        },
-        "light": {
-          "hex": "#ffffff",
-          "rgba": {
-            "red": "255",
-            "green": "255",
-            "blue": "255",
-            "alpha": "255"
-          }
-        },
-        "dark": {
-          "hex": "#121212",
-          "rgba": {
-            "red": "18",
-            "green": "18",
-            "blue": "18",
-            "alpha": "255"
-          }
+      "dark": {
+        "hex": "#3700b3",
+        "rgba": {
+          "red": "55",
+          "green": "0",
+          "blue": "179",
+          "alpha": "255"
         }
       }
     },
-    "typography": {
-      "body": {
-        "meta": {
-          "name": "body",
-          "description": ""
-        },
-        "fontFamily": "Roboto",
-        "fontSize": "16",
-        "fontWeight": "400",
-        "lineHeight": "1.5",
-        "letterSpacing": "0.5"
+    "secondary": {
+      "meta": {
+        "id": "colors.secondary",
+        "name": "secondary",
+        "description": ""
       },
-      "heading": {
-        "meta": {
-          "name": "heading",
-          "description": ""
-        },
-        "fontFamily": "Oswald",
-        "fontSize": "24",
-        "fontWeight": "700",
-        "lineHeight": "1.3",
-        "letterSpacing": "0.2"
+      "light": {
+        "hex": "#03dac6",
+        "rgba": {
+          "red": "3",
+          "green": "218",
+          "blue": "198",
+          "alpha": "255"
+        }
+      },
+      "dark": {
+        "hex": "#018786",
+        "rgba": {
+          "red": "1",
+          "green": "135",
+          "blue": "134",
+          "alpha": "255"
+        }
       }
     },
-    "spacing": {
-      "xs": {
-        "meta": {
-          "name": "xs",
-          "description": ""
-        },
-        "value": "4"
+    "background": {
+      "meta": {
+        "id": "colors.background",
+        "name": "background",
+        "description": ""
       },
-      "sm": {
-        "meta": {
-          "name": "sm",
-          "description": ""
-        },
-        "value": "8"
+      "light": {
+        "hex": "#ffffff",
+        "rgba": {
+          "red": "255",
+          "green": "255",
+          "blue": "255",
+          "alpha": "255"
+        }
       },
-      "md": {
-        "meta": {
-          "name": "md",
-          "description": ""
-        },
-        "value": "16"
-      },
-      "lg": {
-        "meta": {
-          "name": "lg",
-          "description": ""
-        },
-        "value": "24"
-      },
-      "xl": {
-        "meta": {
-          "name": "xl",
-          "description": ""
-        },
-        "value": "32"
+      "dark": {
+        "hex": "#121212",
+        "rgba": {
+          "red": "18",
+          "green": "18",
+          "blue": "18",
+          "alpha": "255"
+        }
       }
-    },
-    "surface": {
-      "box": {
-        "meta": {
-          "name": "box",
-          "description": ""
-        },
-        "borderColor": "colors.background",
-        "borderRadius": "5",
-        "borderWidth": "1",
-        "boxShadow": "inset",
-        "backgroundColor": "colors.background"
-      }
-    },
-    "shadows": {
-      "elevation1": {
-        "meta": {
-          "name": "elevation1",
-          "description": ""
-        },
-        "elevation": "1dp",
-        "shadowColor": "colors.primary",
-        "shadowOpacity": 0.1,
-        "shadowOffset": { "width": 0, "height": 1 },
-        "shadowRadius": 1.0
+    }
+  },
+  "typography": {
+    "body": {
+      "meta": {
+        "id": "typography.body",
+        "name": "body",
+        "description": ""
       },
-      "elevation2": {
-        "meta": {
-          "name": "elevation2",
-          "description": ""
-        },
-        "elevation": "2dp",
-        "shadowColor": "colors.primary",
-        "shadowOpacity": 0.2,
-        "shadowOffset": { "width": 0, "height": 2 },
-        "shadowRadius": 2.0
-      }
+      "fontFamily": "Roboto",
+      "fontSize": "16",
+      "fontWeight": "400",
+      "lineHeight": "1.5",
+      "letterSpacing": "0.5"
     },
-    "primitives": {
-      "button": {
-        "type": "button",
-        "meta": {
-          "name": "primary",
-          "description": ""
-        },
-        "spacingId": "spacing.md",
-        "surfaceId": "surface.box",
-        "typographyId": "typography.body"
-      }      
+    "heading": {
+      "meta": {
+        "id": "typography.heading",
+        "name": "heading",
+        "description": ""
+      },
+      "fontFamily": "Oswald",
+      "fontSize": "24",
+      "fontWeight": "700",
+      "lineHeight": "1.3",
+      "letterSpacing": "0.2"
+    }
+  },
+  "spacing": {
+    "xs": {
+      "meta": {
+        "id": "spacing.xs",
+        "name": "xs",
+        "description": ""
+      },
+      "value": 4
+    },
+    "sm": {
+      "meta": {
+        "id": "spacing.sm",
+        "name": "sm",
+        "description": ""
+      },
+      "value": 8
+    },
+    "md": {
+      "meta": {
+        "id": "spacing.md",
+        "name": "md",
+        "description": ""
+      },
+      "value": 16
+    },
+    "lg": {
+      "meta": {
+        "id": "spacing.lg",
+        "name": "lg",
+        "description": ""
+      },
+      "value": 24
+    },
+    "xl": {
+      "meta": {
+        "id": "spacing.xl",
+        "name": "xl",
+        "description": ""
+      },
+      "value": 32
+    }
+  },
+  "surface": {
+    "box": {
+      "meta": {
+        "id": "surface.box",
+        "name": "box",
+        "description": ""
+      },
+      "borderColor": "colors.background",
+      "borderRadius": 5,
+      "borderWidth": 1,
+      "boxShadow": "inset",
+      "backgroundColor": "colors.background"
+    }
+  },
+  "shadows": {
+    "elevation1": {
+      "meta": {
+        "id": "shadows.elevation1",
+        "name": "elevation1",
+        "description": ""
+      },
+      "elevation": "1dp",
+      "shadowColor": "colors.primary",
+      "shadowOpacity": 0.1,
+      "shadowOffset": { "width": 0, "height": 1 },
+      "shadowRadius": 1.0
+    },
+    "elevation2": {
+      "meta": {
+        "id": "shadows.elevation2",
+        "name": "elevation2",
+        "description": ""
+      },
+      "elevation": "2dp",
+      "shadowColor": "colors.primary",
+      "shadowOpacity": 0.2,
+      "shadowOffset": { "width": 0, "height": 2 },
+      "shadowRadius": 2.0
+    }
+  },
+  "primitives": {
+    "button": {
+      "type": "button",
+      "meta": {
+        "id": "b1",
+        "name": "primary",
+        "description": ""
+      },
+      "spacingId": "spacing.md",
+      "surfaceId": "surface.box",
+      "typographyId": "typography.body"
     }
   }
-  
+}
