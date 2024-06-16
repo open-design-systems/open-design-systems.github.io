@@ -4,7 +4,9 @@ import { codeToHtml } from "shiki";
 
 export function JsonPreview() {
   const designSystemJson = useWatch();
-  const [designSystemPreview, setDesignSystemPreview] = useState(null);
+  const [designSystemPreview, setDesignSystemPreview] = useState<string | null>(
+    null
+  );
 
   useEffect(() => {
     async function makePreview() {

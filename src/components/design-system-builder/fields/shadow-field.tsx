@@ -57,7 +57,7 @@ export const ShadowsField = () => {
                                 <>
                                     <FormLabel>Shadow Color</FormLabel>
                                     <select {...field} className="w-full p-2 border border-gray-300 rounded-md">
-                                        {colors.map((color, idx) => (
+                                        {colors.map((color: any, idx: number) => (
                                             <option key={idx} value={`colors.${color.meta.name}`}>
                                                 {color.meta.name}
                                             </option>

@@ -23,11 +23,13 @@ export function DesignSystemForm({
 }) {
   const form = useFormContext();
 
-  function onSubmitForm(values) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function onSubmitForm(values: any) {
     onSubmit(fromFormToSchema(values));
   }
 
-  function onError(err) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function onError(err: any) {
     console.log("err", err);
   }
 
@@ -98,7 +100,7 @@ export function DesignSystemForm({
   );
 }
 
-function ChevronRightIcon(props) {
+function ChevronRightIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

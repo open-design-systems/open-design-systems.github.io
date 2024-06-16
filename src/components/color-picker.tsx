@@ -10,7 +10,7 @@ type ColorPickerProps = {
   onChange: (color: string) => void;
 };
 
-const CustomPicker = ({ color, ...rest }) => {
+const CustomPicker = ({ color, ...rest }: ColorPickerProps) => {
   const rgbaString = useMemo(() => {
     return color?.startsWith("#") ? color : colord(color).toHex();
   }, [color]);
@@ -51,7 +51,8 @@ export const ColorPicker: React.FC<ColorPickerProps> = (props) => {
       style={{ backgroundColor: color }}
       onClick={() => {
         setVisible(true);
-      }}>
+      }}
+    >
       {visible && (
         <div className="absolute top-0 right-[-210px] z-10">
           <CustomPicker

@@ -12,7 +12,7 @@ import {
   import { nanoid } from "nanoid";
   
   export const PrimitivesField = () => {
-    const { control, getValues, setValue } = useFormContext();
+    const { control, getValues } = useFormContext();
     const { fields, append } = useFieldArray({
       control,
       name: "primitives",
@@ -25,9 +25,9 @@ import {
   
     console.log({ primitives });
   
-    const getSectionOptions = (sectionName) => {
+    const getSectionOptions = (sectionName: string) => {
       const section = getValues(sectionName);
-      return section.map((item) => ({
+      return section.map((item: any) => ({
         value: `${sectionName}.${item.meta.name}`,
         label: item.meta.name,
       }));
@@ -86,7 +86,7 @@ import {
                           {...field}
                           className="w-full p-2 border border-gray-300 rounded-md"
                         >
-                          {getSectionOptions("surface").map((option) => (
+                          {getSectionOptions("surface").map((option: any) => (
                             <option key={option.value} value={option.value}>
                               {option.label}
                             </option>
@@ -105,7 +105,7 @@ import {
                           {...field}
                           className="w-full p-2 border border-gray-300 rounded-md"
                         >
-                          {getSectionOptions("typography").map((option) => (
+                          {getSectionOptions("typography").map((option: any) => (
                             <option key={option.value} value={option.value}>
                               {option.label}
                             </option>
@@ -124,7 +124,7 @@ import {
                           {...field}
                           className="w-full p-2 border border-gray-300 rounded-md"
                         >
-                          {getSectionOptions("spacing").map((option) => (
+                          {getSectionOptions("spacing").map((option: any) => (
                             <option key={option.value} value={option.value}>
                               {option.label}
                             </option>
@@ -147,7 +147,7 @@ import {
                           {...field}
                           className="w-full p-2 border border-gray-300 rounded-md"
                         >
-                          {getSectionOptions("typography").map((option) => (
+                          {getSectionOptions("typography").map((option: any) => (
                             <option key={option.value} value={option.value}>
                               {option.label}
                             </option>

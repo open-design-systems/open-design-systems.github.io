@@ -1,21 +1,37 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "dark" | "light" | "system";
+type SystemTheme = "dark" | "light" | "system";
+type Theme = 'dark' | 'light'
 
 type ThemeProviderProps = {
   children: React.ReactNode;
-  defaultTheme?: Theme;
+  defaultTheme?: SystemTheme;
   storageKey?: string;
 };
 
 type ThemeProviderState = {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
+  theme: SystemTheme;
+  setTheme: (theme: SystemTheme) => void;
+  getThemeScheme: (theme: SystemTheme) => Theme
 };
+
+const getThemeScheme = (theme: SystemTheme) => {
+  if (theme === 'system') {
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+    .matches
+    ? "dark"
+    : "light";
+
+    return systemTheme;
+  }
+
+  return theme
+}
 
 const initialState: ThemeProviderState = {
   theme: "system",
   setTheme: () => null,
+  getThemeScheme
 };
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
@@ -26,7 +42,7 @@ export function ThemeProvider({
   storageKey = "ods-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
+  const [theme, setTheme] = useState<SystemTheme>(
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
   );
 
@@ -35,22 +51,15 @@ export function ThemeProvider({
 
     root.classList.remove("light", "dark");
 
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
+    const systemTheme = getThemeScheme(theme)
 
-      root.classList.add(systemTheme);
-      return;
-    }
-
-    root.classList.add(theme);
+    root.classList.add(systemTheme);
   }, [theme]);
 
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
+    getThemeScheme,
+    setTheme: (theme: SystemTheme) => {
       localStorage.setItem(storageKey, theme);
       setTheme(theme);
     },

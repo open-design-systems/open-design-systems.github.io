@@ -1,7 +1,6 @@
-import React from 'react';
 import { useFormContext, Controller, useFieldArray } from 'react-hook-form';
 import { Input } from "@/components/ui/input";
-import { FormControl, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
 import { Button } from '@/components/ui/button';
 
 const popularFonts = [

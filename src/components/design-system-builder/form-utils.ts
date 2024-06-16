@@ -4,7 +4,7 @@ import { z } from "zod";
 
 type DesignSystemFormSchema = z.infer<typeof designSystemSchema>;
 
-function mapSurfaceToColors(colors: DesignSystem["colors"]) {
+function mapSurfaceToColors() {
   const findColorIndex = (ref?: string) => {
     if (!ref) {
       return undefined;
@@ -15,31 +15,13 @@ function mapSurfaceToColors(colors: DesignSystem["colors"]) {
     return colorName;
   };
   return (surface: DesignSystemFormSchema["surface"][0]) => ({
-    ...surface,
+    borderRadius: surface.borderRadius || 0,
+    borderWidth: surface.borderWidth || 0,
+    boxShadow: surface.boxShadow || '',
     backgroundColor: `colors.${findColorIndex(surface.backgroundColor)}`,
     borderColor: `colors.${findColorIndex(surface.borderColor)}`,
   });
 }
-
-// function mapPrimitivesToSchema(schema: DesignSystem) {
-
-//     function mapButton(primitive: DesignSystemFormSchema['primitives'][0]) {
-//         if (primitive.type !== 'button') return {}
-
-//         return {
-//             ...primitive,
-//             surfaceId: ,
-//             typographyId: '',
-//             spacingId: '',
-//         }
-//     }
-
-//     return (primitive: DesignSystemFormSchema['primitives'][0]) => ({
-//         ...primitive,
-//         ...(primitive.type === 'button' ? mapButton(primitive) : {}),
-//         ...(primitive.type === 'text' ? {} : {})
-//     })
-// }
 
 export function fromSchemaToForm(schema: DesignSystem): DesignSystemFormSchema {
   return {
@@ -48,9 +30,8 @@ export function fromSchemaToForm(schema: DesignSystem): DesignSystemFormSchema {
     colors: Object.values(schema.colors),
     typography: Object.values(schema.typography),
     spacing: Object.values(schema.spacing),
-    surface: Object.values(schema.surface).map(
-      mapSurfaceToColors(schema.colors)
-    ),
+    // @ts-ignore
+    surface: Object.values(schema.surface).map(mapSurfaceToColors),
     shadows: Object.values(schema.shadows),
     primitives: Object.values(schema.primitives), //.map(mapPrimitivesToSchema(schema))
   };

@@ -1,6 +1,5 @@
 import { useFormContext, useFieldArray, Controller } from 'react-hook-form';
 import { Input } from "@/components/ui/input";
-import { FormLabel } from "@/components/ui/form";
 import { Button } from '@/components/ui/button';
 
 export const SpacingField = () => {

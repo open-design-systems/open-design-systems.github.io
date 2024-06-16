@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useFormContext, useFieldArray, Controller } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import {
@@ -9,8 +10,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { ColorPicker } from "@/components/color-picker";
 import { colord } from "colord";
+import { ChangeEvent } from "react";
 
-const hexToRgba = (hex) => {
+const hexToRgba = (hex: string) => {
   const { r, g, b, a } = colord(hex).toRgb();
 
   return {
@@ -21,11 +23,27 @@ const hexToRgba = (hex) => {
   };
 };
 
-const rgbaToHex = ({ red, green, blue, alpha }) => {
+const rgbaToHex = ({
+  red,
+  green,
+  blue,
+  alpha,
+}: {
+  red: number;
+  green: number;
+  blue: number;
+  alpha: number;
+}) => {
   return colord({ r: red, g: green, b: blue, a: alpha }).toHex();
 };
 
-const RgbaInput = ({ control, name, onChangeRgba }) => (
+type RgbaInputProps = {
+  control: any;
+  name: string;
+  onChangeRgba: (event: ChangeEvent<HTMLInputElement>, field: any) => void;
+};
+
+const RgbaInput = ({ control, name, onChangeRgba }: RgbaInputProps) => (
   <div className="flex space-x-2">
     <div>
       <FormLabel>red</FormLabel>
@@ -86,7 +104,13 @@ const RgbaInput = ({ control, name, onChangeRgba }) => (
   </div>
 );
 
-const HexInput = ({ control, name, onChangeHex }) => (
+type HexInputProps = {
+  control: any;
+  name: string;
+  onChangeHex: (e: ChangeEvent<HTMLInputElement>, field: any) => void;
+};
+
+const HexInput = ({ control, name, onChangeHex }: HexInputProps) => (
   <div className="flex space-x-2">
     <Controller
       name={name}
@@ -95,9 +119,12 @@ const HexInput = ({ control, name, onChangeHex }) => (
         <>
           <ColorPicker
             color={field.value}
-            onChange={(color) =>
-              onChangeHex({ target: { value: color } }, field)
-            }
+            onChange={(color) => {
+              const event: ChangeEvent<HTMLInputElement> = {
+                target: { value: color },
+              } as unknown as ChangeEvent<HTMLInputElement>;
+              onChangeHex(event, field);
+            }}
           />
           <Input
             {...field}
@@ -110,32 +137,36 @@ const HexInput = ({ control, name, onChangeHex }) => (
   </div>
 );
 
-const ColorSelectionField = ({ name }) => {
+const ColorSelectionField = ({ name }: { name: string }) => {
   const { control, watch, setValue } = useFormContext();
-  const hexLight = watch(`${name}.light.hex`);
   const rgbaLight = watch(`${name}.light.rgba`);
-  const hexDark = watch(`${name}.dark.hex`);
   const rgbaDark = watch(`${name}.dark.rgba`);
 
-  const handleHexChange = (e, field) => {
+  const handleHexChange = (e: ChangeEvent<HTMLInputElement>, field: any) => {
     field.onChange(e);
     const rgba = hexToRgba(e.target.value);
     setValue(`${name}.light.rgba`, rgba);
   };
 
-  const handleRgbaChange = (e, field) => {
+  const handleRgbaChange = (e: ChangeEvent<HTMLInputElement>, field: any) => {
     field.onChange(e);
     const hex = rgbaToHex(rgbaLight);
     setValue(`${name}.light.hex`, hex);
   };
 
-  const handleHexChangeDark = (e, field) => {
+  const handleHexChangeDark = (
+    e: ChangeEvent<HTMLInputElement>,
+    field: any
+  ) => {
     field.onChange(e);
     const rgba = hexToRgba(e.target.value);
     setValue(`${name}.dark.rgba`, rgba);
   };
 
-  const handleRgbaChangeDark = (e, field) => {
+  const handleRgbaChangeDark = (
+    e: ChangeEvent<HTMLInputElement>,
+    field: any
+  ) => {
     field.onChange(e);
     const hex = rgbaToHex(rgbaDark);
     setValue(`${name}.dark.hex`, hex);
