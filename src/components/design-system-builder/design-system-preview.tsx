@@ -11,6 +11,7 @@ import { useTheme } from "../theme-provider";
 import { Color, Meta } from "open-design-system.schema";
 
 function findInArray(arr: Array<{ meta: Meta }>, value: string): any | undefined {
+  console.log({ arr, value })
   return arr.find(({ meta }) => meta.id === value);
 }
 
@@ -24,6 +25,7 @@ function PrimitiveButton({
 }: {
   primitive: z.infer<typeof primitiveButtonSchema>;
 }) {
+
   const surfaces = useWatch({
     name: "surface",
   });

@@ -63,20 +63,20 @@
         "description": ""
       },
       "light": {
-        "hex": "#ffffff",
-        "rgba": {
-          "red": "255",
-          "green": "255",
-          "blue": "255",
-          "alpha": "255"
-        }
-      },
-      "dark": {
         "hex": "#121212",
         "rgba": {
           "red": "18",
           "green": "18",
           "blue": "18",
+          "alpha": "255"
+        }
+      },
+      "dark": {
+        "hex": "#ffffff",
+        "rgba": {
+          "red": "0",
+          "green": "0",
+          "blue": "0",
           "alpha": "255"
         }
       }
@@ -174,7 +174,10 @@
       "elevation": "1dp",
       "shadowColor": "colors.primary",
       "shadowOpacity": 0.1,
-      "shadowOffset": { "width": 0, "height": 1 },
+      "shadowOffset": {
+        "width": 0,
+        "height": 1
+      },
       "shadowRadius": 1.0
     },
     "elevation2": {
@@ -186,7 +189,10 @@
       "elevation": "2dp",
       "shadowColor": "colors.primary",
       "shadowOpacity": 0.2,
-      "shadowOffset": { "width": 0, "height": 2 },
+      "shadowOffset": {
+        "width": 0,
+        "height": 2
+      },
       "shadowRadius": 2.0
     }
   },

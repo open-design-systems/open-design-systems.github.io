@@ -25,7 +25,7 @@ const colorSchema = z.object({
   dark: rawColorSchema,
 });
 
-const typographySchema = z.object({
+export const typographySchema = z.object({
   meta: metaSchema,
   fontFamily: z.string(),
   fontSize: z.string(),
@@ -34,12 +34,12 @@ const typographySchema = z.object({
   letterSpacing: z.string(),
 });
 
-const spacingSchema = z.object({
+export const spacingSchema = z.object({
   meta: metaSchema,
   value: z.number(),
 });
 
-const surfaceSchema = z.object({
+export const surfaceSchema = z.object({
   meta: metaSchema,
   borderColor: z.string().optional(),
   borderRadius: z.number().optional(),
