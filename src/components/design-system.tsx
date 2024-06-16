@@ -20,7 +20,7 @@ function downloadJsonFile(
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
     JSON.stringify(
       {
-        $schema: "https://thebergamo.github.io/open-design-system/open-design-system.schema.json",
+        $schema: "https://thebergamo.github.io/open-design-system/open-design-system-schema.json",
         ...data,
       },
       null,
