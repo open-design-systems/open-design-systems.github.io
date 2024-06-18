@@ -4,7 +4,7 @@ import { DesignSystemForm } from "./design-system-builder/form";
 import type { DesignSystem } from "open-design-system.schema";
 
 import openDesingSystem from "@/components/design-system-builder/open-design-system.json";
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import designSystemSchema from "./design-system-builder/form-schema";
@@ -14,6 +14,7 @@ import { DesignSystemPreview } from "./design-system-builder/design-system-previ
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import DraggableArea from "./design-system-builder/draggable-area";
+import { useEffect } from "react";
 
 function downloadJsonFile(
   data: DesignSystem,
@@ -39,13 +40,26 @@ function downloadJsonFile(
   link.click();
 }
 
+const newDefaultValues = openDesingSystem as unknown as DesignSystem;
+
+const STORAGE_KEY = "open-design-system:design-system";
+
 export function DesignSystem() {
-  const defaultValues = openDesingSystem as unknown as DesignSystem;
+  const savedDesignSystem = localStorage.getItem(STORAGE_KEY);
+  const defaultValues = savedDesignSystem
+    ? JSON.parse(savedDesignSystem)
+    : fromSchemaToForm(newDefaultValues);
 
   const methods = useForm<z.infer<typeof designSystemSchema>>({
     resolver: zodResolver(designSystemSchema),
     defaultValues: fromSchemaToForm(defaultValues),
   });
+
+  const watchForm = useWatch({ control: methods.control });
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(watchForm));
+  }, [watchForm]);
 
   const handleFormSubmit = (values: DesignSystem) => {
     downloadJsonFile(values);
@@ -63,7 +77,7 @@ export function DesignSystem() {
   };
 
   const handleNew = () => {
-    methods.reset(fromSchemaToForm(defaultValues));
+    methods.reset(fromSchemaToForm(newDefaultValues));
   };
 
   const handleUploadClick = () => {
