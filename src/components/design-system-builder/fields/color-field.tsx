@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/button";
 import { ColorPicker } from "@/components/color-picker";
 import { colord } from "colord";
 import { ChangeEvent } from "react";
+import { RemoveDialog } from "../remove-dialog";
+import { nanoid } from "nanoid";
 
 const hexToRgba = (hex: string) => {
   const { r, g, b, a } = colord(hex).toRgb();
@@ -214,7 +216,7 @@ const ColorSelectionField = ({ name }: { name: string }) => {
 export function ColorField() {
   const { control } = useFormContext();
 
-  const { fields, append } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control,
     name: "colors",
   });
@@ -240,6 +242,11 @@ export function ColorField() {
             />
           </div>
           <ColorSelectionField name={`colors.${index}`} />
+          <RemoveDialog
+            text={"Remove"}
+            onRemove={() => remove(index)}
+            element={{ name: "color" }}
+          />
         </div>
       ))}
       <Button
@@ -247,8 +254,7 @@ export function ColorField() {
         className="mt-4"
         onClick={() =>
           append({
-            name: "",
-            description: "",
+            meta: { name: "", description: "", id: nanoid() },
             value: {
               light: {
                 hex: "",

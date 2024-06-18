@@ -10,12 +10,19 @@ import {
 import { useTheme } from "../theme-provider";
 import { Color, Meta } from "open-design-system.schema";
 
-function findInArray(arr: Array<{ meta: Meta }>, value: string): any | undefined {
-  console.log({ arr, value })
+function findInArray(
+  arr: Array<{ meta: Meta }>,
+  value: string
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+): any | undefined {
   return arr.find(({ meta }) => meta.id === value);
 }
 
-function resolveColors(colors: Array<Color>, theme: 'light' | 'dark', value: string) {
+function resolveColors(
+  colors: Array<Color>,
+  theme: "light" | "dark",
+  value: string
+) {
   const color = findInArray(colors, value);
 
   return color?.[theme]?.hex;
@@ -25,7 +32,6 @@ function PrimitiveButton({
 }: {
   primitive: z.infer<typeof primitiveButtonSchema>;
 }) {
-
   const surfaces = useWatch({
     name: "surface",
   });
@@ -49,8 +55,16 @@ function PrimitiveButton({
       style={{
         padding: spacing?.value,
         fontSize: typography?.fontSize,
-        borderColor: resolveColors(colors, getThemeScheme(theme), surface?.borderColor),
-        backgroundColor: resolveColors(colors, getThemeScheme(theme), surface?.backgroundColor),
+        borderColor: resolveColors(
+          colors,
+          getThemeScheme(theme),
+          surface?.borderColor
+        ),
+        backgroundColor: resolveColors(
+          colors,
+          getThemeScheme(theme),
+          surface?.backgroundColor
+        ),
       }}
     >
       Button Example
@@ -84,26 +98,28 @@ export function DesignSystemPreview() {
   const designSystem = useWatch();
   return (
     <div className="grid gap-6 grid-cols-4 p-4 justify-center">
-      {designSystem.primitives?.map((primitive: z.infer<typeof primitivesSchema>) => {
-        return (
-          <div className="flex" key={primitive.meta?.id}>
-            <Card className="shadow-lg">
-              <CardHeader>
-                <CardTitle>{primitive.meta?.name}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>{primitive.meta?.description}</p>
-                {primitive.type === "button" && (
-                  <PrimitiveButton primitive={primitive} />
-                )}
-                {primitive.type === "text" && (
-                  <PrimitiveText primitive={primitive} />
-                )}
-              </CardContent>
-            </Card>
-          </div>
-        );
-      })}
+      {designSystem.primitives?.map(
+        (primitive: z.infer<typeof primitivesSchema>) => {
+          return (
+            <div className="flex" key={primitive.meta?.id}>
+              <Card className="shadow-lg">
+                <CardHeader>
+                  <CardTitle>{primitive.meta?.name}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>{primitive.meta?.description}</p>
+                  {primitive.type === "button" && (
+                    <PrimitiveButton primitive={primitive} />
+                  )}
+                  {primitive.type === "text" && (
+                    <PrimitiveText primitive={primitive} />
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+          );
+        }
+      )}
     </div>
   );
 }
