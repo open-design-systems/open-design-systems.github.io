@@ -58,7 +58,7 @@ const DraggableArea = ({
 
 export default DraggableArea;
 
-function CloudUploadIcon(props) {
+function CloudUploadIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

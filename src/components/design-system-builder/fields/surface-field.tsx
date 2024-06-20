@@ -18,6 +18,11 @@ export const SurfaceField = () => {
     name: "colors",
   });
 
+  const shadows = useWatch({
+    control,
+    name: "shadows",
+  });
+
   const { fields, append, remove } = useFieldArray({
     control,
     name: "surface",
@@ -59,7 +64,7 @@ export const SurfaceField = () => {
                     className="w-full p-2 border border-gray-300 rounded-md"
                   >
                     {colors.map((color: any, idx: number) => (
-                      <option key={idx} value={`colors.${color.meta.name}`}>
+                      <option key={idx} value={color.meta.id}>
                         {color.meta.name}
                       </option>
                     ))}
@@ -103,6 +108,16 @@ export const SurfaceField = () => {
               render={({ field }) => (
                 <>
                   <FormLabel>Box Shadow</FormLabel>
+                  <select
+                    {...field}
+                    className="w-full p-2 border border-gray-300 rounded-md"
+                  >
+                    {shadows.map((shadow: any, idx: number) => (
+                      <option key={idx} value={shadow.meta.id}>
+                        {shadow.meta.name}
+                      </option>
+                    ))}
+                  </select>
                   <Input {...field} placeholder="Box Shadow" />
                 </>
               )}
@@ -118,7 +133,7 @@ export const SurfaceField = () => {
                     className="w-full p-2 border border-gray-300 rounded-md"
                   >
                     {colors.map((color: any, idx: number) => (
-                      <option key={idx} value={`colors.${color.meta.name}`}>
+                      <option key={idx} value={color.meta.id}>
                         {color.meta.name}
                       </option>
                     ))}

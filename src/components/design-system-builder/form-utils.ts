@@ -61,7 +61,7 @@ export function fromFormToSchema(data: DesignSystemFormSchema): DesignSystem {
       (items, item) => ({ ...items, [item.meta.name]: item }),
       {}
     ),
-    primitives: data.shadows.reduce(
+    primitives: data.primitives.reduce(
       (items, item) => ({ ...items, [item.meta.name]: item }),
       {}
     ),
