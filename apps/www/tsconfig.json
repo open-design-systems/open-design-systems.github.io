@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@open-design-system/typescript-config/react-app.json",
+  "compilerOptions": {
+    "plugins": [{ "name": "next"}],
+    "rootDir": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+  ],
+  "exclude": ["node_modules"]
+}
