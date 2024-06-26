@@ -14,11 +14,16 @@ import {
   CollapsibleTrigger,
   CollapsibleContent,
 } from "@/components/ui/collapsible";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { useEffect, useState } from "react";
+import { CheckIcon } from "lucide-react";
 
 export function DesignSystemForm({
   onSubmit,
+  onShare,
 }: {
   onSubmit: (designSystem: DesignSystem) => void;
+  onShare: () => void;
 }) {
   const form = useFormContext();
 
@@ -92,8 +97,43 @@ export function DesignSystemForm({
         </CollapsibleContent>
       </Collapsible>
 
-      <Button type="submit">Download Open Design System</Button>
+      <div className="flex gap-4 justify-end">
+        <ShareLinkButton onClick={onShare} />
+        <Button type="submit">Download Open Design System</Button>
+      </div>
     </form>
+  );
+}
+
+function ShareLinkButton({ onClick }: { onClick: () => void }) {
+  const [hasCopied, setHasCopied] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setHasCopied(false);
+    }, 2000);
+  }, [hasCopied]);
+
+  const handleClick = () => {
+    setHasCopied(true);
+    return onClick();
+  };
+
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline" type="button" onClick={handleClick}>
+          {hasCopied ? (
+            <>
+              <CheckIcon /> Copied link
+            </>
+          ) : (
+            "Share link"
+          )}
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Click to copy shareable URL to clipboard</TooltipContent>
+    </Tooltip>
   );
 }
 

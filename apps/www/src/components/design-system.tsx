@@ -1,4 +1,3 @@
-"use client";
 import type { DesignSystem } from "open-design-system.schema";
 import { DesignSystemForm } from "./design-system-builder/form";
 
@@ -15,6 +14,7 @@ import designSystemSchema from "./design-system-builder/form-schema";
 import { fromSchemaToForm } from "./design-system-builder/form-utils";
 import { JsonPreview } from "./design-system-builder/json-preview";
 import { ThemeToggle } from "./theme-toggle";
+import JSONCrush from "jsoncrush";
 
 function downloadJsonFile(
   data: DesignSystem,
@@ -42,8 +42,19 @@ const newDefaultValues = openDesingSystem as unknown as DesignSystem;
 
 const STORAGE_KEY = "open-design-system:design-system";
 
+function loadSavedDesignSystem() {
+  const savedLocally = localStorage.getItem(STORAGE_KEY);
+
+  const url = new URL(window.location.href);
+  const sharedLink = JSONCrush.uncrush(
+    decodeURIComponent(url?.searchParams.get("share") || ""),
+  );
+
+  return sharedLink || savedLocally;
+}
+
 export function DesignSystem() {
-  const savedDesignSystem = localStorage.getItem(STORAGE_KEY);
+  const savedDesignSystem = loadSavedDesignSystem();
   const defaultValues = savedDesignSystem
     ? JSON.parse(savedDesignSystem)
     : fromSchemaToForm(newDefaultValues);
@@ -63,6 +74,20 @@ export function DesignSystem() {
     downloadJsonFile(values);
   };
 
+  const handleShare = () => {
+    const stringifiedSchema = JSON.stringify(watchForm);
+    const shareableData = encodeURIComponent(
+      JSONCrush.crush(stringifiedSchema),
+    );
+    const url = new URL(window.location.href);
+
+    url.searchParams.set("share", shareableData);
+
+    history.pushState({}, "", url);
+
+    navigator.clipboard.writeText(url.toString());
+  };
+
   const handleFileUpload = (file: File) => {
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -75,6 +100,10 @@ export function DesignSystem() {
   };
 
   const handleNew = () => {
+    const url = new URL(window.location.href);
+
+    url.searchParams.delete("share");
+    history.replaceState({}, "", url);
     methods.reset(fromSchemaToForm(newDefaultValues));
   };
 
@@ -113,7 +142,10 @@ export function DesignSystem() {
                 />
               </div>
               <div className="flex-1 space-y-6 overflow-auto">
-                <DesignSystemForm onSubmit={handleFormSubmit} />
+                <DesignSystemForm
+                  onSubmit={handleFormSubmit}
+                  onShare={handleShare}
+                />
               </div>
             </div>
           </div>
