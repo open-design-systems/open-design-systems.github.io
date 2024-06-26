@@ -1,0 +1,12 @@
+{
+  "name": "@open-design-system/typescript-config",
+  "license": "ISC",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "default.json",
+    "vite.json",
+    "react-app.json",
+    "react-library.json"
+  ]
+}

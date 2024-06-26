@@ -1,0 +1,5 @@
+{
+    "extends": "@open-design-system/typescript-config/default.json",
+    "include": ["."],
+    "exclude": ["dist", "build", "node_modules"]
+  }

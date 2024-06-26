@@ -1,0 +1,15 @@
+{
+  "name": "@open-design-system/tailwind-plugin",
+  "version": "1.0.0",
+  "description": "Tailwind Plugin to use out of the box Open Design System schema",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "open-design-system",
+    "ods",
+    "tailwind",
+    "tailwind-plugin"
+  ],
+  "author": "Marcos Bérgamo <marcos@thedon.com.br>",
+  "license": "MIT"
+}
