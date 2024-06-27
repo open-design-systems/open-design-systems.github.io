@@ -241,15 +241,13 @@ export function ColorField() {
         onClick={() =>
           append({
             meta: { name: "", description: "", id: nanoid() },
-            value: {
-              light: {
-                hex: "",
-                rgba: { red: "", green: "", blue: "", alpha: "" },
-              },
-              dark: {
-                hex: "",
-                rgba: { red: "", green: "", blue: "", alpha: "" },
-              },
+            light: {
+              hex: "",
+              rgba: { red: "", green: "", blue: "", alpha: "" },
+            },
+            dark: {
+              hex: "",
+              rgba: { red: "", green: "", blue: "", alpha: "" },
             },
           })
         }

@@ -140,7 +140,7 @@ export function DesignSystem() {
                 </Button>
                 <CreateButtonWithOptions
                   variant="default"
-                  options={["scratch", "android" /*, "ios", "shadcn/ui"*/]}
+                  options={["scratch", "material" /*, "shadcn/ui"*/]}
                   onClick={handleNew}
                 />
                 <input
