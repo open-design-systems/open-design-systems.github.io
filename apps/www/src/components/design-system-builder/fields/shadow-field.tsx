@@ -9,6 +9,7 @@ import { FormLabel } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { RemoveDialog } from "../remove-dialog";
 import { nanoid } from "nanoid";
+import { MetaField } from "./meta-field";
 
 export const ShadowsField = () => {
   const { control } = useFormContext();
@@ -27,26 +28,7 @@ export const ShadowsField = () => {
       {fields.map((field, index) => (
         <div className="gap-4 p-4 border-2 border-dotted" key={field.id}>
           <div className="grid gap-2 mb-2">
-            <Controller
-              name={`shadows.${index}.meta.name`}
-              control={control}
-              render={({ field }) => (
-                <>
-                  <FormLabel>Shadow Name</FormLabel>
-                  <Input {...field} placeholder="Name" />
-                </>
-              )}
-            />
-            <Controller
-              name={`shadows.${index}.meta.description`}
-              control={control}
-              render={({ field }) => (
-                <>
-                  <FormLabel>Description</FormLabel>
-                  <Input {...field} placeholder="Description" />
-                </>
-              )}
-            />
+            <MetaField field={`shadows.${index}`} />
             <Controller
               name={`shadows.${index}.elevation`}
               control={control}

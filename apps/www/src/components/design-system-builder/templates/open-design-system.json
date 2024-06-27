@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../open-design-system-schema.json",
+  "$schema": "../../../../open-design-system-schema.json",
   "id": "default-system",
   "meta": {
     "name": "Default Design System",

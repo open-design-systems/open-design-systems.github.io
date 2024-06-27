@@ -2,18 +2,17 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@open-design-system/typescript-config/react-app.json",
   "compilerOptions": {
-    "plugins": [{ "name": "next"}],
+    "isolatedModules": true,
     "rootDir": ".",
     "paths": {
       "@/*": ["./src/*"],
     }
   },
   "include": [
-    "next-env.d.ts",
+    "src/vite-env.d.ts",
     "**/*.js",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
   ],
   "exclude": ["node_modules"]
 }

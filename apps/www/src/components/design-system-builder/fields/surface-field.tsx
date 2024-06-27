@@ -9,6 +9,7 @@ import { FormLabel } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { nanoid } from "nanoid";
 import { RemoveDialog } from "../remove-dialog";
+import { MetaField } from "./meta-field";
 
 export const SurfaceField = () => {
   const { control } = useFormContext();
@@ -33,26 +34,7 @@ export const SurfaceField = () => {
       {fields.map((field, index) => (
         <div className="gap-4 p-4 border-2 border-dotted" key={field.id}>
           <div className="grid gap-2 mb-2">
-            <Controller
-              name={`surface.${index}.meta.name`}
-              control={control}
-              render={({ field }) => (
-                <>
-                  <FormLabel>Surface Name</FormLabel>
-                  <Input {...field} placeholder="Name" />
-                </>
-              )}
-            />
-            <Controller
-              name={`surface.${index}.meta.description`}
-              control={control}
-              render={({ field }) => (
-                <>
-                  <FormLabel>Description</FormLabel>
-                  <Input {...field} placeholder="Description" />
-                </>
-              )}
-            />
+            <MetaField field={`surface.${index}`} />
             <Controller
               name={`surface.${index}.borderColor`}
               control={control}
@@ -77,7 +59,7 @@ export const SurfaceField = () => {
               control={control}
               render={({ field }) => (
                 <>
-                  <FormLabel>Border Radius (px)</FormLabel>
+                  <FormLabel>Border Radius</FormLabel>
                   <Input
                     {...field}
                     type="number"
@@ -92,7 +74,7 @@ export const SurfaceField = () => {
               control={control}
               render={({ field }) => (
                 <>
-                  <FormLabel>Border Width (px)</FormLabel>
+                  <FormLabel>Border Width</FormLabel>
                   <Input
                     {...field}
                     type="number"

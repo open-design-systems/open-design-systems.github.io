@@ -3,6 +3,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { RemoveDialog } from "../remove-dialog";
 import { nanoid } from "nanoid";
+import { MetaField } from "./meta-field";
+import { FormLabel } from "@/components/ui/form";
 
 export const SpacingField = () => {
   const { control } = useFormContext();
@@ -17,30 +19,20 @@ export const SpacingField = () => {
       {fields.map((field, index) => (
         <div className="gap-4 p-4 border-2 border-dotted" key={field.id}>
           <div className="grid gap-2 mb-2">
-            <Controller
-              name={`spacing.${index}.meta.name`}
-              control={control}
-              render={({ field }) => (
-                <Input {...field} placeholder="Spacing Name" />
-              )}
-            />
-            <Controller
-              name={`spacing.${index}.meta.description`}
-              control={control}
-              render={({ field }) => (
-                <Input {...field} placeholder="Description" />
-              )}
-            />
+            <MetaField field={`spacing.${index}`} />
             <Controller
               name={`spacing.${index}.value`}
               control={control}
               render={({ field }) => (
-                <Input
-                  {...field}
-                  type="number"
-                  step="1"
-                  placeholder="Value (px)"
-                />
+                <>
+                  <FormLabel>Value</FormLabel>
+                  <Input
+                    {...field}
+                    type="number"
+                    step="1"
+                    placeholder="Value"
+                  />
+                </>
               )}
             />
           </div>

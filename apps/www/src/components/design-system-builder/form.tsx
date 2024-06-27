@@ -1,4 +1,4 @@
-import { Form, useFormContext } from "react-hook-form";
+import { Form, useFormContext, Controller } from "react-hook-form";
 
 import { ColorField } from "./fields/color-field";
 import { TypographyField } from "./fields/typography-field";
@@ -7,8 +7,10 @@ import { SurfaceField } from "./fields/surface-field";
 import { fromFormToSchema } from "./form-utils";
 import { ShadowsField } from "./fields/shadow-field";
 import { PrimitivesField } from "./fields/primitive-field";
-import { DesignSystem } from "open-design-system.schema";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { FormLabel } from "@/components/ui/form";
+
 import {
   Collapsible,
   CollapsibleTrigger,
@@ -17,6 +19,7 @@ import {
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { useEffect, useState } from "react";
 import { CheckIcon } from "lucide-react";
+import { DesignSystem } from "../../../open-design-system.schema";
 
 export function DesignSystemForm({
   onSubmit,
@@ -42,6 +45,36 @@ export function DesignSystemForm({
       onSubmit={form.handleSubmit(onSubmitForm, onError)}
       className="space-y-8"
     >
+      <Collapsible className="space-y-4">
+        <CollapsibleTrigger className="flex items-center justify-between text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
+          Design System Details
+          <ChevronRightIcon className="h-5 w-5 transition-all" />
+        </CollapsibleTrigger>
+        <CollapsibleContent className="p-4">
+          <div className="grid gap-2 mb-2">
+            <Controller
+              name={`meta.name`}
+              control={form.control}
+              render={({ field }) => (
+                <>
+                  <FormLabel>Name</FormLabel>
+                  <Input {...field} placeholder="Spacing Name" />
+                </>
+              )}
+            />
+            <Controller
+              name={`meta.description`}
+              control={form.control}
+              render={({ field }) => (
+                <>
+                  <FormLabel>Description</FormLabel>
+                  <Input {...field} placeholder="Description" />
+                </>
+              )}
+            />
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
       <Collapsible className="space-y-4">
         <CollapsibleTrigger className="flex items-center justify-between text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
           Colors

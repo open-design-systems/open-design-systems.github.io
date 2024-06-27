@@ -1,362 +1,361 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Design System",
-    "type": "object",
-    "properties": {
-      "id": {
-        "type": "string",
-        "description": "Automatically generated unique identifier for each item."
-      },
-      "meta": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Design System",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Automatically generated unique identifier for each item."
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
         },
-        "required": ["name", "description"]
-      },
-      "colors": {
-        "type": "object",
-        "properties": {},
-        "patternProperties": {
-          ".*": {
-            "type": "object",
-            "properties": {
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Automatically generated unique identifier for each item."
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
-                },
-                "required": ["name", "description"]
-              },
-              "light": {
-                "type": "object",
-                "properties": {
-                  "hex": {
-                    "type": "string",
-                    "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
-                  },
-                  "rgba": {
-                    "type": "object",
-                    "properties": {
-                      "red": {
-                        "type": "string"
-                      },
-                      "green": {
-                        "type": "string"
-                      },
-                      "blue": {
-                        "type": "string"
-                      },
-                      "alpha": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "required": ["hex", "rgba"]
-              },
-              "dark": {
-                "type": "object",
-                "properties": {
-                  "hex": {
-                    "type": "string",
-                    "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
-                  },
-                  "rgba": {
-                    "type": "object",
-                    "properties": {
-                      "red": {
-                        "type": "string"
-                      },
-                      "green": {
-                        "type": "string"
-                      },
-                      "blue": {
-                        "type": "string"
-                      },
-                      "alpha": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "required": ["hex", "rgba"]
-              }
-            },
-            "required": ["meta", "light", "dark"]
-          }
-        },
-        "additionalProperties": true
-      },
-      "typography": {
-        "type": "object",
-        "properties": {},
-        "patternProperties": {
-          ".*": {
-            "type": "object",
-            "properties": {
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Automatically generated unique identifier for each item."
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
-                },
-                "required": ["name", "description"]
-              },
-              "fontFamily": {
-                "type": "string"
-              },
-              "fontSize": {
-                "type": "string"
-              },
-              "fontWeight": {
-                "type": "string"
-              },
-              "lineHeight": {
-                "type": "string"
-              },
-              "letterSpacing": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "meta",
-              "fontFamily",
-              "fontSize",
-              "fontWeight",
-              "lineHeight",
-              "letterSpacing"
-            ]
-          }
-        },
-        "additionalProperties": true
-      },
-      "spacing": {
-        "type": "object",
-        "properties": {},
-        "patternProperties": {
-          ".*": {
-            "type": "object",
-            "properties": {
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Automatically generated unique identifier for each item."
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
-                },
-                "required": ["name", "description"]
-              },
-              "value": {
-                "type": "number"
-              }
-            },
-            "required": ["meta", "value"]
-          }
-        },
-        "additionalProperties": true
-      },
-      "surface": {
-        "type": "object",
-        "properties": {},
-        "patternProperties": {
-          ".*": {
-            "type": "object",
-            "properties": {
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Automatically generated unique identifier for each item."
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
-                },
-                "required": ["name", "description"]
-              },
-              "borderColor": {
-                "type": "string"
-              },
-              "borderRadius": {
-                "type": "number"
-              },
-              "borderWidth": {
-                "type": "number"
-              },
-              "boxShadow": {
-                "type": "string"
-              },
-              "backgroundColor": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "meta",
-              "borderColor",
-              "borderRadius",
-              "borderWidth",
-              "boxShadow",
-              "backgroundColor"
-            ]
-          }
+        "description": {
+          "type": "string"
         }
       },
-      "shadows": {
-        "type": "object",
-        "properties": {},
-        "patternProperties": {
-          ".*": {
-            "type": "object",
-            "properties": {
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Automatically generated unique identifier for each item."
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
+      "required": ["name", "description"]
+    },
+    "colors": {
+      "type": "object",
+      "properties": {},
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Automatically generated unique identifier for each item."
                 },
-                "required": ["name", "description"]
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
               },
-              "elevation": {
-                "type": "string"
-              },
-              "shadowColor": {
-                "type": "string"
-              },
-              "shadowOpacity": {
-                "type": "number"
-              },
-              "shadowOffset": {
-                "type": "object",
-                "properties": {
-                  "width": {
-                    "type": "number"
-                  },
-                  "height": {
-                    "type": "number"
+              "required": ["name", "description"]
+            },
+            "light": {
+              "type": "object",
+              "properties": {
+                "hex": {
+                  "type": "string",
+                  "pattern": "^#(?:[0-9a-fA-F]{3,4}){1,2}$"
+                },
+                "rgba": {
+                  "type": "object",
+                  "properties": {
+                    "red": {
+                      "type": "string"
+                    },
+                    "green": {
+                      "type": "string"
+                    },
+                    "blue": {
+                      "type": "string"
+                    },
+                    "alpha": {
+                      "type": "string"
+                    }
                   }
                 }
               },
-              "shadowRadius": {
-                "type": "number"
-              }
+              "required": ["hex", "rgba"]
             },
-            "required": [
-              "meta",
-              "elevation",
-              "shadowColor",
-              "shadowOpacity",
-              "shadowOffset",
-              "shadowRadius"
-            ]
-          }
-        },
-        "additionalProperties": true
-      },
-      "primitives": {
-        "type": "object",
-        "properties": {},
-        "patternProperties": {
-          ".*": {
-            "type": "object",
-            "properties": {
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Automatically generated unique identifier for each item."
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
-                },
-                "required": ["name", "description"]
-              },
-              "type": {
-                "type": "string",
-                "enum": ["button", "text"]
-              },
-              "surfaceId": {
-                "type": "string"
-              },
-              "typographyId": {
-                "type": "string"
-              },
-              "spacingId": {
-                "type": "string"
-              }
-            },
-            "required": ["meta", "type"],
-            "if": {
+            "dark": {
+              "type": "object",
               "properties": {
-                "type": { "const": "button" }
-              }
-            },
-            "then": {
-              "required": ["surfaceId", "typographyId", "spacingId"]
-            },
-            "else": {
-              "required": ["typographyId"]
+                "hex": {
+                  "type": "string",
+                  "pattern": "^#(?:[0-9a-fA-F]{3,4}){1,2}$"
+                },
+                "rgba": {
+                  "type": "object",
+                  "properties": {
+                    "red": {
+                      "type": "string"
+                    },
+                    "green": {
+                      "type": "string"
+                    },
+                    "blue": {
+                      "type": "string"
+                    },
+                    "alpha": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "required": ["hex", "rgba"]
             }
-          }
-        },
-        "additionalProperties": true
+          },
+          "required": ["meta", "light", "dark"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "typography": {
+      "type": "object",
+      "properties": {},
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Automatically generated unique identifier for each item."
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": ["name", "description"]
+            },
+            "fontFamily": {
+              "type": "string"
+            },
+            "fontSize": {
+              "type": "string"
+            },
+            "fontWeight": {
+              "type": "string"
+            },
+            "lineHeight": {
+              "type": "string"
+            },
+            "letterSpacing": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "meta",
+            "fontFamily",
+            "fontSize",
+            "fontWeight",
+            "lineHeight",
+            "letterSpacing"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "spacing": {
+      "type": "object",
+      "properties": {},
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Automatically generated unique identifier for each item."
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": ["name", "description"]
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": ["meta", "value"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "surface": {
+      "type": "object",
+      "properties": {},
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Automatically generated unique identifier for each item."
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": ["name", "description"]
+            },
+            "borderColor": {
+              "type": "string"
+            },
+            "borderRadius": {
+              "type": "number"
+            },
+            "borderWidth": {
+              "type": "number"
+            },
+            "boxShadow": {
+              "type": "string"
+            },
+            "backgroundColor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "meta",
+            "borderColor",
+            "borderRadius",
+            "borderWidth",
+            "boxShadow",
+            "backgroundColor"
+          ]
+        }
       }
     },
-    "required": [
-      "id",
-      "meta",
-      "colors",
-      "typography",
-      "spacing",
-      "surface",
-      "shadows",
-      "primitives"
-    ]
-  }
-  
+    "shadows": {
+      "type": "object",
+      "properties": {},
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Automatically generated unique identifier for each item."
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": ["name", "description"]
+            },
+            "elevation": {
+              "type": "string"
+            },
+            "shadowColor": {
+              "type": "string"
+            },
+            "shadowOpacity": {
+              "type": "number"
+            },
+            "shadowOffset": {
+              "type": "object",
+              "properties": {
+                "width": {
+                  "type": "number"
+                },
+                "height": {
+                  "type": "number"
+                }
+              }
+            },
+            "shadowRadius": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "meta",
+            "elevation",
+            "shadowColor",
+            "shadowOpacity",
+            "shadowOffset",
+            "shadowRadius"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "primitives": {
+      "type": "object",
+      "properties": {},
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Automatically generated unique identifier for each item."
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": ["name", "description"]
+            },
+            "type": {
+              "type": "string",
+              "enum": ["button", "text"]
+            },
+            "surfaceId": {
+              "type": "string"
+            },
+            "typographyId": {
+              "type": "string"
+            },
+            "spacingId": {
+              "type": "string"
+            }
+          },
+          "required": ["meta", "type"],
+          "if": {
+            "properties": {
+              "type": { "const": "button" }
+            }
+          },
+          "then": {
+            "required": ["surfaceId", "typographyId", "spacingId"]
+          },
+          "else": {
+            "required": ["typographyId"]
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id",
+    "meta",
+    "colors",
+    "typography",
+    "spacing",
+    "surface",
+    "shadows",
+    "primitives"
+  ]
+}

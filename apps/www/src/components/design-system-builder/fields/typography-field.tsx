@@ -4,6 +4,7 @@ import { FormLabel } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { RemoveDialog } from "../remove-dialog";
 import { nanoid } from "nanoid";
+import { MetaField } from "./meta-field";
 
 const popularFonts = [
   "Roboto",
@@ -42,18 +43,7 @@ export const TypographyField = () => {
       {fields.map((field, index) => (
         <div className="gap-4 p-4 border-2 border-dotted" key={field.id}>
           <div className="grid gap-2 mb-2">
-            <Controller
-              name={`typography.${index}.meta.name`}
-              control={control}
-              render={({ field }) => <Input {...field} placeholder="Name" />}
-            />
-            <Controller
-              name={`typography.${index}.meta.description`}
-              control={control}
-              render={({ field }) => (
-                <Input {...field} placeholder="Description" />
-              )}
-            />
+            <MetaField field={`typography.${index}`} />
           </div>
           <div className="grid gap-2 mb-2">
             <Controller
@@ -81,7 +71,7 @@ export const TypographyField = () => {
                 control={control}
                 render={({ field }) => (
                   <div className="flex flex-col gap-2 flex-1">
-                    <FormLabel>Font Size (px)</FormLabel>
+                    <FormLabel>Font Size</FormLabel>
                     <Input
                       {...field}
                       type="number"
@@ -117,7 +107,7 @@ export const TypographyField = () => {
                 control={control}
                 render={({ field }) => (
                   <div className="flex flex-col gap-2 flex-1">
-                    <FormLabel>Line Height (px)</FormLabel>
+                    <FormLabel>Line Height</FormLabel>
                     <Input
                       {...field}
                       type="number"
@@ -132,7 +122,7 @@ export const TypographyField = () => {
                 control={control}
                 render={({ field }) => (
                   <div className="flex flex-col gap-2 flex-1">
-                    <FormLabel>Letter Spacing (em)</FormLabel>
+                    <FormLabel>Letter Spacing</FormLabel>
                     <Input
                       {...field}
                       type="number"

@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { MetaField } from "./meta-field";
 
 const hexToRgba = (hex: string) => {
   const { r, g, b, a } = colord(hex).toRgb();
@@ -144,36 +145,34 @@ const ColorSelectionField = ({ name }: { name: string }) => {
   const rgbaLight = watch(`${name}.light.rgba`);
   const rgbaDark = watch(`${name}.dark.rgba`);
 
-  const handleHexChange = (e: ChangeEvent<HTMLInputElement>, field: any) => {
-    field.onChange(e);
-    const rgba = hexToRgba(e.target.value);
-    setValue(`${name}.light.rgba`, rgba);
-  };
+  const handleHexChange =
+    (theme: "light" | "dark") =>
+    (e: ChangeEvent<HTMLInputElement>, field: any) => {
+      console.log("no hash", e.target.value);
 
-  const handleRgbaChange = (e: ChangeEvent<HTMLInputElement>, field: any) => {
-    field.onChange(e);
-    const hex = rgbaToHex(rgbaLight);
-    setValue(`${name}.light.hex`, hex);
-  };
+      if (e.target.value && !e.target.value.startsWith("#")) {
+        e.target.value = `#${e.target.value}`;
+      }
+      field.onChange(e);
+      const rgba = hexToRgba(e.target.value);
+      setValue(`${name}.${theme}.rgba`, rgba);
+    };
 
-  const handleHexChangeDark = (
-    e: ChangeEvent<HTMLInputElement>,
-    field: any,
-  ) => {
-    field.onChange(e);
-    const rgba = hexToRgba(e.target.value);
-    setValue(`${name}.dark.rgba`, rgba);
-  };
+  const handleHexChangeLight = handleHexChange("light");
+  const handleHexChangeDark = handleHexChange("dark");
 
-  const handleRgbaChangeDark = (
-    e: ChangeEvent<HTMLInputElement>,
-    field: any,
-  ) => {
-    field.onChange(e);
-    const hex = rgbaToHex(rgbaDark);
-    setValue(`${name}.dark.hex`, hex);
-  };
+  const handleRgbaChange =
+    (theme: "light" | "dark") =>
+    (e: ChangeEvent<HTMLInputElement>, field: any) => {
+      field.onChange(e);
+      const rgbaTheme = theme === "light" ? rgbaLight : rgbaDark;
 
+      const hex = rgbaToHex(rgbaTheme);
+      setValue(`${name}.${theme}.hex`, hex);
+    };
+
+  const handleRgbaChangeLight = handleRgbaChange("light");
+  const handleRgbaChangeDark = handleRgbaChange("dark");
   return (
     <FormItem>
       <FormControl>
@@ -183,12 +182,12 @@ const ColorSelectionField = ({ name }: { name: string }) => {
             <HexInput
               control={control}
               name={`${name}.light.hex`}
-              onChangeHex={handleHexChange}
+              onChangeHex={handleHexChangeLight}
             />
             <RgbaInput
               control={control}
               name={`${name}.light.rgba`}
-              onChangeRgba={handleRgbaChange}
+              onChangeRgba={handleRgbaChangeLight}
             />
           </div>
 
@@ -226,20 +225,7 @@ export function ColorField() {
       {fields.map((field, index) => (
         <div className="gap-4 p-4 border-2 border-dotted" key={field.id}>
           <div className="grid gap-2 mb-2">
-            <Controller
-              name={`colors.${index}.meta.name`}
-              control={control}
-              render={({ field }) => (
-                <Input {...field} placeholder="Color Name" />
-              )}
-            />
-            <Controller
-              name={`colors.${index}.meta.description`}
-              control={control}
-              render={({ field }) => (
-                <Input {...field} placeholder="Description" />
-              )}
-            />
+            <MetaField field={`colors.${index}`} />
           </div>
           <ColorSelectionField name={`colors.${index}`} />
           <RemoveDialog

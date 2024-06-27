@@ -1,7 +1,5 @@
-import type { DesignSystem } from "open-design-system.schema";
 import { DesignSystemForm } from "./design-system-builder/form";
 
-import openDesingSystem from "@/components/design-system-builder/open-design-system.json";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -15,6 +13,9 @@ import { fromSchemaToForm } from "./design-system-builder/form-utils";
 import { JsonPreview } from "./design-system-builder/json-preview";
 import { ThemeToggle } from "./theme-toggle";
 import JSONCrush from "jsoncrush";
+import { CreateButtonWithOptions, CreateOptions } from "./create-button";
+import type { DesignSystem } from "../../open-design-system.schema";
+import templates from "./design-system-builder/templates";
 
 function downloadJsonFile(
   data: DesignSystem,
@@ -38,9 +39,16 @@ function downloadJsonFile(
   link.click();
 }
 
-const newDefaultValues = openDesingSystem as unknown as DesignSystem;
+const newDefaultValues = templates.openDesingSystem;
 
 const STORAGE_KEY = "open-design-system:design-system";
+
+const createOptions: Record<CreateOptions, DesignSystem> = {
+  scratch: newDefaultValues,
+  android: templates.materialDesignSystem,
+  ios: templates.cuppertinoDesignSystem,
+  "shadcn/ui": templates.shadcnUIDesignSystem,
+};
 
 function loadSavedDesignSystem() {
   const savedLocally = localStorage.getItem(STORAGE_KEY);
@@ -99,12 +107,15 @@ export function DesignSystem() {
     reader.readAsText(file);
   };
 
-  const handleNew = () => {
+  const handleNew = (option: CreateOptions) => {
     const url = new URL(window.location.href);
 
     url.searchParams.delete("share");
     history.replaceState({}, "", url);
-    methods.reset(fromSchemaToForm(newDefaultValues));
+
+    const newValues = createOptions[option];
+
+    methods.reset(fromSchemaToForm(newValues));
   };
 
   const handleUploadClick = () => {
@@ -127,9 +138,11 @@ export function DesignSystem() {
                 <Button variant="secondary" onClick={handleUploadClick}>
                   Upload
                 </Button>
-                <Button variant="default" onClick={handleNew}>
-                  Create From Scratch
-                </Button>
+                <CreateButtonWithOptions
+                  variant="default"
+                  options={["scratch", "android" /*, "ios", "shadcn/ui"*/]}
+                  onClick={handleNew}
+                />
                 <input
                   type="file"
                   id="file-input"
