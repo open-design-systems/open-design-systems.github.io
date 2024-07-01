@@ -24,11 +24,8 @@ export const PrimitivesField = () => {
     name: `primitives`,
   });
 
-  console.log({ primitives });
-
   const getSectionOptions = (sectionName: string) => {
     const section = getValues(sectionName);
-    console.log(sectionName, { section });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return section.map((item: any) => ({
       value: `${item.meta.id}`,

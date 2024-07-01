@@ -259,7 +259,7 @@
               "required": ["name", "description"]
             },
             "elevation": {
-              "type": "string"
+              "type": "number"
             },
             "shadowColor": {
               "type": "string"

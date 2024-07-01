@@ -148,8 +148,6 @@ const ColorSelectionField = ({ name }: { name: string }) => {
   const handleHexChange =
     (theme: "light" | "dark") =>
     (e: ChangeEvent<HTMLInputElement>, field: any) => {
-      console.log("no hash", e.target.value);
-
       if (e.target.value && !e.target.value.startsWith("#")) {
         e.target.value = `#${e.target.value}`;
       }

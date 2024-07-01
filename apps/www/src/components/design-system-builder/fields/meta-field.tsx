@@ -4,7 +4,6 @@ import { Controller, useFormContext } from "react-hook-form";
 
 export const MetaField = ({ field }: { field: string }) => {
   const { control } = useFormContext();
-  console.log({ field });
   return (
     <div>
       <Controller

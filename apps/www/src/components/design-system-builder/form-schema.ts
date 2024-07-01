@@ -36,14 +36,14 @@ export const typographySchema = z.object({
 
 export const spacingSchema = z.object({
   meta: metaSchema,
-  value: z.number(),
+  value: z.coerce.number(),
 });
 
 export const surfaceSchema = z.object({
   meta: metaSchema,
   borderColor: z.string().optional(),
-  borderRadius: z.number().optional(),
-  borderWidth: z.number().optional(),
+  borderRadius: z.coerce.number().optional(),
+  borderWidth: z.coerce.number().optional(),
   boxShadow: z.string().optional(),
   backgroundColor: z.string().optional(),
 });
@@ -51,12 +51,13 @@ export const surfaceSchema = z.object({
 const shadowsSchema = z.object({
   meta: metaSchema,
   shadowColor: z.string(),
-  shadowOpacity: z.number(),
+  shadowOpacity: z.coerce.number(),
   shadowOffset: z.object({
-    width: z.number(),
-    height: z.number(),
+    width: z.coerce.number(),
+    height: z.coerce.number(),
   }),
-  shadowRadius: z.number(),
+  elevation: z.coerce.number(),
+  shadowRadius: z.coerce.number(),
 });
 
 export const primitiveButtonSchema = z.object({

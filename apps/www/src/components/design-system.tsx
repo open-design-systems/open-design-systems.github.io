@@ -45,8 +45,7 @@ const STORAGE_KEY = "open-design-system:design-system";
 
 const createOptions: Record<CreateOptions, DesignSystem> = {
   scratch: newDefaultValues,
-  android: templates.materialDesignSystem,
-  ios: templates.cuppertinoDesignSystem,
+  material: templates.materialDesignSystem,
   "shadcn/ui": templates.shadcnUIDesignSystem,
 };
 
