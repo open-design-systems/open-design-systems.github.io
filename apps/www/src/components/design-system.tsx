@@ -25,7 +25,7 @@ function downloadJsonFile(
     JSON.stringify(
       {
         $schema:
-          "https://thebergamo.github.io/open-design-system/open-design-system-schema.json",
+          "https://open-design-systems.github.io/open-design-system-schema.json",
         ...data,
       },
       null,
