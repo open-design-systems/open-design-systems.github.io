@@ -1,9 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "@open-design-system/config-typescript/default.json",
-    "compilerOptions": {
-      "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
-    },
+    "extends": "@open-design-system/typescript-config/default.json",
     "include": ["."],
     "exclude": ["node_modules"]
   }

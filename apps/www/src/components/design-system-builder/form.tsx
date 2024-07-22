@@ -19,13 +19,13 @@ import {
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { useEffect, useState } from "react";
 import { CheckIcon } from "lucide-react";
-import { DesignSystem } from "../../../open-design-system.schema";
+import { OpenDesignSystemSchema } from "@opends/schema";
 
 export function DesignSystemForm({
   onSubmit,
   onShare,
 }: {
-  onSubmit: (designSystem: DesignSystem) => void;
+  onSubmit: (designSystem: OpenDesignSystemSchema) => void;
   onShare: () => void;
 }) {
   const form = useFormContext();
@@ -58,7 +58,7 @@ export function DesignSystemForm({
               render={({ field }) => (
                 <>
                   <FormLabel>Name</FormLabel>
-                  <Input {...field} placeholder="Spacing Name" />
+                  <Input {...field} placeholder="Design System Name" />
                 </>
               )}
             />

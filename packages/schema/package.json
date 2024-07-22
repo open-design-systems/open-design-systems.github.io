@@ -1,19 +1,8 @@
 {
-  "name": "@opends/tailwind-plugin",
-  "version": "1.0.0",
-  "description": "A Tailwind Plugin to use out of the box Open Design System schema",
+  "name": "@opends/schema",
+  "version": "0.1.0",
+  "description": "Open Design Schema package with type definitions and json schema source of truth",
   "private": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "./dist/*.js",
-    "./dist/*.mjs",
-    "./dist/index.d.ts"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
   "prettier": {
     "printWidth": 100,
     "semi": false,
@@ -21,28 +10,32 @@
     "trailingComma": "es5"
   },
   "repository": "https://github.com/open-design-systems/open-design-systems.github.io",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "files": [
+    "./assets/*.json",
+    "./src/*.ts"
+  ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch"
+    "build": "tsx src/utils/generate.ts ",
+    "dev": "tsx watch src/utils/generate.ts"
   },
   "keywords": [
     "open-design-system",
     "ods",
-    "tailwind",
-    "tailwind-plugin"
+    "schema",
+    "json-schema"
   ],
   "author": "Marcos Bérgamo <marcos@thedon.com.br>",
   "license": "MIT",
   "devDependencies": {
     "@open-design-system/eslint-config": "workspace:^",
     "@open-design-system/typescript-config": "workspace:^",
+    "@sinclair/typebox": "^0.32.34",
     "@types/node": "^20.12.12",
     "eslint": "8.57.0",
-    "tailwindcss": "^3.4.5",
     "tsup": "^8.1.0",
+    "tsx": "^4.16.2",
     "typescript": "^5.5.3"
-  },
-  "peerDependencies": {
-    "tailwindcss": ">=3.0.0 || insiders"
   }
 }

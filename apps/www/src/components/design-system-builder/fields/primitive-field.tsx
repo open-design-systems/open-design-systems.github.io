@@ -4,34 +4,24 @@ import {
   Controller,
   useWatch,
 } from "react-hook-form";
-import { z } from "zod";
-import { primitivesSchema } from "../form-schema";
 import { nanoid } from "nanoid";
 import { RemoveDialog } from "../remove-dialog";
 import { Button as UIButton } from "@/components/ui/button";
 import { FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { RefField } from "./ref-field";
 
 export const PrimitivesField = () => {
-  const { control, getValues } = useFormContext();
+  const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
     name: "primitives",
   });
 
-  const primitives: z.infer<typeof primitivesSchema>[] = useWatch({
+  const primitives = useWatch({
     control,
     name: `primitives`,
   });
-
-  const getSectionOptions = (sectionName: string) => {
-    const section = getValues(sectionName);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return section.map((item: any) => ({
-      value: `${item.meta.id}`,
-      label: item.meta.name,
-    }));
-  };
 
   return (
     <div className="grid gap-4">
@@ -66,7 +56,7 @@ export const PrimitivesField = () => {
                   <FormLabel>Type</FormLabel>
                   <select
                     {...field}
-                    className="w-full p-2 border border-gray-300 rounded-md"
+                    className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1"
                   >
                     <option value="button">Button</option>
                     <option value="text">Text</option>
@@ -76,85 +66,30 @@ export const PrimitivesField = () => {
             />
             {primitives?.[index]?.type === "button" && (
               <>
-                <Controller
+                <RefField
                   name={`primitives.${index}.surfaceId`}
-                  control={control}
-                  render={({ field }) => (
-                    <>
-                      <FormLabel>Surface</FormLabel>
-                      <select
-                        {...field}
-                        className="w-full p-2 border border-gray-300 rounded-md"
-                      >
-                        {getSectionOptions("surface").map((option: any) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-                    </>
-                  )}
+                  refType="surface"
+                  label="Surface"
                 />
-                <Controller
+                <RefField
                   name={`primitives.${index}.typographyId`}
-                  control={control}
-                  render={({ field }) => (
-                    <>
-                      <FormLabel>Typography</FormLabel>
-                      <select
-                        {...field}
-                        className="w-full p-2 border border-gray-300 rounded-md"
-                      >
-                        {getSectionOptions("typography").map((option: any) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-                    </>
-                  )}
+                  refType="typography"
+                  label="Typography"
                 />
-                <Controller
+
+                <RefField
                   name={`primitives.${index}.spacingId`}
-                  control={control}
-                  render={({ field }) => (
-                    <>
-                      <FormLabel>Spacing</FormLabel>
-                      <select
-                        {...field}
-                        className="w-full p-2 border border-gray-300 rounded-md"
-                      >
-                        {getSectionOptions("spacing").map((option: any) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-                    </>
-                  )}
+                  refType="spacing"
+                  label="Spacing"
                 />
               </>
             )}
             {primitives?.[index]?.type === "text" && (
               <>
-                <Controller
+                <RefField
                   name={`primitives.${index}.typographyId`}
-                  control={control}
-                  render={({ field }) => (
-                    <>
-                      <FormLabel>Typography</FormLabel>
-                      <select
-                        {...field}
-                        className="w-full p-2 border border-gray-300 rounded-md"
-                      >
-                        {getSectionOptions("typography").map((option: any) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-                    </>
-                  )}
+                  refType="typography"
+                  label="Typography"
                 />
               </>
             )}
@@ -172,9 +107,9 @@ export const PrimitivesField = () => {
           append({
             meta: { name: "", description: "", id: nanoid() },
             type: "button",
-            surfaceId: "",
-            typographyId: "",
-            spacingId: "",
+            surfaceId: { $ref: "", $refType: "surface" },
+            typographyId: { $ref: "", $refType: "typography" },
+            spacingId: { $ref: "", $refType: "spacing" },
           })
         }
       >

@@ -1,0 +1,578 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Open Design System",
+  "description": "Open Design System",
+  "version": "0.1.0",
+  "type": "object",
+  "properties": {
+    "id": {
+      "default": "open-design-system",
+      "description": "The unique identifier for the design system",
+      "type": "string"
+    },
+    "meta": {
+      "$id": "meta",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description"
+      ]
+    },
+    "colors": {
+      "$id": "colors",
+      "type": "object",
+      "patternProperties": {
+        "^(.*)$": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "$id": "meta",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "description"
+              ]
+            },
+            "light": {
+              "type": "object",
+              "properties": {
+                "hex": {
+                  "pattern": "^#(?:[0-9a-fA-F]{3,4}){1,2}$",
+                  "type": "string"
+                },
+                "rgba": {
+                  "type": "object",
+                  "properties": {
+                    "red": {
+                      "maximum": 255,
+                      "minimum": 0,
+                      "type": "number"
+                    },
+                    "blue": {
+                      "maximum": 255,
+                      "minimum": 0,
+                      "type": "number"
+                    },
+                    "green": {
+                      "maximum": 255,
+                      "minimum": 0,
+                      "type": "number"
+                    },
+                    "alpha": {
+                      "maximum": 1,
+                      "minimum": 0,
+                      "default": 1,
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "red",
+                    "blue",
+                    "green",
+                    "alpha"
+                  ]
+                }
+              },
+              "required": [
+                "hex",
+                "rgba"
+              ]
+            },
+            "dark": {
+              "type": "object",
+              "properties": {
+                "hex": {
+                  "pattern": "^#(?:[0-9a-fA-F]{3,4}){1,2}$",
+                  "type": "string"
+                },
+                "rgba": {
+                  "type": "object",
+                  "properties": {
+                    "red": {
+                      "maximum": 255,
+                      "minimum": 0,
+                      "type": "number"
+                    },
+                    "blue": {
+                      "maximum": 255,
+                      "minimum": 0,
+                      "type": "number"
+                    },
+                    "green": {
+                      "maximum": 255,
+                      "minimum": 0,
+                      "type": "number"
+                    },
+                    "alpha": {
+                      "maximum": 1,
+                      "minimum": 0,
+                      "default": 1,
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "red",
+                    "blue",
+                    "green",
+                    "alpha"
+                  ]
+                }
+              },
+              "required": [
+                "hex",
+                "rgba"
+              ]
+            }
+          },
+          "required": [
+            "meta",
+            "light",
+            "dark"
+          ]
+        }
+      }
+    },
+    "typography": {
+      "$id": "typography",
+      "type": "object",
+      "patternProperties": {
+        "^(.*)$": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "$id": "meta",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "description"
+              ]
+            },
+            "fontFamily": {
+              "type": "string"
+            },
+            "fontSize": {
+              "type": "number"
+            },
+            "fontWeight": {
+              "type": "number"
+            },
+            "lineHeight": {
+              "type": "number"
+            },
+            "letterSpacing": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "meta",
+            "fontFamily",
+            "fontSize",
+            "fontWeight",
+            "lineHeight",
+            "letterSpacing"
+          ]
+        }
+      }
+    },
+    "spacing": {
+      "$id": "spacing",
+      "type": "object",
+      "patternProperties": {
+        "^(.*)$": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "$id": "meta",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "description"
+              ]
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "meta",
+            "value"
+          ]
+        }
+      }
+    },
+    "surface": {
+      "$id": "surface",
+      "type": "object",
+      "patternProperties": {
+        "^(.*)$": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "$id": "meta",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "description"
+              ]
+            },
+            "borderColor": {
+              "type": "object",
+              "properties": {
+                "$ref": {
+                  "type": "string"
+                },
+                "$refType": {
+                  "const": "colors",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "$ref",
+                "$refType"
+              ]
+            },
+            "borderRadius": {
+              "type": "number"
+            },
+            "borderWidth": {
+              "type": "number"
+            },
+            "boxShadow": {
+              "type": "object",
+              "properties": {
+                "$ref": {
+                  "type": "string"
+                },
+                "$refType": {
+                  "const": "shadows",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "$ref",
+                "$refType"
+              ]
+            },
+            "backgroundColor": {
+              "type": "object",
+              "properties": {
+                "$ref": {
+                  "type": "string"
+                },
+                "$refType": {
+                  "const": "colors",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "$ref",
+                "$refType"
+              ]
+            }
+          },
+          "required": [
+            "meta",
+            "borderColor",
+            "borderRadius",
+            "borderWidth",
+            "boxShadow",
+            "backgroundColor"
+          ]
+        }
+      }
+    },
+    "shadows": {
+      "$id": "shadows",
+      "type": "object",
+      "patternProperties": {
+        "^(.*)$": {
+          "type": "object",
+          "properties": {
+            "meta": {
+              "$id": "meta",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "description"
+              ]
+            },
+            "elevation": {
+              "type": "number"
+            },
+            "shadowColor": {
+              "type": "object",
+              "properties": {
+                "$ref": {
+                  "type": "string"
+                },
+                "$refType": {
+                  "const": "colors",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "$ref",
+                "$refType"
+              ]
+            },
+            "shadowOpacity": {
+              "type": "number"
+            },
+            "shadowOffset": {
+              "type": "object",
+              "properties": {
+                "width": {
+                  "type": "number"
+                },
+                "height": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "width",
+                "height"
+              ]
+            },
+            "shadowRadius": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "meta",
+            "elevation",
+            "shadowColor",
+            "shadowOpacity",
+            "shadowOffset",
+            "shadowRadius"
+          ]
+        }
+      }
+    },
+    "primitives": {
+      "$id": "primitives",
+      "type": "object",
+      "patternProperties": {
+        "^(.*)$": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "button",
+                  "type": "string"
+                },
+                "meta": {
+                  "$id": "meta",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "description"
+                  ]
+                },
+                "surfaceId": {
+                  "type": "object",
+                  "properties": {
+                    "$ref": {
+                      "type": "string"
+                    },
+                    "$refType": {
+                      "const": "surface",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "$ref",
+                    "$refType"
+                  ]
+                },
+                "typographyId": {
+                  "type": "object",
+                  "properties": {
+                    "$ref": {
+                      "type": "string"
+                    },
+                    "$refType": {
+                      "const": "typography",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "$ref",
+                    "$refType"
+                  ]
+                },
+                "spacingId": {
+                  "type": "object",
+                  "properties": {
+                    "$ref": {
+                      "type": "string"
+                    },
+                    "$refType": {
+                      "const": "spacing",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "$ref",
+                    "$refType"
+                  ]
+                }
+              },
+              "required": [
+                "type",
+                "meta",
+                "surfaceId",
+                "typographyId",
+                "spacingId"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "text",
+                  "type": "string"
+                },
+                "meta": {
+                  "$id": "meta",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "description"
+                  ]
+                },
+                "typographyId": {
+                  "type": "object",
+                  "properties": {
+                    "$ref": {
+                      "type": "string"
+                    },
+                    "$refType": {
+                      "const": "typography",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "$ref",
+                    "$refType"
+                  ]
+                }
+              },
+              "required": [
+                "type",
+                "meta",
+                "typographyId"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "id",
+    "meta",
+    "colors",
+    "typography",
+    "spacing",
+    "surface",
+    "shadows",
+    "primitives"
+  ]
+}

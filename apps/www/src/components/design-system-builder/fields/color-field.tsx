@@ -19,10 +19,10 @@ const hexToRgba = (hex: string) => {
   const { r, g, b, a } = colord(hex).toRgb();
 
   return {
-    red: r.toString(),
-    green: g.toString(),
-    blue: b.toString(),
-    alpha: (a * 255).toString(),
+    red: r,
+    green: g,
+    blue: b,
+    alpha: a,
   };
 };
 

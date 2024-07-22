@@ -10,19 +10,10 @@ import { Button } from "@/components/ui/button";
 import { nanoid } from "nanoid";
 import { RemoveDialog } from "../remove-dialog";
 import { MetaField } from "./meta-field";
+import { RefField } from "./ref-field";
 
 export const SurfaceField = () => {
   const { control } = useFormContext();
-
-  const colors = useWatch({
-    control,
-    name: "colors",
-  });
-
-  const shadows = useWatch({
-    control,
-    name: "shadows",
-  });
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -35,24 +26,10 @@ export const SurfaceField = () => {
         <div className="gap-4 p-4 border-2 border-dotted" key={field.id}>
           <div className="grid gap-2 mb-2">
             <MetaField field={`surface.${index}`} />
-            <Controller
+            <RefField
               name={`surface.${index}.borderColor`}
-              control={control}
-              render={({ field }) => (
-                <>
-                  <FormLabel>Border Color</FormLabel>
-                  <select
-                    {...field}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                  >
-                    {colors.map((color: any, idx: number) => (
-                      <option key={idx} value={color.meta.id}>
-                        {color.meta.name}
-                      </option>
-                    ))}
-                  </select>
-                </>
-              )}
+              refType="colors"
+              label="Border Color"
             />
             <Controller
               name={`surface.${index}.borderRadius`}
@@ -84,44 +61,15 @@ export const SurfaceField = () => {
                 </>
               )}
             />
-            <Controller
+            <RefField
               name={`surface.${index}.boxShadow`}
-              control={control}
-              render={({ field }) => (
-                <>
-                  <FormLabel>Box Shadow</FormLabel>
-                  <select
-                    {...field}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                  >
-                    {shadows.map((shadow: any, idx: number) => (
-                      <option key={idx} value={shadow.meta.id}>
-                        {shadow.meta.name}
-                      </option>
-                    ))}
-                  </select>
-                  <Input {...field} placeholder="Box Shadow" />
-                </>
-              )}
+              refType="shadows"
+              label="Box Shadow"
             />
-            <Controller
+            <RefField
               name={`surface.${index}.backgroundColor`}
-              control={control}
-              render={({ field }) => (
-                <>
-                  <FormLabel>Background Color</FormLabel>
-                  <select
-                    {...field}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                  >
-                    {colors.map((color: any, idx: number) => (
-                      <option key={idx} value={color.meta.id}>
-                        {color.meta.name}
-                      </option>
-                    ))}
-                  </select>
-                </>
-              )}
+              refType="colors"
+              label="Background Color"
             />
           </div>
           <RemoveDialog
@@ -136,11 +84,11 @@ export const SurfaceField = () => {
         onClick={() =>
           append({
             meta: { name: "", description: "", id: nanoid() },
-            borderColor: "",
+            borderColor: { $ref: "", $refType: "colors" },
             borderRadius: 0,
             borderWidth: 0,
-            boxShadow: "",
-            backgroundColor: "",
+            boxShadow: { $ref: "", $refType: "shadows" },
+            backgroundColor: { $ref: "", $refType: "colors" },
           })
         }
       >

@@ -10,17 +10,13 @@ import { Button } from "@/components/ui/button";
 import { RemoveDialog } from "../remove-dialog";
 import { nanoid } from "nanoid";
 import { MetaField } from "./meta-field";
+import { RefField } from "./ref-field";
 
 export const ShadowsField = () => {
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
     name: "shadows",
-  });
-
-  const colors = useWatch({
-    control,
-    name: "colors",
   });
 
   return (
@@ -39,24 +35,10 @@ export const ShadowsField = () => {
                 </>
               )}
             />
-            <Controller
+            <RefField
               name={`shadows.${index}.shadowColor`}
-              control={control}
-              render={({ field }) => (
-                <>
-                  <FormLabel>Shadow Color</FormLabel>
-                  <select
-                    {...field}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                  >
-                    {colors.map((color: any, idx: number) => (
-                      <option key={idx} value={`colors.${color.meta.name}`}>
-                        {color.meta.name}
-                      </option>
-                    ))}
-                  </select>
-                </>
-              )}
+              refType="colors"
+              label="Shadow Color"
             />
             <Controller
               name={`shadows.${index}.shadowOpacity`}
@@ -124,7 +106,7 @@ export const ShadowsField = () => {
           append({
             meta: { name: "", description: "", id: nanoid() },
             elevation: "",
-            shadowColor: "",
+            shadowColor: { $ref: "", $refType: "colors" },
             shadowOpacity: 1,
             shadowOffset: { width: 0, height: 0 },
             shadowRadius: 0,

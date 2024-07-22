@@ -1,6 +1,8 @@
 {
+  "$schema": "../../../../node_modules/@opends/schema/assets/open-design-system-schema.json",
   "id": "material-design-system",
   "meta": {
+    "id": "material",
     "name": "Material Design System",
     "description": "Google's Material Design System ODS Template"
   },
@@ -14,19 +16,19 @@
       "light": {
         "hex": "#4c662b",
         "rgba": {
-          "red": "76",
-          "green": "102",
-          "blue": "43",
-          "alpha": "255"
+          "red": 76,
+          "green": 102,
+          "blue": 43,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#b1d18a",
         "rgba": {
-          "red": "177",
-          "green": "209",
-          "blue": "138",
-          "alpha": "255"
+          "red": 177,
+          "green": 209,
+          "blue": 138,
+          "alpha": 1
         }
       }
     },
@@ -39,19 +41,19 @@
       "light": {
         "hex": "#ffffff",
         "rgba": {
-          "red": "255",
-          "green": "255",
-          "blue": "255",
-          "alpha": "255"
+          "red": 255,
+          "green": 255,
+          "blue": 255,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#1f3701",
         "rgba": {
-          "red": "31",
-          "green": "55",
-          "blue": "1",
-          "alpha": "255"
+          "red": 31,
+          "green": 55,
+          "blue": 1,
+          "alpha": 1
         }
       }
     },
@@ -64,19 +66,19 @@
       "light": {
         "hex": "#cdeda3",
         "rgba": {
-          "red": "205",
-          "green": "237",
-          "blue": "163",
-          "alpha": "255"
+          "red": 205,
+          "green": 237,
+          "blue": 163,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#354e16",
         "rgba": {
-          "red": "53",
-          "green": "78",
-          "blue": "22",
-          "alpha": "255"
+          "red": 53,
+          "green": 78,
+          "blue": 22,
+          "alpha": 1
         }
       }
     },
@@ -89,19 +91,19 @@
       "light": {
         "hex": "#102000",
         "rgba": {
-          "red": "16",
-          "green": "32",
-          "blue": "0",
-          "alpha": "255"
+          "red": 16,
+          "green": 32,
+          "blue": 0,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#cdeda3",
         "rgba": {
-          "red": "205",
-          "green": "237",
-          "blue": "163",
-          "alpha": "255"
+          "red": 205,
+          "green": 237,
+          "blue": 163,
+          "alpha": 1
         }
       }
     },
@@ -114,19 +116,19 @@
       "light": {
         "hex": "#586249",
         "rgba": {
-          "red": "88",
-          "green": "98",
-          "blue": "73",
-          "alpha": "255"
+          "red": 88,
+          "green": 98,
+          "blue": 73,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#bfcbad",
         "rgba": {
-          "red": "191",
-          "green": "203",
-          "blue": "173",
-          "alpha": "255"
+          "red": 191,
+          "green": 203,
+          "blue": 173,
+          "alpha": 1
         }
       }
     },
@@ -139,19 +141,19 @@
       "light": {
         "hex": "#ffffff",
         "rgba": {
-          "red": "255",
-          "green": "255",
-          "blue": "255",
-          "alpha": "255"
+          "red": 255,
+          "green": 255,
+          "blue": 255,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#2a331e",
         "rgba": {
-          "red": "42",
-          "green": "51",
-          "blue": "30",
-          "alpha": "255"
+          "red": 42,
+          "green": 51,
+          "blue": 30,
+          "alpha": 1
         }
       }
     },
@@ -164,19 +166,19 @@
       "light": {
         "hex": "#dce7c8",
         "rgba": {
-          "red": "220",
-          "green": "231",
-          "blue": "200",
-          "alpha": "255"
+          "red": 220,
+          "green": 231,
+          "blue": 200,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#404a33",
         "rgba": {
-          "red": "64",
-          "green": "74",
-          "blue": "51",
-          "alpha": "255"
+          "red": 64,
+          "green": 74,
+          "blue": 51,
+          "alpha": 1
         }
       }
     },
@@ -189,19 +191,19 @@
       "light": {
         "hex": "#151e0b",
         "rgba": {
-          "red": "21",
-          "green": "30",
-          "blue": "11",
-          "alpha": "255"
+          "red": 21,
+          "green": 30,
+          "blue": 11,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#dce7c8",
         "rgba": {
-          "red": "220",
-          "green": "231",
-          "blue": "200",
-          "alpha": "255"
+          "red": 220,
+          "green": 231,
+          "blue": 200,
+          "alpha": 1
         }
       }
     },
@@ -214,19 +216,19 @@
       "light": {
         "hex": "#386663",
         "rgba": {
-          "red": "56",
-          "green": "102",
-          "blue": "99",
-          "alpha": "255"
+          "red": 56,
+          "green": 102,
+          "blue": 99,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#a0d0cb",
         "rgba": {
-          "red": "160",
-          "green": "208",
-          "blue": "203",
-          "alpha": "255"
+          "red": 160,
+          "green": 208,
+          "blue": 203,
+          "alpha": 1
         }
       }
     },
@@ -239,19 +241,19 @@
       "light": {
         "hex": "#ffffff",
         "rgba": {
-          "red": "255",
-          "green": "255",
-          "blue": "255",
-          "alpha": "255"
+          "red": 255,
+          "green": 255,
+          "blue": 255,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#003735",
         "rgba": {
-          "red": "0",
-          "green": "55",
-          "blue": "53",
-          "alpha": "255"
+          "red": 0,
+          "green": 55,
+          "blue": 53,
+          "alpha": 1
         }
       }
     },
@@ -264,19 +266,19 @@
       "light": {
         "hex": "#bcece7",
         "rgba": {
-          "red": "188",
-          "green": "236",
-          "blue": "231",
-          "alpha": "255"
+          "red": 188,
+          "green": 236,
+          "blue": 231,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#1f4e4b",
         "rgba": {
-          "red": "31",
-          "green": "78",
-          "blue": "75",
-          "alpha": "255"
+          "red": 31,
+          "green": 78,
+          "blue": 75,
+          "alpha": 1
         }
       }
     },
@@ -289,19 +291,19 @@
       "light": {
         "hex": "#00201e",
         "rgba": {
-          "red": "0",
-          "green": "32",
-          "blue": "30",
-          "alpha": "255"
+          "red": 0,
+          "green": 32,
+          "blue": 30,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#bcece7",
         "rgba": {
-          "red": "188",
-          "green": "236",
-          "blue": "231",
-          "alpha": "255"
+          "red": 188,
+          "green": 236,
+          "blue": 231,
+          "alpha": 1
         }
       }
     },
@@ -314,19 +316,19 @@
       "light": {
         "hex": "#ba1a1a",
         "rgba": {
-          "red": "186",
-          "green": "26",
-          "blue": "26",
-          "alpha": "255"
+          "red": 186,
+          "green": 26,
+          "blue": 26,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#ffb4ab",
         "rgba": {
-          "red": "255",
-          "green": "180",
-          "blue": "171",
-          "alpha": "255"
+          "red": 255,
+          "green": 180,
+          "blue": 171,
+          "alpha": 1
         }
       }
     },
@@ -339,19 +341,19 @@
       "light": {
         "hex": "#ffffff",
         "rgba": {
-          "red": "255",
-          "green": "255",
-          "blue": "255",
-          "alpha": "255"
+          "red": 255,
+          "green": 255,
+          "blue": 255,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#690005",
         "rgba": {
-          "red": "105",
-          "green": "0",
-          "blue": "5",
-          "alpha": "255"
+          "red": 105,
+          "green": 0,
+          "blue": 5,
+          "alpha": 1
         }
       }
     },
@@ -364,19 +366,19 @@
       "light": {
         "hex": "#ffdad6",
         "rgba": {
-          "red": "255",
-          "green": "218",
-          "blue": "214",
-          "alpha": "255"
+          "red": 255,
+          "green": 218,
+          "blue": 214,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#93000a",
         "rgba": {
-          "red": "147",
-          "green": "0",
-          "blue": "10",
-          "alpha": "255"
+          "red": 147,
+          "green": 0,
+          "blue": 10,
+          "alpha": 1
         }
       }
     },
@@ -389,19 +391,19 @@
       "light": {
         "hex": "#410002",
         "rgba": {
-          "red": "65",
-          "green": "0",
-          "blue": "2",
-          "alpha": "255"
+          "red": 65,
+          "green": 0,
+          "blue": 2,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#ffdad6",
         "rgba": {
-          "red": "255",
-          "green": "218",
-          "blue": "214",
-          "alpha": "255"
+          "red": 255,
+          "green": 218,
+          "blue": 214,
+          "alpha": 1
         }
       }
     },
@@ -414,19 +416,19 @@
       "light": {
         "hex": "#f9faef",
         "rgba": {
-          "red": "249",
-          "green": "250",
-          "blue": "239",
-          "alpha": "255"
+          "red": 249,
+          "green": 250,
+          "blue": 239,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#12140e",
         "rgba": {
-          "red": "18",
-          "green": "20",
-          "blue": "14",
-          "alpha": "255"
+          "red": 18,
+          "green": 20,
+          "blue": 14,
+          "alpha": 1
         }
       }
     },
@@ -439,19 +441,19 @@
       "light": {
         "hex": "#1a1c16",
         "rgba": {
-          "red": "26",
-          "green": "28",
-          "blue": "22",
-          "alpha": "255"
+          "red": 26,
+          "green": 28,
+          "blue": 22,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#e2e3d8",
         "rgba": {
-          "red": "226",
-          "green": "227",
-          "blue": "216",
-          "alpha": "255"
+          "red": 226,
+          "green": 227,
+          "blue": 216,
+          "alpha": 1
         }
       }
     },
@@ -464,19 +466,19 @@
       "light": {
         "hex": "#f9faef",
         "rgba": {
-          "red": "249",
-          "green": "250",
-          "blue": "239",
-          "alpha": "255"
+          "red": 249,
+          "green": 250,
+          "blue": 239,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#12140e",
         "rgba": {
-          "red": "18",
-          "green": "20",
-          "blue": "14",
-          "alpha": "255"
+          "red": 18,
+          "green": 20,
+          "blue": 14,
+          "alpha": 1
         }
       }
     },
@@ -489,19 +491,19 @@
       "light": {
         "hex": "#1a1c16",
         "rgba": {
-          "red": "26",
-          "green": "28",
-          "blue": "22",
-          "alpha": "255"
+          "red": 26,
+          "green": 28,
+          "blue": 22,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#e2e3d8",
         "rgba": {
-          "red": "226",
-          "green": "227",
-          "blue": "216",
-          "alpha": "255"
+          "red": 226,
+          "green": 227,
+          "blue": 216,
+          "alpha": 1
         }
       }
     },
@@ -514,19 +516,19 @@
       "light": {
         "hex": "#dadbd0",
         "rgba": {
-          "red": "218",
-          "green": "219",
-          "blue": "208",
-          "alpha": "255"
+          "red": 218,
+          "green": 219,
+          "blue": 208,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#12140e",
         "rgba": {
-          "red": "18",
-          "green": "20",
-          "blue": "14",
-          "alpha": "255"
+          "red": 18,
+          "green": 20,
+          "blue": 14,
+          "alpha": 1
         }
       }
     },
@@ -539,19 +541,19 @@
       "light": {
         "hex": "#44483d",
         "rgba": {
-          "red": "68",
-          "green": "72",
-          "blue": "61",
-          "alpha": "255"
+          "red": 68,
+          "green": 72,
+          "blue": 61,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#c5c8ba",
         "rgba": {
-          "red": "197",
-          "green": "200",
-          "blue": "186",
-          "alpha": "255"
+          "red": 197,
+          "green": 200,
+          "blue": 186,
+          "alpha": 1
         }
       }
     },
@@ -564,19 +566,19 @@
       "light": {
         "hex": "#75796c",
         "rgba": {
-          "red": "117",
-          "green": "121",
-          "blue": "108",
-          "alpha": "255"
+          "red": 117,
+          "green": 121,
+          "blue": 108,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#8f9285",
         "rgba": {
-          "red": "143",
-          "green": "146",
-          "blue": "133",
-          "alpha": "255"
+          "red": 143,
+          "green": 146,
+          "blue": 133,
+          "alpha": 1
         }
       }
     },
@@ -589,19 +591,19 @@
       "light": {
         "hex": "#c5c8ba",
         "rgba": {
-          "red": "197",
-          "green": "200",
-          "blue": "186",
-          "alpha": "255"
+          "red": 197,
+          "green": 200,
+          "blue": 186,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#44483d",
         "rgba": {
-          "red": "68",
-          "green": "72",
-          "blue": "61",
-          "alpha": "255"
+          "red": 68,
+          "green": 72,
+          "blue": 61,
+          "alpha": 1
         }
       }
     },
@@ -614,19 +616,19 @@
       "light": {
         "hex": "#000000",
         "rgba": {
-          "red": "0",
-          "green": "0",
-          "blue": "0",
-          "alpha": "255"
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#000000",
         "rgba": {
-          "red": "0",
-          "green": "0",
-          "blue": "0",
-          "alpha": "255"
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
         }
       }
     },
@@ -639,19 +641,19 @@
       "light": {
         "hex": "#2f312a",
         "rgba": {
-          "red": "47",
-          "green": "49",
-          "blue": "42",
-          "alpha": "255"
+          "red": 47,
+          "green": 49,
+          "blue": 42,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#e2e3d8",
         "rgba": {
-          "red": "226",
-          "green": "227",
-          "blue": "216",
-          "alpha": "255"
+          "red": 226,
+          "green": 227,
+          "blue": 216,
+          "alpha": 1
         }
       }
     },
@@ -664,19 +666,19 @@
       "light": {
         "hex": "#f1f2e6",
         "rgba": {
-          "red": "241",
-          "green": "242",
-          "blue": "230",
-          "alpha": "255"
+          "red": 241,
+          "green": 242,
+          "blue": 230,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#2f312a",
         "rgba": {
-          "red": "47",
-          "green": "49",
-          "blue": "42",
-          "alpha": "255"
+          "red": 47,
+          "green": 49,
+          "blue": 42,
+          "alpha": 1
         }
       }
     },
@@ -689,19 +691,19 @@
       "light": {
         "hex": "#b1d18a",
         "rgba": {
-          "red": "177",
-          "green": "209",
-          "blue": "138",
-          "alpha": "255"
+          "red": 177,
+          "green": 209,
+          "blue": 138,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#4c662b",
         "rgba": {
-          "red": "76",
-          "green": "102",
-          "blue": "43",
-          "alpha": "255"
+          "red": 76,
+          "green": 102,
+          "blue": 43,
+          "alpha": 1
         }
       }
     },
@@ -714,19 +716,19 @@
       "light": {
         "hex": "#dadbd0",
         "rgba": {
-          "red": "218",
-          "green": "219",
-          "blue": "208",
-          "alpha": "255"
+          "red": 218,
+          "green": 219,
+          "blue": 208,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#12140e",
         "rgba": {
-          "red": "18",
-          "green": "20",
-          "blue": "14",
-          "alpha": "255"
+          "red": 18,
+          "green": 20,
+          "blue": 14,
+          "alpha": 1
         }
       }
     },
@@ -739,19 +741,19 @@
       "light": {
         "hex": "#f9faef",
         "rgba": {
-          "red": "249",
-          "green": "250",
-          "blue": "239",
-          "alpha": "255"
+          "red": 249,
+          "green": 250,
+          "blue": 239,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#383a32",
         "rgba": {
-          "red": "56",
-          "green": "58",
-          "blue": "50",
-          "alpha": "255"
+          "red": 56,
+          "green": 58,
+          "blue": 50,
+          "alpha": 1
         }
       }
     },
@@ -764,19 +766,19 @@
       "light": {
         "hex": "#ffffff",
         "rgba": {
-          "red": "255",
-          "green": "255",
-          "blue": "255",
-          "alpha": "255"
+          "red": 255,
+          "green": 255,
+          "blue": 255,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#0c0f09",
         "rgba": {
-          "red": "12",
-          "green": "15",
-          "blue": "9",
-          "alpha": "255"
+          "red": 12,
+          "green": 15,
+          "blue": 9,
+          "alpha": 1
         }
       }
     },
@@ -789,19 +791,19 @@
       "light": {
         "hex": "#f3f4e9",
         "rgba": {
-          "red": "243",
-          "green": "244",
-          "blue": "233",
-          "alpha": "255"
+          "red": 243,
+          "green": 244,
+          "blue": 233,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#1a1c16",
         "rgba": {
-          "red": "26",
-          "green": "28",
-          "blue": "22",
-          "alpha": "255"
+          "red": 26,
+          "green": 28,
+          "blue": 22,
+          "alpha": 1
         }
       }
     },
@@ -814,19 +816,19 @@
       "light": {
         "hex": "#eeefe3",
         "rgba": {
-          "red": "238",
-          "green": "239",
-          "blue": "227",
-          "alpha": "255"
+          "red": 238,
+          "green": 239,
+          "blue": 227,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#1e201a",
         "rgba": {
-          "red": "30",
-          "green": "32",
-          "blue": "26",
-          "alpha": "255"
+          "red": 30,
+          "green": 32,
+          "blue": 26,
+          "alpha": 1
         }
       }
     },
@@ -839,19 +841,19 @@
       "light": {
         "hex": "#e8e9de",
         "rgba": {
-          "red": "232",
-          "green": "233",
-          "blue": "222",
-          "alpha": "255"
+          "red": 232,
+          "green": 233,
+          "blue": 222,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#282b24",
         "rgba": {
-          "red": "40",
-          "green": "43",
-          "blue": "36",
-          "alpha": "255"
+          "red": 40,
+          "green": 43,
+          "blue": 36,
+          "alpha": 1
         }
       }
     },
@@ -864,19 +866,19 @@
       "light": {
         "hex": "#e2e3d8",
         "rgba": {
-          "red": "226",
-          "green": "227",
-          "blue": "216",
-          "alpha": "255"
+          "red": 226,
+          "green": 227,
+          "blue": 216,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#33362e",
         "rgba": {
-          "red": "51",
-          "green": "54",
-          "blue": "46",
-          "alpha": "255"
+          "red": 51,
+          "green": 54,
+          "blue": 46,
+          "alpha": 1
         }
       }
     }
@@ -889,10 +891,10 @@
         "description": ""
       },
       "fontFamily": "Roboto",
-      "fontSize": "57",
-      "fontWeight": "400",
-      "lineHeight": "64",
-      "letterSpacing": "-0.25"
+      "fontSize": 57,
+      "fontWeight": 400,
+      "lineHeight": 64,
+      "letterSpacing": -0.25
     },
     "displayMedium": {
       "meta": {
@@ -901,10 +903,10 @@
         "description": ""
       },
       "fontFamily": "Roboto",
-      "fontSize": "45",
-      "fontWeight": "400",
-      "lineHeight": "52",
-      "letterSpacing": "0"
+      "fontSize": 45,
+      "fontWeight": 400,
+      "lineHeight": 52,
+      "letterSpacing": 0
     },
     "displaySmall": {
       "meta": {
@@ -913,10 +915,10 @@
         "id": "FcSaHPoWADH4bspvDgwsP"
       },
       "fontFamily": "",
-      "fontSize": "36",
-      "fontWeight": "400",
-      "lineHeight": "36",
-      "letterSpacing": "0"
+      "fontSize": 36,
+      "fontWeight": 400,
+      "lineHeight": 36,
+      "letterSpacing": 0
     },
     "headlineLarge": {
       "meta": {
@@ -925,10 +927,10 @@
         "id": "RoKnugPYDRe7Uxen2v6y6"
       },
       "fontFamily": "",
-      "fontSize": "32",
-      "fontWeight": "400",
-      "lineHeight": "40",
-      "letterSpacing": "0"
+      "fontSize": 32,
+      "fontWeight": 400,
+      "lineHeight": 40,
+      "letterSpacing": 0
     },
     "headlineMedium": {
       "meta": {
@@ -937,10 +939,10 @@
         "id": "C-UZCVKHzfMpLm1c3ZDNx"
       },
       "fontFamily": "",
-      "fontSize": "28",
-      "fontWeight": "400",
-      "lineHeight": "36",
-      "letterSpacing": "0"
+      "fontSize": 28,
+      "fontWeight": 400,
+      "lineHeight": 36,
+      "letterSpacing": 0
     },
     "headlineSmall": {
       "meta": {
@@ -949,10 +951,10 @@
         "id": "DumHwsiOsIL8WDZLLs2o9"
       },
       "fontFamily": "",
-      "fontSize": "24",
-      "fontWeight": "400",
-      "lineHeight": "32",
-      "letterSpacing": "0"
+      "fontSize": 24,
+      "fontWeight": 400,
+      "lineHeight": 32,
+      "letterSpacing": 0
     },
     "titleLarge": {
       "meta": {
@@ -961,10 +963,10 @@
         "id": "bwReeqEyhEX0NaEwRGadI"
       },
       "fontFamily": "",
-      "fontSize": "22",
-      "fontWeight": "400",
-      "lineHeight": "28",
-      "letterSpacing": "0"
+      "fontSize": 22,
+      "fontWeight": 400,
+      "lineHeight": 28,
+      "letterSpacing": 0
     },
     "titleMedium": {
       "meta": {
@@ -973,10 +975,10 @@
         "id": "5HoqRCsGojeSX53xN5h_s"
       },
       "fontFamily": "",
-      "fontSize": "16",
-      "fontWeight": "500",
-      "lineHeight": "24",
-      "letterSpacing": "0.15"
+      "fontSize": 16,
+      "fontWeight": 500,
+      "lineHeight": 24,
+      "letterSpacing": 0.15
     },
     "titleSmall": {
       "meta": {
@@ -985,10 +987,10 @@
         "id": "-q87wuV6zoJ4WOHaxmpN_"
       },
       "fontFamily": "",
-      "fontSize": "14",
-      "fontWeight": "500",
-      "lineHeight": "20",
-      "letterSpacing": "0.1"
+      "fontSize": 14,
+      "fontWeight": 500,
+      "lineHeight": 20,
+      "letterSpacing": 0.1
     },
     "bodyLarge": {
       "meta": {
@@ -997,10 +999,10 @@
         "id": "uZ4onNoLH2JNU3UZKyQYt"
       },
       "fontFamily": "",
-      "fontSize": "16",
-      "fontWeight": "400",
-      "lineHeight": "24",
-      "letterSpacing": "0.5"
+      "fontSize": 16,
+      "fontWeight": 400,
+      "lineHeight": 24,
+      "letterSpacing": 0.5
     },
     "bodyMedium": {
       "meta": {
@@ -1009,10 +1011,10 @@
         "id": "5r38XjYyQbMF_Jl72wbA3"
       },
       "fontFamily": "",
-      "fontSize": "14",
-      "fontWeight": "400",
-      "lineHeight": "20",
-      "letterSpacing": "0.25"
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": 20,
+      "letterSpacing": 0.25
     },
     "bodySmall": {
       "meta": {
@@ -1021,10 +1023,10 @@
         "id": "319tvI_00bEBPP1j5QS5f"
       },
       "fontFamily": "",
-      "fontSize": "12",
-      "fontWeight": "400",
-      "lineHeight": "16",
-      "letterSpacing": "0.4"
+      "fontSize": 12,
+      "fontWeight": 400,
+      "lineHeight": 16,
+      "letterSpacing": 0.4
     },
     "labelLarge": {
       "meta": {
@@ -1033,10 +1035,10 @@
         "id": "owoZWAsjkuHHWumhlgqud"
       },
       "fontFamily": "",
-      "fontSize": "14",
-      "fontWeight": "700",
-      "lineHeight": "20",
-      "letterSpacing": "0.1"
+      "fontSize": 14,
+      "fontWeight": 700,
+      "lineHeight": 20,
+      "letterSpacing": 0.1
     },
     "labelMedium": {
       "meta": {
@@ -1045,10 +1047,10 @@
         "id": "2lk8hCYyuBHTmCu7ZCFog"
       },
       "fontFamily": "",
-      "fontSize": "12",
-      "fontWeight": "700",
-      "lineHeight": "16",
-      "letterSpacing": "0.5"
+      "fontSize": 12,
+      "fontWeight": 700,
+      "lineHeight": 16,
+      "letterSpacing": 0.5
     },
     "labelSmall": {
       "meta": {
@@ -1057,10 +1059,10 @@
         "id": "zeLouXi8J5-so1GRduQk2"
       },
       "fontFamily": "",
-      "fontSize": "11",
-      "fontWeight": "500",
-      "lineHeight": "16",
-      "letterSpacing": "0.5"
+      "fontSize": 11,
+      "fontWeight": 500,
+      "lineHeight": 16,
+      "letterSpacing": 0.5
     }
   },
   "spacing": {
@@ -1112,11 +1114,20 @@
         "name": "box",
         "description": ""
       },
-      "borderColor": "colors.background",
+      "borderColor": {
+        "$ref": "colors.background",
+        "$refType": "colors"
+      },
       "borderRadius": 5,
       "borderWidth": 1,
-      "boxShadow": "inset",
-      "backgroundColor": "colors.background"
+      "boxShadow": {
+        "$ref": "shadows.elevation1",
+        "$refType": "shadows"
+      },
+      "backgroundColor": {
+        "$ref": "colors.background",
+        "$refType": "colors"
+      }
     }
   },
   "shadows": {
@@ -1126,8 +1137,11 @@
         "name": "level5",
         "description": ""
       },
-      "elevation": "12",
-      "shadowColor": "colors.onSurface",
+      "elevation": 12,
+      "shadowColor": {
+        "$ref": "colors.onSurface",
+        "$refType": "colors"
+      },
       "shadowOpacity": 0.5,
       "shadowOffset": {
         "width": 0,
@@ -1141,8 +1155,11 @@
         "name": "leve4",
         "description": ""
       },
-      "elevation": "8",
-      "shadowColor": "colors.onSurface",
+      "elevation": 8,
+      "shadowColor": {
+        "$ref": "colors.onSurface",
+        "$refType": "colors"
+      },
       "shadowOpacity": 0.5,
       "shadowOffset": {
         "width": 0,
@@ -1156,8 +1173,11 @@
         "description": "",
         "id": "VMS-n4hyRR4WG-STdTz58"
       },
-      "elevation": "6",
-      "shadowColor": "colors.onSurface",
+      "elevation": 6,
+      "shadowColor": {
+        "$ref": "colors.onSurface",
+        "$refType": "colors"
+      },
       "shadowOpacity": 0.5,
       "shadowOffset": {
         "width": 0,
@@ -1171,8 +1191,11 @@
         "description": "",
         "id": "YBwAGAc8YFfvYGKziiegu"
       },
-      "elevation": "3",
-      "shadowColor": "colors.onSurface",
+      "elevation": 3,
+      "shadowColor": {
+        "$ref": "colors.onSurface",
+        "$refType": "colors"
+      },
       "shadowOpacity": 0.5,
       "shadowOffset": {
         "width": 0,
@@ -1186,8 +1209,11 @@
         "description": "",
         "id": "jzF5ybvH9RtVO96oQ6QR7"
       },
-      "elevation": "1",
-      "shadowColor": "colors.onSurface",
+      "elevation": 1,
+      "shadowColor": {
+        "$ref": "colors.onSurface",
+        "$refType": "colors"
+      },
       "shadowOpacity": 0.5,
       "shadowOffset": {
         "width": 0,
@@ -1201,8 +1227,11 @@
         "description": "",
         "id": "LkpQyxavL1IQWA-ewNytc"
       },
-      "elevation": "0",
-      "shadowColor": "colors.onSurface",
+      "elevation": 0,
+      "shadowColor": {
+        "$ref": "colors.onSurface",
+        "$refType": "colors"
+      },
       "shadowOpacity": 0.5,
       "shadowOffset": {
         "width": 0,
@@ -1219,9 +1248,18 @@
         "name": "primary",
         "description": ""
       },
-      "spacingId": "spacing.md",
-      "surfaceId": "surface.box",
-      "typographyId": "typography.body"
+      "spacingId": {
+        "$ref": "spacing.md",
+        "$refType": "spacing"
+      },
+      "surfaceId": {
+        "$ref": "surface.box",
+        "$refType": "surface"
+      },
+      "typographyId": {
+        "$ref": "typography.body",
+        "$refType": "typography"
+      }
     }
   }
 }

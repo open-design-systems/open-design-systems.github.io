@@ -1,6 +1,7 @@
 import { DesignSystemForm } from "./design-system-builder/form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { typeboxResolver } from "@hookform/resolvers/typebox";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect } from "react";
@@ -8,24 +9,30 @@ import { FormProvider, useForm, useWatch } from "react-hook-form";
 import { z } from "zod";
 import { DesignSystemPreview } from "./design-system-builder/design-system-preview";
 import DraggableArea from "./design-system-builder/draggable-area";
-import designSystemSchema from "./design-system-builder/form-schema";
+import designSystemSchema, {
+  DesignSystemSchema,
+} from "./design-system-builder/form-schema";
 import { fromSchemaToForm } from "./design-system-builder/form-utils";
 import { JsonPreview } from "./design-system-builder/json-preview";
 import { ThemeToggle } from "./theme-toggle";
 import JSONCrush from "jsoncrush";
 import { CreateButtonWithOptions, CreateOptions } from "./create-button";
-import type { DesignSystem } from "../../open-design-system.schema";
+import { OpenDesignSystemSchema } from "@opends/schema";
 import templates from "./design-system-builder/templates";
 
+const schemaFile = "open-design-system-schema.json";
+const baseUrl = import.meta.env.DEV
+  ? "http://localhost:5173"
+  : "https://open-design-systems.github.io";
+
 function downloadJsonFile(
-  data: DesignSystem,
+  data: OpenDesignSystemSchema,
   fileName = "open-design-system.json",
 ) {
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
     JSON.stringify(
       {
-        $schema:
-          "https://open-design-systems.github.io/open-design-system-schema.json",
+        $schema: `${baseUrl}/${schemaFile}`,
         ...data,
       },
       null,
@@ -43,7 +50,7 @@ const newDefaultValues = templates.openDesingSystem;
 
 const STORAGE_KEY = "open-design-system:design-system";
 
-const createOptions: Record<CreateOptions, DesignSystem> = {
+const createOptions: Record<CreateOptions, OpenDesignSystemSchema> = {
   scratch: newDefaultValues,
   material: templates.materialDesignSystem,
   "shadcn/ui": templates.shadcnUIDesignSystem,
@@ -66,9 +73,16 @@ export function DesignSystem() {
     ? JSON.parse(savedDesignSystem)
     : fromSchemaToForm(newDefaultValues);
 
-  const methods = useForm<z.infer<typeof designSystemSchema>>({
-    resolver: zodResolver(designSystemSchema),
-    defaultValues: fromSchemaToForm(defaultValues),
+  // const methods = useForm<z.infer<typeof designSystemSchema>>({
+  //   resolver: zodResolver(designSystemSchema),
+  //   defaultValues: fromSchemaToForm(defaultValues),
+  // });
+
+  console.log({ designSystemSchema, defaultValues });
+
+  const methods = useForm<DesignSystemSchema>({
+    resolver: typeboxResolver(designSystemSchema),
+    defaultValues: defaultValues,
   });
 
   const watchForm = useWatch({ control: methods.control });
@@ -77,7 +91,7 @@ export function DesignSystem() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(watchForm));
   }, [watchForm]);
 
-  const handleFormSubmit = (values: DesignSystem) => {
+  const handleFormSubmit = (values: OpenDesignSystemSchema) => {
     downloadJsonFile(values);
   };
 

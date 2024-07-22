@@ -1,93 +1,26 @@
-import { z } from "zod";
 import { nanoid } from "nanoid";
+import { Static, Type } from "@sinclair/typebox";
+import {
+  Colors,
+  Typographies,
+  Meta,
+  Spacings,
+  Surfaces,
+  Shadows,
+  Primitives,
+} from "@opends/schema";
 
-export const metaSchema = z.object({
-  id: z.string().default(() => nanoid()),
-  name: z.string(),
-  description: z.string(),
+const designSystemSchema = Type.Object({
+  id: Type.String({ default: nanoid }),
+  meta: Meta.MetaSchema,
+  colors: Type.Array(Colors.ColorTypeObjectSchema),
+  typography: Type.Array(Typographies.TypographyTypeObjectSchema),
+  spacing: Type.Array(Spacings.SpacingTypeObjectSchema),
+  surface: Type.Array(Surfaces.SurfaceTypeObjectSchema),
+  shadows: Type.Array(Shadows.ShadowTypeObjectSchema),
+  primitives: Type.Array(Primitives.PrimitivesTypeObjectSchema),
 });
 
-const rgbaSchema = z.object({
-  red: z.string(),
-  green: z.string(),
-  blue: z.string(),
-  alpha: z.string(),
-});
-
-const rawColorSchema = z.object({
-  hex: z.string().regex(/^#(?:[0-9a-fA-F]{3}){1,2}$/),
-  rgba: rgbaSchema,
-});
-
-const colorSchema = z.object({
-  meta: metaSchema,
-  light: rawColorSchema,
-  dark: rawColorSchema,
-});
-
-export const typographySchema = z.object({
-  meta: metaSchema,
-  fontFamily: z.string(),
-  fontSize: z.string(),
-  fontWeight: z.string(),
-  lineHeight: z.string(),
-  letterSpacing: z.string(),
-});
-
-export const spacingSchema = z.object({
-  meta: metaSchema,
-  value: z.coerce.number(),
-});
-
-export const surfaceSchema = z.object({
-  meta: metaSchema,
-  borderColor: z.string().optional(),
-  borderRadius: z.coerce.number().optional(),
-  borderWidth: z.coerce.number().optional(),
-  boxShadow: z.string().optional(),
-  backgroundColor: z.string().optional(),
-});
-
-const shadowsSchema = z.object({
-  meta: metaSchema,
-  shadowColor: z.string(),
-  shadowOpacity: z.coerce.number(),
-  shadowOffset: z.object({
-    width: z.coerce.number(),
-    height: z.coerce.number(),
-  }),
-  elevation: z.coerce.number(),
-  shadowRadius: z.coerce.number(),
-});
-
-export const primitiveButtonSchema = z.object({
-  meta: metaSchema,
-  type: z.literal("button"),
-  surfaceId: z.string(),
-  typographyId: z.string(),
-  spacingId: z.string(),
-});
-
-export const primitiveTextSchema = z.object({
-  meta: metaSchema,
-  type: z.literal("text"),
-  typographyId: z.string(),
-});
-
-export const primitivesSchema = z.union([
-  primitiveButtonSchema,
-  primitiveTextSchema,
-]);
-
-const designSystemSchema = z.object({
-  id: z.string().default(() => nanoid()),
-  meta: metaSchema,
-  colors: z.array(colorSchema),
-  typography: z.array(typographySchema),
-  spacing: z.array(spacingSchema),
-  surface: z.array(surfaceSchema),
-  shadows: z.array(shadowsSchema),
-  primitives: z.array(primitivesSchema),
-});
+export type DesignSystemSchema = Static<typeof designSystemSchema>;
 
 export default designSystemSchema;

@@ -1,36 +1,40 @@
 import { useWatch } from "react-hook-form";
-import * as z from "zod";
-import {
-  primitiveButtonSchema,
-  primitiveTextSchema,
-  primitivesSchema,
-} from "./form-schema";
-import { Color, Meta } from "open-design-system.schema";
 import { useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ColorRefSchema } from "@opends/schema/src/schemas/ref";
+import {
+  Meta,
+  Primitives,
+  Colors,
+  Surfaces,
+  Spacings,
+  Typographies,
+} from "@opends/schema";
 
-function findInArray(
-  arr: Array<{ meta: Meta }>,
+function findInArray<RefObject extends { meta: Meta.MetaSchema }>(
+  arr: Array<RefObject>,
   value: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-): any | undefined {
+): RefObject | undefined {
   return arr.find(({ meta }) => meta.id === value);
 }
 
 function resolveColors(
-  colors: Array<Color>,
+  colors: Array<Colors.ColorTypeObjectSchema>,
   theme: "light" | "dark",
-  value: string,
+  value: ColorRefSchema | undefined,
 ) {
-  const color = findInArray(colors, value);
+  if (value === undefined) {
+    return undefined;
+  }
+  const color = findInArray(colors, value.$ref);
 
   return color?.[theme]?.hex;
 }
 function PrimitiveButton({
   primitive,
 }: {
-  primitive: z.infer<typeof primitiveButtonSchema>;
+  primitive: Primitives.ButtonTypeSchema;
 }) {
   const surfaces = useWatch({
     name: "surface",
@@ -46,9 +50,18 @@ function PrimitiveButton({
   });
 
   const { theme, getThemeScheme } = useTheme();
-  const surface = findInArray(surfaces, primitive.surfaceId);
-  const typography = findInArray(typographies, primitive.typographyId);
-  const spacing = findInArray(spacings, primitive.spacingId);
+  const surface = findInArray<Surfaces.SurfaceTypeObjectSchema>(
+    surfaces,
+    primitive.surfaceId.$ref,
+  );
+  const typography = findInArray<Typographies.TypographyTypeObjectSchema>(
+    typographies,
+    primitive.typographyId.$ref,
+  );
+  const spacing = findInArray<Spacings.SpacingTypeObjectSchema>(
+    spacings,
+    primitive.spacingId.$ref,
+  );
 
   return (
     <Button
@@ -65,6 +78,11 @@ function PrimitiveButton({
           getThemeScheme(theme),
           surface?.backgroundColor,
         ),
+        color: resolveColors(
+          colors,
+          getThemeScheme(theme) === "light" ? "dark" : "light",
+          surface?.backgroundColor,
+        ),
       }}
     >
       Button Example
@@ -73,13 +91,16 @@ function PrimitiveButton({
 }
 
 type PrimitiveTextProps = {
-  primitive: z.infer<typeof primitiveTextSchema>;
+  primitive: Primitives.TextTypeSchema;
 };
 function PrimitiveText({ primitive }: PrimitiveTextProps) {
   const typographies = useWatch({
     name: "typography",
   });
-  const typography = findInArray(typographies, primitive.typographyId);
+  const typography = findInArray<Typographies.TypographyTypeObjectSchema>(
+    typographies,
+    primitive.typographyId.$ref,
+  );
 
   return (
     <div
@@ -99,7 +120,7 @@ export function DesignSystemPreview() {
   return (
     <div className="grid gap-6 grid-cols-4 p-4 justify-center">
       {designSystem.primitives?.map(
-        (primitive: z.infer<typeof primitivesSchema>) => {
+        (primitive: Primitives.PrimitivesTypeObjectSchema) => {
           return (
             <div className="flex" key={primitive.meta?.id}>
               <Card className="shadow-lg">

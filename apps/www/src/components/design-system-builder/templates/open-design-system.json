@@ -1,7 +1,8 @@
 {
-  "$schema": "../../../../open-design-system-schema.json",
-  "id": "default-system",
+  "$schema": "../../../../node_modules/@opends/schema/assets/open-design-system-schema.json",
+  "id": "material-design-system",
   "meta": {
+    "id": "material-design-system",
     "name": "Default Design System",
     "description": "A basic design system with default values based on Material Design."
   },
@@ -15,19 +16,19 @@
       "light": {
         "hex": "#6200ea",
         "rgba": {
-          "red": "98",
-          "green": "0",
-          "blue": "234",
-          "alpha": "255"
+          "red": 98,
+          "green": 0,
+          "blue": 234,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#3700b3",
         "rgba": {
-          "red": "55",
-          "green": "0",
-          "blue": "179",
-          "alpha": "255"
+          "red": 55,
+          "green": 0,
+          "blue": 179,
+          "alpha": 1
         }
       }
     },
@@ -40,19 +41,19 @@
       "light": {
         "hex": "#03dac6",
         "rgba": {
-          "red": "3",
-          "green": "218",
-          "blue": "198",
-          "alpha": "255"
+          "red": 3,
+          "green": 218,
+          "blue": 198,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#018786",
         "rgba": {
-          "red": "1",
-          "green": "135",
-          "blue": "134",
-          "alpha": "255"
+          "red": 1,
+          "green": 135,
+          "blue": 134,
+          "alpha": 1
         }
       }
     },
@@ -65,19 +66,19 @@
       "light": {
         "hex": "#121212",
         "rgba": {
-          "red": "18",
-          "green": "18",
-          "blue": "18",
-          "alpha": "255"
+          "red": 18,
+          "green": 18,
+          "blue": 18,
+          "alpha": 1
         }
       },
       "dark": {
         "hex": "#ffffff",
         "rgba": {
-          "red": "0",
-          "green": "0",
-          "blue": "0",
-          "alpha": "255"
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
         }
       }
     }
@@ -90,10 +91,10 @@
         "description": ""
       },
       "fontFamily": "Roboto",
-      "fontSize": "16",
-      "fontWeight": "400",
-      "lineHeight": "1.5",
-      "letterSpacing": "0.5"
+      "fontSize": 16,
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": 0.5
     },
     "heading": {
       "meta": {
@@ -102,10 +103,10 @@
         "description": ""
       },
       "fontFamily": "Oswald",
-      "fontSize": "24",
-      "fontWeight": "700",
-      "lineHeight": "1.3",
-      "letterSpacing": "0.2"
+      "fontSize": 24,
+      "fontWeight": 700,
+      "lineHeight": 1.3,
+      "letterSpacing": 0.2
     }
   },
   "spacing": {
@@ -157,11 +158,20 @@
         "name": "box",
         "description": ""
       },
-      "borderColor": "colors.background",
+      "borderColor": {
+        "$ref": "colors.background",
+        "$refType": "colors"
+      },
       "borderRadius": 5,
       "borderWidth": 1,
-      "boxShadow": "inset",
-      "backgroundColor": "colors.background"
+      "boxShadow": {
+        "$ref": "shadows.elevation1",
+        "$refType": "shadows"
+      },
+      "backgroundColor": {
+        "$ref": "colors.background",
+        "$refType": "colors"
+      }
     }
   },
   "shadows": {
@@ -171,8 +181,11 @@
         "name": "elevation1",
         "description": ""
       },
-      "elevation": "1dp",
-      "shadowColor": "colors.primary",
+      "elevation": 1,
+      "shadowColor": {
+        "$ref": "colors.primary",
+        "$refType": "colors"
+      },
       "shadowOpacity": 0.1,
       "shadowOffset": {
         "width": 0,
@@ -186,8 +199,11 @@
         "name": "elevation2",
         "description": ""
       },
-      "elevation": "2dp",
-      "shadowColor": "colors.primary",
+      "elevation": 2,
+      "shadowColor": {
+        "$ref": "colors.primary",
+        "$refType": "colors"
+      },
       "shadowOpacity": 0.2,
       "shadowOffset": {
         "width": 0,
@@ -204,9 +220,18 @@
         "name": "primary",
         "description": ""
       },
-      "spacingId": "spacing.md",
-      "surfaceId": "surface.box",
-      "typographyId": "typography.body"
+      "spacingId": {
+        "$ref": "spacing.md",
+        "$refType": "spacing"
+      },
+      "surfaceId": {
+        "$ref": "surface.box",
+        "$refType": "surface"
+      },
+      "typographyId": {
+        "$ref": "typography.body",
+        "$refType": "typography"
+      }
     }
   }
 }
