@@ -7,9 +7,12 @@ import * as Surfaces from './schemas/surface'
 import * as Shadows from './schemas/shadows'
 import * as Primitives from './schemas/primitives'
 import * as Ref from './schemas/ref'
+import Validator, { OpenDSValidationError } from './validator'
 
 export {
   OpenDesignSystemSchema,
+  Validator,
+  OpenDSValidationError,
   Colors,
   Typographies,
   Spacings,
