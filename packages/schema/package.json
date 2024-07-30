@@ -1,6 +1,6 @@
 {
   "name": "@opends/schema",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Open Design Schema package with type definitions and json schema source of truth",
   "private": false,
   "prettier": {
