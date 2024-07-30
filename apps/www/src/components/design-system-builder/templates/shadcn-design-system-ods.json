@@ -10,7 +10,7 @@
     "background": {
       "meta": {
         "id": "background",
-        "name": "Background",
+        "name": "background",
         "description": "Background color"
       },
       "light": {
@@ -35,7 +35,7 @@
     "foreground": {
       "meta": {
         "id": "foreground",
-        "name": "Foreground",
+        "name": "foreground",
         "description": "Foreground color"
       },
       "light": {
@@ -60,7 +60,7 @@
     "card": {
       "meta": {
         "id": "card",
-        "name": "Card",
+        "name": "card",
         "description": "Card color"
       },
       "light": {
@@ -85,7 +85,7 @@
     "card-foreground": {
       "meta": {
         "id": "card-foreground",
-        "name": "Card Foreground",
+        "name": "card-foreground",
         "description": "Card foreground color"
       },
       "light": {
@@ -110,7 +110,7 @@
     "popover": {
       "meta": {
         "id": "popover",
-        "name": "Popover",
+        "name": "popover",
         "description": "Popover color"
       },
       "light": {
@@ -135,7 +135,7 @@
     "popover-foreground": {
       "meta": {
         "id": "popover-foreground",
-        "name": "Popover Foreground",
+        "name": "popover-foreground",
         "description": "Popover foreground color"
       },
       "light": {
@@ -160,7 +160,7 @@
     "primary": {
       "meta": {
         "id": "primary",
-        "name": "Primary",
+        "name": "primary",
         "description": "Primary color"
       },
       "light": {
@@ -185,7 +185,7 @@
     "primary-foreground": {
       "meta": {
         "id": "primary-foreground",
-        "name": "Primary Foreground",
+        "name": "primary-foreground",
         "description": "Primary foreground color"
       },
       "light": {
@@ -210,7 +210,7 @@
     "secondary": {
       "meta": {
         "id": "secondary",
-        "name": "Secondary",
+        "name": "secondary",
         "description": "Secondary color"
       },
       "light": {
@@ -235,7 +235,7 @@
     "secondary-foreground": {
       "meta": {
         "id": "secondary-foreground",
-        "name": "Secondary Foreground",
+        "name": "secondary-foreground",
         "description": "Secondary foreground color"
       },
       "light": {
@@ -260,7 +260,7 @@
     "muted": {
       "meta": {
         "id": "muted",
-        "name": "Muted",
+        "name": "muted",
         "description": "Muted color"
       },
       "light": {
@@ -285,7 +285,7 @@
     "muted-foreground": {
       "meta": {
         "id": "muted-foreground",
-        "name": "Muted Foreground",
+        "name": "muted-foreground",
         "description": "Muted foreground color"
       },
       "light": {
@@ -310,7 +310,7 @@
     "accent": {
       "meta": {
         "id": "accent",
-        "name": "Accent",
+        "name": "accent",
         "description": "Accent color"
       },
       "light": {
@@ -335,7 +335,7 @@
     "accent-foreground": {
       "meta": {
         "id": "accent-foreground",
-        "name": "Accent Foreground",
+        "name": "accent-foreground",
         "description": "Accent foreground color"
       },
       "light": {
@@ -360,7 +360,7 @@
     "destructive": {
       "meta": {
         "id": "destructive",
-        "name": "Destructive",
+        "name": "destructive",
         "description": "Destructive color"
       },
       "light": {
@@ -385,7 +385,7 @@
     "destructive-foreground": {
       "meta": {
         "id": "destructive-foreground",
-        "name": "Destructive Foreground",
+        "name": "destructive-foreground",
         "description": "Destructive foreground color"
       },
       "light": {
@@ -410,7 +410,7 @@
     "border": {
       "meta": {
         "id": "border",
-        "name": "Border",
+        "name": "border",
         "description": "Border color"
       },
       "light": {
@@ -435,7 +435,7 @@
     "input": {
       "meta": {
         "id": "input",
-        "name": "Input",
+        "name": "input",
         "description": "Input color"
       },
       "light": {
@@ -460,7 +460,7 @@
     "ring": {
       "meta": {
         "id": "ring",
-        "name": "Ring",
+        "name": "ring",
         "description": "Ring color"
       },
       "light": {
@@ -485,7 +485,7 @@
     "chart-1": {
       "meta": {
         "id": "chart-1",
-        "name": "Chart 1",
+        "name": "chart-1",
         "description": "Chart 1 color"
       },
       "light": {
@@ -510,7 +510,7 @@
     "chart-2": {
       "meta": {
         "id": "chart-2",
-        "name": "Chart 2",
+        "name": "chart-2",
         "description": "Chart 2 color"
       },
       "light": {
@@ -535,7 +535,7 @@
     "chart-3": {
       "meta": {
         "id": "chart-3",
-        "name": "Chart 3",
+        "name": "chart-3",
         "description": "Chart 3 color"
       },
       "light": {
@@ -560,7 +560,7 @@
     "chart-4": {
       "meta": {
         "id": "chart-4",
-        "name": "Chart 4",
+        "name": "chart-4",
         "description": "Chart 4 color"
       },
       "light": {
@@ -585,7 +585,7 @@
     "chart-5": {
       "meta": {
         "id": "chart-5",
-        "name": "Chart 5",
+        "name": "chart-5",
         "description": "Chart 5 color"
       },
       "light": {
@@ -612,7 +612,7 @@
     "lg": {
       "meta": {
         "id": "surface.lg",
-        "name": "Large Surface",
+        "name": "lg",
         "description": "Large surface"
       },
       "borderRadius": 8
@@ -620,7 +620,7 @@
     "md": {
       "meta": {
         "id": "surface.md",
-        "name": "Medium Surface",
+        "name": "md",
         "description": "Medium surface"
       },
       "borderRadius": 6
@@ -628,7 +628,7 @@
     "sm": {
       "meta": {
         "id": "surface.sm",
-        "name": "Small Surface",
+        "name": "sm",
         "description": "Small surface"
       },
       "borderRadius": 4
