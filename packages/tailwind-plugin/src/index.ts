@@ -36,9 +36,16 @@ type PluginOptions = {
   designSystemConfig?: string
 }
 
+const DEFAULT_OPTIONS: PluginOptions = { designSystemConfig: DEFAULT_CONFIG_FILE }
+
 module.exports = plugin.withOptions(
-  ({ designSystemConfig = DEFAULT_CONFIG_FILE }: PluginOptions) => {
+  (pluginOptions: PluginOptions) => {
     return function ({ addBase, addComponents, config }) {
+      const { designSystemConfig } = pluginOptions ?? DEFAULT_OPTIONS
+      if (!designSystemConfig) {
+        console.error('Open Design System config file not provided. Skipping Tailwind CSS plugin.')
+        return
+      }
       const openDesignSystem = getOpenDesignSystemConfig(designSystemConfig)
       if (!openDesignSystem) {
         console.info(
@@ -75,7 +82,12 @@ module.exports = plugin.withOptions(
       })
     }
   },
-  ({ designSystemConfig = DEFAULT_CONFIG_FILE }: PluginOptions) => {
+  (pluginOptions: PluginOptions) => {
+    const { designSystemConfig } = pluginOptions ?? DEFAULT_OPTIONS
+    if (!designSystemConfig) {
+      console.error('Open Design System config file not provided. Skipping Tailwind CSS plugin.')
+      return {}
+    }
     const openDesignSystem = getOpenDesignSystemConfig(designSystemConfig)
 
     if (!openDesignSystem) {

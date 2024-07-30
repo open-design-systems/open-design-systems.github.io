@@ -1,0 +1,637 @@
+{
+  "$schema": "../../../../node_modules/@opends/schema/assets/open-design-system-schema.json",
+  "id": "shadcn-design-system",
+  "meta": {
+    "id": "shadcn-design-system",
+    "name": "Default Shadcn Design System",
+    "description": "A basic design system with default values based on shadcn/ui."
+  },
+  "colors": {
+    "background": {
+      "meta": {
+        "id": "background",
+        "name": "Background",
+        "description": "Background color"
+      },
+      "light": {
+        "hex": "#ffffff",
+        "rgba": {
+          "red": 255,
+          "blue": 255,
+          "green": 255,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      }
+    },
+    "foreground": {
+      "meta": {
+        "id": "foreground",
+        "name": "Foreground",
+        "description": "Foreground color"
+      },
+      "light": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#fafafa",
+        "rgba": {
+          "red": 250,
+          "blue": 250,
+          "green": 250,
+          "alpha": 1
+        }
+      }
+    },
+    "card": {
+      "meta": {
+        "id": "card",
+        "name": "Card",
+        "description": "Card color"
+      },
+      "light": {
+        "hex": "#ffffff",
+        "rgba": {
+          "red": 255,
+          "blue": 255,
+          "green": 255,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      }
+    },
+    "card-foreground": {
+      "meta": {
+        "id": "card-foreground",
+        "name": "Card Foreground",
+        "description": "Card foreground color"
+      },
+      "light": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#fafafa",
+        "rgba": {
+          "red": 250,
+          "blue": 250,
+          "green": 250,
+          "alpha": 1
+        }
+      }
+    },
+    "popover": {
+      "meta": {
+        "id": "popover",
+        "name": "Popover",
+        "description": "Popover color"
+      },
+      "light": {
+        "hex": "#ffffff",
+        "rgba": {
+          "red": 255,
+          "blue": 255,
+          "green": 255,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      }
+    },
+    "popover-foreground": {
+      "meta": {
+        "id": "popover-foreground",
+        "name": "Popover Foreground",
+        "description": "Popover foreground color"
+      },
+      "light": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#fafafa",
+        "rgba": {
+          "red": 250,
+          "blue": 250,
+          "green": 250,
+          "alpha": 1
+        }
+      }
+    },
+    "primary": {
+      "meta": {
+        "id": "primary",
+        "name": "Primary",
+        "description": "Primary color"
+      },
+      "light": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#fafafa",
+        "rgba": {
+          "red": 250,
+          "blue": 250,
+          "green": 250,
+          "alpha": 1
+        }
+      }
+    },
+    "primary-foreground": {
+      "meta": {
+        "id": "primary-foreground",
+        "name": "Primary Foreground",
+        "description": "Primary foreground color"
+      },
+      "light": {
+        "hex": "#fafafa",
+        "rgba": {
+          "red": 250,
+          "blue": 250,
+          "green": 250,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      }
+    },
+    "secondary": {
+      "meta": {
+        "id": "secondary",
+        "name": "Secondary",
+        "description": "Secondary color"
+      },
+      "light": {
+        "hex": "#f0f0f0",
+        "rgba": {
+          "red": 240,
+          "blue": 240,
+          "green": 240,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#262626",
+        "rgba": {
+          "red": 38,
+          "blue": 38,
+          "green": 38,
+          "alpha": 1
+        }
+      }
+    },
+    "secondary-foreground": {
+      "meta": {
+        "id": "secondary-foreground",
+        "name": "Secondary Foreground",
+        "description": "Secondary foreground color"
+      },
+      "light": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#fafafa",
+        "rgba": {
+          "red": 250,
+          "blue": 250,
+          "green": 250,
+          "alpha": 1
+        }
+      }
+    },
+    "muted": {
+      "meta": {
+        "id": "muted",
+        "name": "Muted",
+        "description": "Muted color"
+      },
+      "light": {
+        "hex": "#f0f0f0",
+        "rgba": {
+          "red": 240,
+          "blue": 240,
+          "green": 240,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#262626",
+        "rgba": {
+          "red": 38,
+          "blue": 38,
+          "green": 38,
+          "alpha": 1
+        }
+      }
+    },
+    "muted-foreground": {
+      "meta": {
+        "id": "muted-foreground",
+        "name": "Muted Foreground",
+        "description": "Muted foreground color"
+      },
+      "light": {
+        "hex": "#767676",
+        "rgba": {
+          "red": 118,
+          "blue": 118,
+          "green": 118,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#a3a3a3",
+        "rgba": {
+          "red": 163,
+          "blue": 163,
+          "green": 163,
+          "alpha": 1
+        }
+      }
+    },
+    "accent": {
+      "meta": {
+        "id": "accent",
+        "name": "Accent",
+        "description": "Accent color"
+      },
+      "light": {
+        "hex": "#f0f0f0",
+        "rgba": {
+          "red": 240,
+          "blue": 240,
+          "green": 240,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#262626",
+        "rgba": {
+          "red": 38,
+          "blue": 38,
+          "green": 38,
+          "alpha": 1
+        }
+      }
+    },
+    "accent-foreground": {
+      "meta": {
+        "id": "accent-foreground",
+        "name": "Accent Foreground",
+        "description": "Accent foreground color"
+      },
+      "light": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#fafafa",
+        "rgba": {
+          "red": 250,
+          "blue": 250,
+          "green": 250,
+          "alpha": 1
+        }
+      }
+    },
+    "destructive": {
+      "meta": {
+        "id": "destructive",
+        "name": "Destructive",
+        "description": "Destructive color"
+      },
+      "light": {
+        "hex": "#d93636",
+        "rgba": {
+          "red": 217,
+          "blue": 54,
+          "green": 54,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#4c1c1c",
+        "rgba": {
+          "red": 76,
+          "blue": 28,
+          "green": 28,
+          "alpha": 1
+        }
+      }
+    },
+    "destructive-foreground": {
+      "meta": {
+        "id": "destructive-foreground",
+        "name": "Destructive Foreground",
+        "description": "Destructive foreground color"
+      },
+      "light": {
+        "hex": "#fafafa",
+        "rgba": {
+          "red": 250,
+          "blue": 250,
+          "green": 250,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#fafafa",
+        "rgba": {
+          "red": 250,
+          "blue": 250,
+          "green": 250,
+          "alpha": 1
+        }
+      }
+    },
+    "border": {
+      "meta": {
+        "id": "border",
+        "name": "Border",
+        "description": "Border color"
+      },
+      "light": {
+        "hex": "#e6e6e6",
+        "rgba": {
+          "red": 230,
+          "blue": 230,
+          "green": 230,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#262626",
+        "rgba": {
+          "red": 38,
+          "blue": 38,
+          "green": 38,
+          "alpha": 1
+        }
+      }
+    },
+    "input": {
+      "meta": {
+        "id": "input",
+        "name": "Input",
+        "description": "Input color"
+      },
+      "light": {
+        "hex": "#e6e6e6",
+        "rgba": {
+          "red": 230,
+          "blue": 230,
+          "green": 230,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#262626",
+        "rgba": {
+          "red": 38,
+          "blue": 38,
+          "green": 38,
+          "alpha": 1
+        }
+      }
+    },
+    "ring": {
+      "meta": {
+        "id": "ring",
+        "name": "Ring",
+        "description": "Ring color"
+      },
+      "light": {
+        "hex": "#1a1a1a",
+        "rgba": {
+          "red": 26,
+          "blue": 26,
+          "green": 26,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#d0d0d0",
+        "rgba": {
+          "red": 208,
+          "blue": 208,
+          "green": 208,
+          "alpha": 1
+        }
+      }
+    },
+    "chart-1": {
+      "meta": {
+        "id": "chart-1",
+        "name": "Chart 1",
+        "description": "Chart 1 color"
+      },
+      "light": {
+        "hex": "#eb4034",
+        "rgba": {
+          "red": 235,
+          "blue": 52,
+          "green": 52,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#004dc3",
+        "rgba": {
+          "red": 0,
+          "blue": 195,
+          "green": 77,
+          "alpha": 1
+        }
+      }
+    },
+    "chart-2": {
+      "meta": {
+        "id": "chart-2",
+        "name": "Chart 2",
+        "description": "Chart 2 color"
+      },
+      "light": {
+        "hex": "#36a69a",
+        "rgba": {
+          "red": 54,
+          "blue": 154,
+          "green": 166,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#3a94a7",
+        "rgba": {
+          "red": 58,
+          "blue": 167,
+          "green": 148,
+          "alpha": 1
+        }
+      }
+    },
+    "chart-3": {
+      "meta": {
+        "id": "chart-3",
+        "name": "Chart 3",
+        "description": "Chart 3 color"
+      },
+      "light": {
+        "hex": "#629ac8",
+        "rgba": {
+          "red": 98,
+          "blue": 200,
+          "green": 154,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#cc8933",
+        "rgba": {
+          "red": 204,
+          "blue": 51,
+          "green": 137,
+          "alpha": 1
+        }
+      }
+    },
+    "chart-4": {
+      "meta": {
+        "id": "chart-4",
+        "name": "Chart 4",
+        "description": "Chart 4 color"
+      },
+      "light": {
+        "hex": "#d2c95f",
+        "rgba": {
+          "red": 210,
+          "blue": 95,
+          "green": 201,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#973f9d",
+        "rgba": {
+          "red": 151,
+          "blue": 157,
+          "green": 63,
+          "alpha": 1
+        }
+      }
+    },
+    "chart-5": {
+      "meta": {
+        "id": "chart-5",
+        "name": "Chart 5",
+        "description": "Chart 5 color"
+      },
+      "light": {
+        "hex": "#ee9922",
+        "rgba": {
+          "red": 238,
+          "blue": 34,
+          "green": 153,
+          "alpha": 1
+        }
+      },
+      "dark": {
+        "hex": "#b82877",
+        "rgba": {
+          "red": 184,
+          "blue": 119,
+          "green": 40,
+          "alpha": 1
+        }
+      }
+    }
+  },
+  "surface": {
+    "lg": {
+      "meta": {
+        "id": "surface.lg",
+        "name": "Large Surface",
+        "description": "Large surface"
+      },
+      "borderRadius": 8
+    },
+    "md": {
+      "meta": {
+        "id": "surface.md",
+        "name": "Medium Surface",
+        "description": "Medium surface"
+      },
+      "borderRadius": 6
+    },
+    "sm": {
+      "meta": {
+        "id": "surface.sm",
+        "name": "Small Surface",
+        "description": "Small surface"
+      },
+      "borderRadius": 4
+    }
+  }
+}

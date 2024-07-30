@@ -21,12 +21,12 @@ export const OpenDesignSystemSchema = Type.Object(
       description: 'The unique identifier for the design system',
     }),
     meta: MetaSchema,
-    colors: ColorsSchema,
-    typography: TypographySchema,
-    spacing: SpacingSchema,
-    surface: SurfaceSchema,
-    shadows: ShadowsSchema,
-    primitives: PrimitivesSchema,
+    colors: Type.Optional(ColorsSchema),
+    typography: Type.Optional(TypographySchema),
+    spacing: Type.Optional(SpacingSchema),
+    surface: Type.Optional(SurfaceSchema),
+    shadows: Type.Optional(ShadowsSchema),
+    primitives: Type.Optional(PrimitivesSchema),
   },
   metadata
 )

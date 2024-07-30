@@ -331,12 +331,7 @@
             }
           },
           "required": [
-            "meta",
-            "borderColor",
-            "borderRadius",
-            "borderWidth",
-            "boxShadow",
-            "backgroundColor"
+            "meta"
           ]
         }
       }
@@ -412,7 +407,6 @@
           "required": [
             "meta",
             "elevation",
-            "shadowColor",
             "shadowOpacity",
             "shadowOffset",
             "shadowRadius"
@@ -504,10 +498,7 @@
               },
               "required": [
                 "type",
-                "meta",
-                "surfaceId",
-                "typographyId",
-                "spacingId"
+                "meta"
               ]
             },
             {
@@ -556,8 +547,7 @@
               },
               "required": [
                 "type",
-                "meta",
-                "typographyId"
+                "meta"
               ]
             }
           ]
@@ -567,12 +557,6 @@
   },
   "required": [
     "id",
-    "meta",
-    "colors",
-    "typography",
-    "spacing",
-    "surface",
-    "shadows",
-    "primitives"
+    "meta"
   ]
 }

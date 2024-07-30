@@ -1,10 +1,12 @@
 import openDesingSystem from "@/components/design-system-builder/templates/open-design-system.json";
 import materialDesignSystem from "@/components/design-system-builder/templates/material-design-system-ods.json";
-import type { DesignSystem } from "../../../../open-design-system.schema";
+import shadcnUIDesignSystem from "@/components/design-system-builder/templates/shadcn-design-system-ods.json";
+import { OpenDesignSystemSchema, Validator } from "@opends/schema";
 
-export default {
-  openDesingSystem: openDesingSystem as unknown as DesignSystem,
-  materialDesignSystem: materialDesignSystem as unknown as DesignSystem,
-  cuppertinoDesignSystem: {} as unknown as DesignSystem,
-  shadcnUIDesignSystem: {} as unknown as DesignSystem,
+const templates: Record<string, OpenDesignSystemSchema> = {
+  openDesingSystem: Validator(openDesingSystem),
+  materialDesignSystem: Validator(materialDesignSystem),
+  shadcnUIDesignSystem: Validator(shadcnUIDesignSystem),
 };
+
+export default templates;

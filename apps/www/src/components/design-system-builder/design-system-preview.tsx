@@ -14,7 +14,7 @@ import {
 
 function findInArray<RefObject extends { meta: Meta.MetaSchema }>(
   arr: Array<RefObject>,
-  value: string,
+  value?: string,
 ): RefObject | undefined {
   return arr.find(({ meta }) => meta.id === value);
 }
@@ -52,15 +52,15 @@ function PrimitiveButton({
   const { theme, getThemeScheme } = useTheme();
   const surface = findInArray<Surfaces.SurfaceTypeObjectSchema>(
     surfaces,
-    primitive.surfaceId.$ref,
+    primitive?.surfaceId?.$ref,
   );
   const typography = findInArray<Typographies.TypographyTypeObjectSchema>(
     typographies,
-    primitive.typographyId.$ref,
+    primitive.typographyId?.$ref,
   );
   const spacing = findInArray<Spacings.SpacingTypeObjectSchema>(
     spacings,
-    primitive.spacingId.$ref,
+    primitive.spacingId?.$ref,
   );
 
   return (
@@ -99,7 +99,7 @@ function PrimitiveText({ primitive }: PrimitiveTextProps) {
   });
   const typography = findInArray<Typographies.TypographyTypeObjectSchema>(
     typographies,
-    primitive.typographyId.$ref,
+    primitive.typographyId?.$ref,
   );
 
   return (

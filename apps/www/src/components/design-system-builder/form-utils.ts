@@ -1,24 +1,24 @@
-import type { DesignSystem } from "open-design-system.schema";
-import designSystemSchema from "./form-schema";
-import { z } from "zod";
+import { OpenDesignSystemSchema } from "@opends/schema";
+import { DesignSystemSchema } from "./form-schema";
 
-type DesignSystemFormSchema = z.infer<typeof designSystemSchema>;
-
-export function fromSchemaToForm(schema: DesignSystem): DesignSystemFormSchema {
+export function fromSchemaToForm(
+  schema: OpenDesignSystemSchema,
+): DesignSystemSchema {
   return {
     id: schema.id,
     meta: schema.meta,
-    colors: Object.values(schema.colors),
-    typography: Object.values(schema.typography),
-    spacing: Object.values(schema.spacing),
-    // @ts-ignore
-    surface: Object.values(schema.surface),
-    shadows: Object.values(schema.shadows),
-    primitives: Object.values(schema.primitives),
+    colors: Object.values(schema.colors ?? []),
+    typography: Object.values(schema.typography ?? []),
+    spacing: Object.values(schema.spacing ?? []),
+    surface: Object.values(schema.surface ?? []),
+    shadows: Object.values(schema.shadows ?? []),
+    primitives: Object.values(schema.primitives ?? []),
   };
 }
 
-export function fromFormToSchema(data: DesignSystemFormSchema): DesignSystem {
+export function fromFormToSchema(
+  data: DesignSystemSchema,
+): OpenDesignSystemSchema {
   return {
     id: data.id,
     meta: data.meta,

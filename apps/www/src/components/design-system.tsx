@@ -73,13 +73,6 @@ export function DesignSystem() {
     ? JSON.parse(savedDesignSystem)
     : fromSchemaToForm(newDefaultValues);
 
-  // const methods = useForm<z.infer<typeof designSystemSchema>>({
-  //   resolver: zodResolver(designSystemSchema),
-  //   defaultValues: fromSchemaToForm(defaultValues),
-  // });
-
-  console.log({ designSystemSchema, defaultValues });
-
   const methods = useForm<DesignSystemSchema>({
     resolver: typeboxResolver(designSystemSchema),
     defaultValues: defaultValues,
@@ -153,7 +146,7 @@ export function DesignSystem() {
                 </Button>
                 <CreateButtonWithOptions
                   variant="default"
-                  options={["scratch", "material" /*, "shadcn/ui"*/]}
+                  options={["scratch", "material", "shadcn/ui"]}
                   onClick={handleNew}
                 />
                 <input

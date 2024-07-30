@@ -35,8 +35,8 @@ module.exports = {
     // ...
   },
   plugins: [
-    require('@opends/tailwind', {
-      desisgnSystemConfig: 'config/open-design-system.json', // optional defaults to root to project.
+    require('@opends/tailwind')({
+      designSystemConfig: 'config/open-design-system.json', // optional defaults to root to project.
     }),
     // ...
   ],

@@ -9,7 +9,7 @@ type RefFieldProps = {
 };
 
 export const RefField = ({ name, label, refType }: RefFieldProps) => {
-  const { control, setValue } = useFormContext();
+  const { control } = useFormContext();
   const refOptions = useWatch({
     control,
     name: refType,
@@ -36,9 +36,9 @@ export const RefField = ({ name, label, refType }: RefFieldProps) => {
             value={field.value?.$ref}
             className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1"
           >
-            {refOptions.map((option: any, idx: number) => (
-              <option key={idx} value={option.meta.id}>
-                {option.meta.name}
+            {[null, ...refOptions].map((option: any, idx: number) => (
+              <option key={idx} value={option ? option.meta.id : null}>
+                {option ? option.meta.name : "None"}
               </option>
             ))}
           </select>
