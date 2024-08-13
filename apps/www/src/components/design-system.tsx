@@ -130,63 +130,70 @@ export function DesignSystem() {
 
   return (
     <FormProvider {...methods}>
-      <div className="grid min-h-screen w-full grid-cols-[1fr_2fr]">
-        <DraggableArea onFileUpload={handleFileUpload}>
-          <div className="border-r bg-gray-100/40 p-6 dark:bg-gray-800/40">
-            <div className="flex h-full max-h-screen flex-col gap-6">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-bold">Customize</h2>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Adjust the settings to preview your changes.
-                </p>
-              </div>
-              <div className="flex justify-end gap-4">
-                <Button variant="secondary" onClick={handleUploadClick}>
-                  Upload
-                </Button>
-                <CreateButtonWithOptions
-                  variant="default"
-                  options={["scratch", "material", "shadcn/ui"]}
-                  onClick={handleNew}
-                />
-                <input
-                  type="file"
-                  id="file-input"
-                  className="hidden"
-                  onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) {
-                      handleFileUpload(e.target.files[0]);
-                    }
-                  }}
-                />
-              </div>
-              <div className="flex-1 space-y-6 overflow-auto">
-                <DesignSystemForm
-                  onSubmit={handleFormSubmit}
-                  onShare={handleShare}
-                />
+      <section id="editor">
+        <h2 className="text-center text-3xl font-bold text-foreground p-4">
+          OpenDS Editor
+        </h2>
+        <div className="grid bg-card lg w-full grid-cols-[1fr_2fr]">
+          <DraggableArea onFileUpload={handleFileUpload}>
+            <div className="border-r bg-gray-100/40 p-6 dark:bg-gray-800/40 h-full">
+              <div className="flex h-full max-h-screen flex-col gap-6">
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-bold">
+                    Customize Your Design System
+                  </h2>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    Adjust the settings to preview your changes.
+                  </p>
+                </div>
+                <div className="flex justify-end gap-4">
+                  <Button variant="secondary" onClick={handleUploadClick}>
+                    Upload
+                  </Button>
+                  <CreateButtonWithOptions
+                    variant="default"
+                    options={["scratch", "material", "shadcn/ui"]}
+                    onClick={handleNew}
+                  />
+                  <input
+                    type="file"
+                    id="file-input"
+                    className="hidden"
+                    onChange={(e) => {
+                      if (e.target.files && e.target.files.length > 0) {
+                        handleFileUpload(e.target.files[0]);
+                      }
+                    }}
+                  />
+                </div>
+                <div className="flex-1 space-y-6 overflow-auto">
+                  <DesignSystemForm
+                    onSubmit={handleFormSubmit}
+                    onShare={handleShare}
+                  />
+                </div>
               </div>
             </div>
+          </DraggableArea>
+          <div className="flex flex-col">
+            <Tabs defaultValue="demo">
+              <TabsList className="flex p-1 bg-gray-100/40 dark:bg-gray-800/40">
+                <TabsTrigger value="demo">Demo</TabsTrigger>
+                <TabsTrigger value="design-system">
+                  Open Design System Schema
+                </TabsTrigger>
+                {/* <ThemeToggle /> */}
+              </TabsList>
+              <TabsContent value="demo">
+                <DesignSystemPreview />
+              </TabsContent>
+              <TabsContent value="design-system">
+                <JsonPreview />
+              </TabsContent>
+            </Tabs>
           </div>
-        </DraggableArea>
-        <div className="flex flex-col">
-          <Tabs defaultValue="demo">
-            <TabsList className="flex p-1 bg-gray-100/40 dark:bg-gray-800/40">
-              <TabsTrigger value="demo">Demo</TabsTrigger>
-              <TabsTrigger value="design-system">
-                Open Design System Schema
-              </TabsTrigger>
-              <ThemeToggle />
-            </TabsList>
-            <TabsContent value="demo">
-              <DesignSystemPreview />
-            </TabsContent>
-            <TabsContent value="design-system">
-              <JsonPreview />
-            </TabsContent>
-          </Tabs>
         </div>
-      </div>
+      </section>
     </FormProvider>
   );
 }

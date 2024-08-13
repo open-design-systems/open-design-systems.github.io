@@ -9,7 +9,7 @@ const config: Pick<Config, "content" | "presets" | "plugins"> = {
     "./src/**/*.{ts,tsx}",
   ],
   presets: [sharedConfig],
-  plugins: [require("@opends/tailwind-plugin")],
+  plugins: [require("@opends/tailwind")],
 };
 
 export default config;
