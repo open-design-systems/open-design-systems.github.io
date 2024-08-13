@@ -1,12 +1,20 @@
 import "./globals.css";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import logo from "../assets/logo.png";
+import useAnalytics from "@/lib/analytics";
+import { useEffect } from "react";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { recordPageview } = useAnalytics();
+
+  useEffect(() => {
+    recordPageview(window.location.href);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background font-sans antialiased">
       <TooltipProvider delayDuration={0}>

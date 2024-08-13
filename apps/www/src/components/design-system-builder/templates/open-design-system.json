@@ -1,8 +1,8 @@
 {
   "$schema": "../../../../node_modules/@opends/schema/assets/open-design-system-schema.json",
-  "id": "material-design-system",
+  "id": "open-design-system",
   "meta": {
-    "id": "material-design-system",
+    "id": "open-design-system",
     "name": "Default Design System",
     "description": "A basic design system with default values based on Material Design."
   },

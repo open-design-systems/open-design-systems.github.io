@@ -1,12 +1,10 @@
 import { DesignSystemForm } from "./design-system-builder/form";
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { typeboxResolver } from "@hookform/resolvers/typebox";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect } from "react";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
-import { z } from "zod";
 import { DesignSystemPreview } from "./design-system-builder/design-system-preview";
 import DraggableArea from "./design-system-builder/draggable-area";
 import designSystemSchema, {
@@ -14,11 +12,11 @@ import designSystemSchema, {
 } from "./design-system-builder/form-schema";
 import { fromSchemaToForm } from "./design-system-builder/form-utils";
 import { JsonPreview } from "./design-system-builder/json-preview";
-import { ThemeToggle } from "./theme-toggle";
 import JSONCrush from "jsoncrush";
 import { CreateButtonWithOptions, CreateOptions } from "./create-button";
 import { OpenDesignSystemSchema } from "@opends/schema";
 import templates from "./design-system-builder/templates";
+import useAnalytics from "@/lib/analytics";
 
 const schemaFile = "open-design-system-schema.json";
 const baseUrl = import.meta.env.DEV
@@ -80,11 +78,18 @@ export function DesignSystem() {
 
   const watchForm = useWatch({ control: methods.control });
 
+  const { recordEvent } = useAnalytics();
+
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(watchForm));
   }, [watchForm]);
 
   const handleFormSubmit = (values: OpenDesignSystemSchema) => {
+    recordEvent({
+      action: "download",
+      category: "schema",
+      label: values.id,
+    });
     downloadJsonFile(values);
   };
 
@@ -99,6 +104,12 @@ export function DesignSystem() {
 
     history.pushState({}, "", url);
 
+    recordEvent({
+      action: "share",
+      category: "schema",
+      label: url.toString(),
+    });
+
     navigator.clipboard.writeText(url.toString());
   };
 
@@ -107,6 +118,11 @@ export function DesignSystem() {
     reader.onload = (event) => {
       if (event.target?.result) {
         const json = JSON.parse(event.target.result as string);
+        recordEvent({
+          action: "upload",
+          category: "schema",
+          label: json.id ?? "unknown-upload",
+        });
         methods.reset(fromSchemaToForm(json));
       }
     };
@@ -120,6 +136,12 @@ export function DesignSystem() {
     history.replaceState({}, "", url);
 
     const newValues = createOptions[option];
+
+    recordEvent({
+      action: "create",
+      category: "schema",
+      label: option,
+    });
 
     methods.reset(fromSchemaToForm(newValues));
   };
