@@ -20,29 +20,30 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
   return {
-  plugins: [
-    react(),
-    meta(metaTags),
-    Sitemap({
-      hostname: appConfig.url,
-    }),
-    viteStaticCopy({
-      targets: [
-        {
-          src: "node_modules/@opends/schema/assets/open-design-system-schema.json",
-          dest: "./",
+    plugins: [
+      react(),
+      meta(metaTags),
+      Sitemap({
+        hostname: appConfig.url,
+      }),
+      viteStaticCopy({
+        targets: [
+          {
+            src: "node_modules/@opends/schema/assets/open-design-system-schema.json",
+            dest: "./",
+          },
+        ],
+      }),
+      VitePluginRadar({
+        analytics: {
+          id: env.VITE_GA_ID || "G-XXXXXXXXXX",
         },
-      ],
-    }),
-    VitePluginRadar({
-      analytics: {
-        id: env.VITE_GA_ID || "G-XXXXXXXXXX",
+      }),
+    ],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
       },
-    }),
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
     },
-  },
+  };
 });

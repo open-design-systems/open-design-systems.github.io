@@ -58,9 +58,9 @@ jobs:
       - name: Build
         env:
           NODE_ENV: production
-          VITE_GA_ID: ${{ secrets.GA_ID }}
+          VITE_GA_ID: ${{ vars.GA_ID }}
         shell: bash
-        run: pnpm run build
+        run: VITE_GA_ID=${{vars.GA_ID}} pnpm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

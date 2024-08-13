@@ -134,7 +134,7 @@ export function DesignSystem() {
         <h2 className="text-center text-3xl font-bold text-foreground p-4">
           OpenDS Editor
         </h2>
-        <div className="grid bg-card lg w-full grid-cols-[1fr_2fr]">
+        <div className="grid bg-card lg w-full grid-cols-1 md:grid-cols-[1fr_2fr]">
           <DraggableArea onFileUpload={handleFileUpload}>
             <div className="border-r bg-gray-100/40 p-6 dark:bg-gray-800/40 h-full">
               <div className="flex h-full max-h-screen flex-col gap-6">
@@ -177,9 +177,12 @@ export function DesignSystem() {
           </DraggableArea>
           <div className="flex flex-col">
             <Tabs defaultValue="demo">
-              <TabsList className="flex p-1 bg-gray-100/40 dark:bg-gray-800/40">
+              <TabsList className="flex flex-col sm:flex-row p-1 bg-gray-100/40 dark:bg-gray-800/40">
                 <TabsTrigger value="demo">Demo</TabsTrigger>
-                <TabsTrigger value="design-system">
+                <TabsTrigger value="design-system" className="flex sm:hidden">
+                  Open DS Schema
+                </TabsTrigger>
+                <TabsTrigger value="design-system" className="hidden sm:flex">
                   Open Design System Schema
                 </TabsTrigger>
                 {/* <ThemeToggle /> */}

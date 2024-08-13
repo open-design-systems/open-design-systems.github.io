@@ -18,7 +18,7 @@ export default function RootLayout({
               className="mx-auto aspect-auto w-32 h-32"
               loading="lazy"
             />
-            <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1] hidden md:block">
+            <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]">
               Open Design System v0.1
             </h1>
             <h2 className="text-center text-lg font-light text-foreground">

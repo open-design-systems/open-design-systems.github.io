@@ -130,9 +130,14 @@ export function DesignSystemForm({
         </CollapsibleContent>
       </Collapsible>
 
-      <div className="flex gap-4 justify-end">
+      <div className="flex flex-col sm:flex-row gap-4 justify-end">
         <ShareLinkButton onClick={onShare} />
-        <Button type="submit">Download Open Design System</Button>
+        <Button className="hidden md:block" type="submit">
+          Download Open Design System
+        </Button>
+        <Button className="md:hidden" type="submit">
+          Download Open DS
+        </Button>
       </div>
     </form>
   );
