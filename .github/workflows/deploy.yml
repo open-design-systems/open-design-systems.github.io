@@ -58,7 +58,7 @@ jobs:
       - name: Build
         env:
           NODE_ENV: production
-          GA_ID: ${{ secrets.GA_ID }}
+          VITE_GA_ID: ${{ secrets.GA_ID }}
         shell: bash
         run: pnpm run build
       - name: Setup Pages

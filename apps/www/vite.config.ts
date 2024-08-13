@@ -1,5 +1,5 @@
 import path from "path";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import Sitemap from "vite-plugin-sitemap";
@@ -16,7 +16,10 @@ const metaTags = {
 };
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd());
+
+  return {
   plugins: [
     react(),
     meta(metaTags),
@@ -33,7 +36,7 @@ export default defineConfig({
     }),
     VitePluginRadar({
       analytics: {
-        id: process.env.GA_ID || "G-XXXXXXXXXX",
+        id: env.VITE_GA_ID || "G-XXXXXXXXXX",
       },
     }),
   ],
