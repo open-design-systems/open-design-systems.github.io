@@ -37,6 +37,11 @@ export default defineConfig(({ mode }) => {
       VitePluginRadar({
         analytics: {
           id: env.VITE_GA_ID || "G-XXXXXXXXXX",
+          consentDefaults: {
+            analytics_storage: "denied",
+            ad_storage: "denied",
+            wait_for_update: 500,
+          },
         },
       }),
     ],
