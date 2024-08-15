@@ -5,6 +5,8 @@ import { viteStaticCopy } from "vite-plugin-static-copy";
 import Sitemap from "vite-plugin-sitemap";
 import { meta } from "vite-plugin-meta-tags";
 import { VitePluginRadar } from "vite-plugin-radar";
+import { sentryVitePlugin } from "@sentry/vite-plugin";
+import spotlight from "@spotlightjs/spotlight/vite-plugin";
 import appConfig from "./app.config";
 
 const metaTags = {
@@ -20,6 +22,9 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
   return {
+    build: {
+      sourcemap: true,
+    },
     plugins: [
       react(),
       meta(metaTags),
@@ -44,6 +49,12 @@ export default defineConfig(({ mode }) => {
           },
         },
       }),
+      sentryVitePlugin({
+        authToken: env.SENTRY_AUTH_TOKEN,
+        org: env.SENTRY_ORG,
+        project: env.SENTRY_PROJECT,
+      }),
+      spotlight(),
     ],
     resolve: {
       alias: {

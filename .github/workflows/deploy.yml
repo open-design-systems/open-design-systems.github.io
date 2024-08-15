@@ -59,6 +59,10 @@ jobs:
         env:
           NODE_ENV: production
           VITE_GA_ID: ${{ vars.GA_ID }}
+          VITE_SENTRY_DSN: ${{ vars.SENTRY_DSN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
         shell: bash
         run: VITE_GA_ID=${{vars.GA_ID}} pnpm run build
       - name: Setup Pages

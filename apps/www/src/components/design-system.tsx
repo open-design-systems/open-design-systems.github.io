@@ -107,7 +107,6 @@ export function DesignSystem() {
     recordEvent({
       action: "share",
       category: "schema",
-      label: url.toString(),
     });
 
     navigator.clipboard.writeText(url.toString());
