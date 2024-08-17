@@ -1,5 +1,3 @@
-import { DesignSystemForm } from "./design-system-builder/form";
-
 import { typeboxResolver } from "@hookform/resolvers/typebox";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -14,9 +12,12 @@ import { fromSchemaToForm } from "./design-system-builder/form-utils";
 import { JsonPreview } from "./design-system-builder/json-preview";
 import JSONCrush from "jsoncrush";
 import { CreateButtonWithOptions, CreateOptions } from "./create-button";
-import { OpenDesignSystemSchema } from "@opends/schema";
+import { OpenDesignSystemSchema, Validator } from "@opends/schema";
 import templates from "./design-system-builder/templates";
+import { DesignSystemForm } from "./design-system-builder/form";
+
 import useAnalytics from "@/lib/analytics";
+import { toast } from "sonner";
 
 const schemaFile = "open-design-system-schema.json";
 const baseUrl = import.meta.env.DEV
@@ -74,6 +75,7 @@ export function DesignSystem() {
   const methods = useForm<DesignSystemSchema>({
     resolver: typeboxResolver(designSystemSchema),
     defaultValues: defaultValues,
+    mode: "onChange",
   });
 
   const watchForm = useWatch({ control: methods.control });
@@ -90,6 +92,7 @@ export function DesignSystem() {
       category: "schema",
       label: values.id,
     });
+    toast.success("Downloading your Open Design System...");
     downloadJsonFile(values);
   };
 
@@ -109,6 +112,8 @@ export function DesignSystem() {
       category: "schema",
     });
 
+    toast.info("Open Design System shareable link copied to clipboard");
+
     navigator.clipboard.writeText(url.toString());
   };
 
@@ -116,13 +121,19 @@ export function DesignSystem() {
     const reader = new FileReader();
     reader.onload = (event) => {
       if (event.target?.result) {
-        const json = JSON.parse(event.target.result as string);
-        recordEvent({
-          action: "upload",
-          category: "schema",
-          label: json.id ?? "unknown-upload",
-        });
-        methods.reset(fromSchemaToForm(json));
+        try {
+          const json = JSON.parse(event.target.result as string);
+          recordEvent({
+            action: "upload",
+            category: "schema",
+            label: json.id ?? "unknown-upload",
+          });
+          Validator(json);
+          methods.reset(fromSchemaToForm(json));
+          toast.success("Open Design System file loaded");
+        } catch (error) {
+          toast.warning("Invalid Open Design System file");
+        }
       }
     };
     reader.readAsText(file);
@@ -142,6 +153,8 @@ export function DesignSystem() {
       label: option,
     });
 
+    toast.info(`${option} Open Design System loaded`);
+
     methods.reset(fromSchemaToForm(newValues));
   };
 
@@ -155,15 +168,15 @@ export function DesignSystem() {
         <h2 className="text-center text-3xl font-bold text-foreground p-4">
           OpenDS Editor
         </h2>
-        <div className="grid bg-card lg w-full grid-cols-1 md:grid-cols-[1fr_2fr]">
+        <div className="grid bg-card border-2 sm w-full grid-cols-1 md:grid-cols-[1fr_2fr]">
           <DraggableArea onFileUpload={handleFileUpload}>
-            <div className="border-r bg-gray-100/40 p-6 dark:bg-gray-800/40 h-full">
+            <div className="p-6 h-full">
               <div className="flex h-full max-h-screen flex-col gap-6">
                 <div className="space-y-4">
                   <h2 className="text-2xl font-bold">
                     Customize Your Design System
                   </h2>
-                  <p className="text-gray-500 dark:text-gray-400">
+                  <p className="">
                     Adjust the settings to preview your changes.
                   </p>
                 </div>

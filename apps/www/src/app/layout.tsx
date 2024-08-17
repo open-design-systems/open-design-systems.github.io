@@ -3,6 +3,7 @@ import { TooltipProvider } from "@radix-ui/react-tooltip";
 import logo from "../assets/logo.png";
 import useAnalytics from "@/lib/analytics";
 import { useEffect } from "react";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function RootLayout({
   children,
@@ -51,6 +52,22 @@ export default function RootLayout({
           </p>
         </div>
       </footer>
+      <Toaster
+        icons={{
+          success: "🎉",
+          error: "🚨",
+          warning: "⚠️",
+          info: "ℹ️",
+        }}
+        toastOptions={{
+          classNames: {
+            error: "border-2 border-red-400",
+            success: "border-2 border-green-400",
+            warning: "border-2 border-yellow-400",
+            info: "border-2 border-blue-400",
+          },
+        }}
+      />
     </div>
   );
 }

@@ -1,15 +1,23 @@
-import {
-  useFormContext,
-  useFieldArray,
-  Controller,
-  useWatch,
-} from "react-hook-form";
+import { useFormContext, useFieldArray, useWatch } from "react-hook-form";
 import { nanoid } from "nanoid";
 import { RemoveDialog } from "../remove-dialog";
 import { Button as UIButton } from "@/components/ui/button";
-import { FormLabel } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { RefField } from "./ref-field";
+import { MetaField } from "./meta-field";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
 
 export const PrimitivesField = () => {
   const { control } = useFormContext();
@@ -28,40 +36,29 @@ export const PrimitivesField = () => {
       {fields.map((field, index) => (
         <div className="gap-4 p-4 border-2 border-dotted" key={field.id}>
           <div className="grid gap-2 mb-2">
-            <Controller
-              name={`primitives.${index}.meta.name`}
-              control={control}
-              render={({ field }) => (
-                <>
-                  <FormLabel>Primitive Name</FormLabel>
-                  <Input {...field} placeholder="Name" />
-                </>
-              )}
-            />
-            <Controller
-              name={`primitives.${index}.meta.description`}
-              control={control}
-              render={({ field }) => (
-                <>
-                  <FormLabel>Description</FormLabel>
-                  <Input {...field} placeholder="Description" />
-                </>
-              )}
-            />
-            <Controller
+            <MetaField field={`primitives.${index}`} />
+            <FormField
               name={`primitives.${index}.type`}
               control={control}
               render={({ field }) => (
-                <>
+                <FormItem>
                   <FormLabel>Type</FormLabel>
-                  <select
-                    {...field}
-                    className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1"
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
                   >
-                    <option value="button">Button</option>
-                    <option value="text">Text</option>
-                  </select>
-                </>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="button">Button</SelectItem>
+                      <SelectItem value="text">Text</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
               )}
             />
             {primitives?.[index]?.type === "button" && (

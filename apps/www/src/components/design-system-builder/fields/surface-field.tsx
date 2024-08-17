@@ -1,11 +1,12 @@
-import {
-  useFormContext,
-  useFieldArray,
-  Controller,
-  useWatch,
-} from "react-hook-form";
+import { useFormContext, useFieldArray } from "react-hook-form";
 import { Input } from "@/components/ui/input";
-import { FormLabel } from "@/components/ui/form";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { nanoid } from "nanoid";
 import { RemoveDialog } from "../remove-dialog";
@@ -31,34 +32,40 @@ export const SurfaceField = () => {
               refType="colors"
               label="Border Color"
             />
-            <Controller
+            <FormField
               name={`surface.${index}.borderRadius`}
               control={control}
               render={({ field }) => (
-                <>
+                <FormItem>
                   <FormLabel>Border Radius</FormLabel>
-                  <Input
-                    {...field}
-                    type="number"
-                    step="1"
-                    placeholder="Border Radius"
-                  />
-                </>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="number"
+                      step="1"
+                      placeholder="Border Radius"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
               )}
             />
-            <Controller
+            <FormField
               name={`surface.${index}.borderWidth`}
               control={control}
               render={({ field }) => (
-                <>
+                <FormItem>
                   <FormLabel>Border Width</FormLabel>
-                  <Input
-                    {...field}
-                    type="number"
-                    step="1"
-                    placeholder="Border Width"
-                  />
-                </>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="number"
+                      step="1"
+                      placeholder="Border Width"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
               )}
             />
             <RefField

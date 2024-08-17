@@ -1,10 +1,23 @@
-import { useFormContext, Controller, useFieldArray } from "react-hook-form";
+import { useFormContext, useFieldArray } from "react-hook-form";
 import { Input } from "@/components/ui/input";
-import { FormLabel } from "@/components/ui/form";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { RemoveDialog } from "../remove-dialog";
 import { nanoid } from "nanoid";
 import { MetaField } from "./meta-field";
+import {
+  Select,
+  SelectContent,
+  SelectTrigger,
+  SelectItem,
+  SelectValue,
+} from "@/components/ui/select";
 
 const popularFonts = [
   "Roboto",
@@ -20,15 +33,15 @@ const popularFonts = [
 ];
 
 const fontWeights = [
-  { label: "Thin", value: 100 },
-  { label: "Extra Light", value: 200 },
-  { label: "Light", value: 300 },
-  { label: "Regular", value: 400 },
-  { label: "Medium", value: 500 },
-  { label: "Semi Bold", value: 600 },
-  { label: "Bold", value: 700 },
-  { label: "Extra Bold", value: 800 },
-  { label: "Black", value: 900 },
+  { label: "Thin", value: "100" },
+  { label: "Extra Light", value: "200" },
+  { label: "Light", value: "300" },
+  { label: "Regular", value: "400" },
+  { label: "Medium", value: "500" },
+  { label: "Semi Bold", value: "600" },
+  { label: "Bold", value: "700" },
+  { label: "Extra Bold", value: "800" },
+  { label: "Black", value: "900" },
 ];
 
 export const TypographyField = () => {
@@ -46,90 +59,115 @@ export const TypographyField = () => {
             <MetaField field={`typography.${index}`} />
           </div>
           <div className="grid gap-2 mb-2">
-            <Controller
+            <FormField
               name={`typography.${index}.fontFamily`}
               control={control}
               render={({ field }) => (
-                <div className="mb-2">
+                <FormItem>
                   <FormLabel>Font Family</FormLabel>
-                  <select
-                    {...field}
-                    className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1"
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
                   >
-                    {popularFonts.map((font) => (
-                      <option key={font} value={font}>
-                        {font}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {popularFonts.map((font) => (
+                        <SelectItem key={font} value={font}>
+                          {font}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
               )}
             />
             <div className="flex gap-4">
-              <Controller
+              <FormField
                 name={`typography.${index}.fontSize`}
                 control={control}
                 render={({ field }) => (
-                  <div className="flex flex-col gap-2 flex-1">
+                  <FormItem className="flex flex-col gap-2 flex-1">
                     <FormLabel>Font Size</FormLabel>
-                    <Input
-                      {...field}
-                      type="number"
-                      step="1"
-                      placeholder="Font Size"
-                    />
-                  </div>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type="number"
+                        step="1"
+                        placeholder="Font Size"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
               />
-              <Controller
+              <FormField
                 name={`typography.${index}.fontWeight`}
                 control={control}
                 render={({ field }) => (
-                  <div className="flex flex-col gap-2 flex-1">
+                  <FormItem>
                     <FormLabel>Font Weight</FormLabel>
-                    <select
-                      {...field}
-                      className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1"
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={`${field.value}`}
                     >
-                      {fontWeights.map((weight) => (
-                        <option key={weight.value} value={weight.value}>
-                          {weight.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {fontWeights.map((weight) => (
+                          <SelectItem key={weight.value} value={weight.value}>
+                            {weight.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
                 )}
               />
             </div>
             <div className="flex gap-4">
-              <Controller
+              <FormField
                 name={`typography.${index}.lineHeight`}
                 control={control}
                 render={({ field }) => (
-                  <div className="flex flex-col gap-2 flex-1">
+                  <FormItem className="flex flex-col gap-2 flex-1">
                     <FormLabel>Line Height</FormLabel>
-                    <Input
-                      {...field}
-                      type="number"
-                      step="0.1"
-                      placeholder="Line Height"
-                    />
-                  </div>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type="number"
+                        step="0.1"
+                        placeholder="Line Height"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
               />
-              <Controller
+              <FormField
                 name={`typography.${index}.letterSpacing`}
                 control={control}
                 render={({ field }) => (
-                  <div className="flex flex-col gap-2 flex-1">
+                  <FormItem className="flex flex-col gap-2 flex-1">
                     <FormLabel>Letter Spacing</FormLabel>
-                    <Input
-                      {...field}
-                      type="number"
-                      step="0.01"
-                      placeholder="Letter Spacing"
-                    />
-                  </div>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type="number"
+                        step="0.01"
+                        placeholder="Letter Spacing"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
               />
             </div>

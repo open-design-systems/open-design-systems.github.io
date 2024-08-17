@@ -1,4 +1,4 @@
-import { Form, useFormContext, Controller } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 
 import { ColorField } from "./fields/color-field";
 import { TypographyField } from "./fields/typography-field";
@@ -20,6 +20,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { useEffect, useState } from "react";
 import { CheckIcon } from "lucide-react";
 import { OpenDesignSystemSchema } from "@opends/schema";
+import { toast } from "sonner";
 
 export function DesignSystemForm({
   onSubmit,
@@ -37,7 +38,9 @@ export function DesignSystemForm({
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function onError(err: any) {
-    console.log("err", err);
+    toast.error(
+      "There are some errors in the form, please correct before download",
+    );
   }
 
   return (

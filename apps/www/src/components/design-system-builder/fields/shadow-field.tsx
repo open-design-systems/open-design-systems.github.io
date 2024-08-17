@@ -1,11 +1,12 @@
-import {
-  useFormContext,
-  useFieldArray,
-  Controller,
-  useWatch,
-} from "react-hook-form";
+import { useFormContext, useFieldArray } from "react-hook-form";
 import { Input } from "@/components/ui/input";
-import { FormLabel } from "@/components/ui/form";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { RemoveDialog } from "../remove-dialog";
 import { nanoid } from "nanoid";
@@ -25,14 +26,17 @@ export const ShadowsField = () => {
         <div className="gap-4 p-4 border-2 border-dotted" key={field.id}>
           <div className="grid gap-2 mb-2">
             <MetaField field={`shadows.${index}`} />
-            <Controller
+            <FormField
               name={`shadows.${index}.elevation`}
               control={control}
               render={({ field }) => (
-                <>
+                <FormItem>
                   <FormLabel>Elevation</FormLabel>
-                  <Input {...field} placeholder="Elevation" />
-                </>
+                  <FormControl>
+                    <Input {...field} placeholder="Elevation" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
               )}
             />
             <RefField
@@ -40,56 +44,68 @@ export const ShadowsField = () => {
               refType="colors"
               label="Shadow Color"
             />
-            <Controller
+            <FormField
               name={`shadows.${index}.shadowOpacity`}
               control={control}
               render={({ field }) => (
-                <>
+                <FormItem>
                   <FormLabel>Shadow Opacity</FormLabel>
-                  <Input
-                    {...field}
-                    type="number"
-                    step="0.01"
-                    placeholder="Shadow Opacity"
-                  />
-                </>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="number"
+                      step="0.01"
+                      placeholder="Shadow Opacity"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
               )}
             />
             <div className="flex space-x-4">
-              <Controller
+              <FormField
                 name={`shadows.${index}.shadowOffset.width`}
                 control={control}
                 render={({ field }) => (
-                  <>
+                  <FormItem>
                     <FormLabel>Shadow Offset Width</FormLabel>
-                    <Input {...field} type="number" placeholder="Width" />
-                  </>
+                    <FormControl>
+                      <Input {...field} type="number" placeholder="Width" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
               />
-              <Controller
+              <FormField
                 name={`shadows.${index}.shadowOffset.height`}
                 control={control}
                 render={({ field }) => (
-                  <>
+                  <FormItem>
                     <FormLabel>Shadow Offset Height</FormLabel>
-                    <Input {...field} type="number" placeholder="Height" />
-                  </>
+                    <FormControl>
+                      <Input {...field} type="number" placeholder="Height" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
               />
             </div>
-            <Controller
+            <FormField
               name={`shadows.${index}.shadowRadius`}
               control={control}
               render={({ field }) => (
-                <>
+                <FormItem>
                   <FormLabel>Shadow Radius</FormLabel>
-                  <Input
-                    {...field}
-                    type="number"
-                    step="0.1"
-                    placeholder="Shadow Radius"
-                  />
-                </>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="number"
+                      step="0.1"
+                      placeholder="Shadow Radius"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
               )}
             />
           </div>

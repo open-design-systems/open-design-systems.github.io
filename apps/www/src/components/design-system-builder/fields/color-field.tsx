@@ -1,5 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useFormContext, useFieldArray, Controller } from "react-hook-form";
+import {
+  useFormContext,
+  useFieldArray,
+  Control,
+  ControllerRenderProps,
+} from "react-hook-form";
 import { ColorPicker } from "@/components/color-picker";
 import { colord } from "colord";
 import { ChangeEvent } from "react";
@@ -8,6 +12,7 @@ import { nanoid } from "nanoid";
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
+  FormField,
   FormItem,
   FormLabel,
   FormMessage,
@@ -41,113 +46,152 @@ const rgbaToHex = ({
 };
 
 type RgbaInputProps = {
-  control: any;
+  control: Control;
   name: string;
-  onChangeRgba: (event: ChangeEvent<HTMLInputElement>, field: any) => void;
+  onChangeRgba: (
+    event: ChangeEvent<HTMLInputElement>,
+    field: ControllerRenderProps,
+  ) => void;
 };
+
+const ColorRgbaInputField = ({
+  control,
+  name,
+  colorCode,
+  onChangeRgba,
+}: RgbaInputProps & { colorCode: "red" | "green" | "blue" | "alpha" }) => (
+  <FormField
+    name={`${name}.${colorCode}`}
+    control={control}
+    render={({ field }) => (
+      <FormItem>
+        <FormLabel>{colorCode}</FormLabel>
+        <FormControl>
+          <Input
+            {...field}
+            placeholder={colorCode}
+            onChange={(e) => onChangeRgba(e, field)}
+          />
+        </FormControl>
+        <FormMessage />
+      </FormItem>
+    )}
+  />
+);
 
 const RgbaInput = ({ control, name, onChangeRgba }: RgbaInputProps) => (
   <div className="flex space-x-2">
-    <div>
-      <FormLabel>red</FormLabel>
-      <Controller
-        name={`${name}.red`}
-        control={control}
-        render={({ field }) => (
-          <Input
-            {...field}
-            placeholder="Red"
-            onChange={(e) => onChangeRgba(e, field)}
-          />
-        )}
-      />
-    </div>
-    <div>
-      <FormLabel>green</FormLabel>
-      <Controller
-        name={`${name}.green`}
-        control={control}
-        render={({ field }) => (
-          <Input
-            {...field}
-            placeholder="Green"
-            onChange={(e) => onChangeRgba(e, field)}
-          />
-        )}
-      />
-    </div>
-    <div>
-      <FormLabel>blue</FormLabel>
-      <Controller
-        name={`${name}.blue`}
-        control={control}
-        render={({ field }) => (
-          <Input
-            {...field}
-            placeholder="Blue"
-            onChange={(e) => onChangeRgba(e, field)}
-          />
-        )}
-      />
-    </div>
-    <div>
-      <FormLabel>alpha</FormLabel>
-      <Controller
-        name={`${name}.alpha`}
-        control={control}
-        render={({ field }) => (
-          <Input
-            {...field}
-            placeholder="Alpha"
-            onChange={(e) => onChangeRgba(e, field)}
-          />
-        )}
-      />
-    </div>
+    <ColorRgbaInputField
+      name={name}
+      control={control}
+      colorCode="red"
+      onChangeRgba={onChangeRgba}
+    />
+    <ColorRgbaInputField
+      name={name}
+      control={control}
+      colorCode="green"
+      onChangeRgba={onChangeRgba}
+    />
+    <ColorRgbaInputField
+      name={name}
+      control={control}
+      colorCode="blue"
+      onChangeRgba={onChangeRgba}
+    />
+    <ColorRgbaInputField
+      name={name}
+      control={control}
+      colorCode="alpha"
+      onChangeRgba={onChangeRgba}
+    />
   </div>
 );
 
 type HexInputProps = {
-  control: any;
+  control: Control;
   name: string;
-  onChangeHex: (e: ChangeEvent<HTMLInputElement>, field: any) => void;
+  onChangeHex: (
+    e: ChangeEvent<HTMLInputElement>,
+    field: ControllerRenderProps,
+  ) => void;
 };
 
 const HexInput = ({ control, name, onChangeHex }: HexInputProps) => (
-  <div className="flex space-x-2">
-    <Controller
+  <div>
+    <FormField
       name={name}
       control={control}
       render={({ field }) => (
-        <>
-          <ColorPicker
-            color={field.value}
-            onChange={(color) => {
-              const event: ChangeEvent<HTMLInputElement> = {
-                target: { value: color },
-              } as unknown as ChangeEvent<HTMLInputElement>;
-              onChangeHex(event, field);
-            }}
-          />
-          <Input
-            {...field}
-            placeholder="Hex"
-            onChange={(e) => onChangeHex(e, field)}
-          />
-        </>
+        <FormItem>
+          <FormControl>
+            <div className="flex space-x-2">
+              <ColorPicker
+                color={field.value}
+                onChange={(color) => {
+                  const event: ChangeEvent<HTMLInputElement> = {
+                    target: { value: color },
+                  } as unknown as ChangeEvent<HTMLInputElement>;
+                  onChangeHex(event, field);
+                }}
+              />
+              <Input
+                {...field}
+                placeholder="Hex"
+                onChange={(e) => onChangeHex(e, field)}
+              />
+            </div>
+          </FormControl>
+          <FormMessage />
+        </FormItem>
       )}
     />
   </div>
 );
 
+const ColorFormItem = ({
+  name,
+  type,
+  onChangeHex,
+  onChangeRgba,
+}: {
+  name: string;
+  type: "light" | "dark";
+  onChangeHex: (
+    e: ChangeEvent<HTMLInputElement>,
+    field: ControllerRenderProps,
+  ) => void;
+  onChangeRgba: (
+    e: ChangeEvent<HTMLInputElement>,
+    field: ControllerRenderProps,
+  ) => void;
+}) => {
+  const { control } = useFormContext();
+  return (
+    <div>
+      <FormLabel className="font-semibold capitalize">{type}</FormLabel>
+      <HexInput
+        control={control}
+        name={`${name}.${type}.hex`}
+        onChangeHex={onChangeHex}
+      />
+      <RgbaInput
+        control={control}
+        name={`${name}.${type}.rgba`}
+        onChangeRgba={onChangeRgba}
+      />
+    </div>
+  );
+};
+
 const ColorSelectionField = ({ name }: { name: string }) => {
-  const { control, watch, setValue } = useFormContext();
+  const { watch, setValue } = useFormContext();
   const rgbaLight = watch(`${name}.light.rgba`);
   const rgbaDark = watch(`${name}.dark.rgba`);
 
   const handleHexChange =
     (theme: "light" | "dark") =>
-    (e: ChangeEvent<HTMLInputElement>, field: any) => {
+    (e: ChangeEvent<HTMLInputElement>, field: ControllerRenderProps) => {
       if (e.target.value && !e.target.value.startsWith("#")) {
         e.target.value = `#${e.target.value}`;
       }
@@ -161,7 +205,7 @@ const ColorSelectionField = ({ name }: { name: string }) => {
 
   const handleRgbaChange =
     (theme: "light" | "dark") =>
-    (e: ChangeEvent<HTMLInputElement>, field: any) => {
+    (e: ChangeEvent<HTMLInputElement>, field: ControllerRenderProps) => {
       field.onChange(e);
       const rgbaTheme = theme === "light" ? rgbaLight : rgbaDark;
 
@@ -172,41 +216,20 @@ const ColorSelectionField = ({ name }: { name: string }) => {
   const handleRgbaChangeLight = handleRgbaChange("light");
   const handleRgbaChangeDark = handleRgbaChange("dark");
   return (
-    <FormItem>
-      <FormControl>
-        <div className="space-y-4">
-          <div>
-            <FormLabel className="font-semibold">Light</FormLabel>
-            <HexInput
-              control={control}
-              name={`${name}.light.hex`}
-              onChangeHex={handleHexChangeLight}
-            />
-            <RgbaInput
-              control={control}
-              name={`${name}.light.rgba`}
-              onChangeRgba={handleRgbaChangeLight}
-            />
-          </div>
-
-          <div>
-            <FormLabel className="font-semibold">Dark</FormLabel>
-            <HexInput
-              control={control}
-              name={`${name}.dark.hex`}
-              onChangeHex={handleHexChangeDark}
-            />
-            <RgbaInput
-              control={control}
-              name={`${name}.dark.rgba`}
-              onChangeRgba={handleRgbaChangeDark}
-            />
-          </div>
-        </div>
-      </FormControl>
-
-      <FormMessage />
-    </FormItem>
+    <div className="space-y-4">
+      <ColorFormItem
+        name={name}
+        type="light"
+        onChangeHex={handleHexChangeLight}
+        onChangeRgba={handleRgbaChangeLight}
+      />
+      <ColorFormItem
+        name={name}
+        type="dark"
+        onChangeHex={handleHexChangeDark}
+        onChangeRgba={handleRgbaChangeDark}
+      />
+    </div>
   );
 };
 

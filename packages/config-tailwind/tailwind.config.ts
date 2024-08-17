@@ -1,4 +1,5 @@
 import { Config } from "tailwindcss";
+import * as defaultTheme from "tailwindcss/defaultTheme";
 export default {
   darkMode: ["class"],
   content: [
@@ -17,6 +18,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

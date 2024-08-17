@@ -1,6 +1,19 @@
-import { FormControl, FormItem, FormLabel } from "@/components/ui/form";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Ref } from "@opends/schema";
-import { Controller, useFormContext, useWatch } from "react-hook-form";
+import { useFormContext, useWatch } from "react-hook-form";
 
 type RefFieldProps = {
   name: string;
@@ -24,25 +37,31 @@ export const RefField = ({ name, label, refType }: RefFieldProps) => {
   };
 
   return (
-    <Controller
+    <FormField
       name={name}
       control={control}
       render={({ field }) => (
-        <>
+        <FormItem>
           <FormLabel>{label}</FormLabel>
-          <select
-            {...field}
-            onChange={(e) => field.onChange(handleRefValue(e.target.value))}
-            value={field.value?.$ref}
-            className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1"
+          <Select
+            onValueChange={handleRefValue}
+            defaultValue={field.value?.$ref}
           >
-            {[null, ...refOptions].map((option: any, idx: number) => (
-              <option key={idx} value={option ? option.meta.id : null}>
-                {option ? option.meta.name : "None"}
-              </option>
-            ))}
-          </select>
-        </>
+            <FormControl>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+            </FormControl>
+            <SelectContent>
+              {[null, ...refOptions].map((option: any, idx: number) => (
+                <SelectItem key={idx} value={option ? option.meta.id : null}>
+                  {option ? option.meta.name : "None"}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <FormMessage />
+        </FormItem>
       )}
     />
   );

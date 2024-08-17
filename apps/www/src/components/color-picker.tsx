@@ -47,7 +47,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = (props) => {
   return (
     <div
       ref={ref}
-      className="relative w-8 h-8 rounded-sm cursor-pointer border"
+      className="relative w-10 h-10 rounded-sm cursor-pointer border"
       style={{ backgroundColor: color }}
       onClick={() => {
         setVisible(true);
