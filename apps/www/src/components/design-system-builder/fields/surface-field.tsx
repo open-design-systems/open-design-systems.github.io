@@ -12,6 +12,7 @@ import { nanoid } from "nanoid";
 import { RemoveDialog } from "../remove-dialog";
 import { MetaField } from "./meta-field";
 import { RefField } from "./ref-field";
+import { handleNumberFieldChange } from "@/lib/utils";
 
 export const SurfaceField = () => {
   const { control } = useFormContext();
@@ -41,6 +42,7 @@ export const SurfaceField = () => {
                   <FormControl>
                     <Input
                       {...field}
+                      onChange={handleNumberFieldChange(field.onChange)}
                       type="number"
                       step="1"
                       placeholder="Border Radius"
@@ -59,6 +61,7 @@ export const SurfaceField = () => {
                   <FormControl>
                     <Input
                       {...field}
+                      onChange={handleNumberFieldChange(field.onChange)}
                       type="number"
                       step="1"
                       placeholder="Border Width"

@@ -11,6 +11,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { handleNumberFieldChange } from "@/lib/utils";
 
 export const SpacingField = () => {
   const { control } = useFormContext();
@@ -35,6 +36,7 @@ export const SpacingField = () => {
                   <FormControl>
                     <Input
                       {...field}
+                      onChange={handleNumberFieldChange(field.onChange)}
                       type="number"
                       step="1"
                       placeholder="Value"

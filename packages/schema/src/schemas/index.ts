@@ -6,6 +6,11 @@ import { PrimitivesSchema } from './primitives'
 import { SpacingSchema } from './spacing'
 import { SurfaceSchema } from './surface'
 import { ShadowsSchema } from './shadows'
+import { DefaultErrorFunction, SetErrorFunction } from '@sinclair/typebox/errors'
+
+SetErrorFunction((error) => {
+  return error.schema.errorMessage ?? DefaultErrorFunction(error)
+})
 
 const metadata: ObjectOptions = {
   $schema: 'http://json-schema.org/draft-07/schema#',

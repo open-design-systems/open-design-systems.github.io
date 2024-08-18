@@ -12,6 +12,7 @@ import { RemoveDialog } from "../remove-dialog";
 import { nanoid } from "nanoid";
 import { MetaField } from "./meta-field";
 import { RefField } from "./ref-field";
+import { handleNumberFieldChange } from "@/lib/utils";
 
 export const ShadowsField = () => {
   const { control } = useFormContext();
@@ -70,7 +71,12 @@ export const ShadowsField = () => {
                   <FormItem>
                     <FormLabel>Shadow Offset Width</FormLabel>
                     <FormControl>
-                      <Input {...field} type="number" placeholder="Width" />
+                      <Input
+                        {...field}
+                        onChange={handleNumberFieldChange(field.onChange)}
+                        type="number"
+                        placeholder="Width"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -83,7 +89,12 @@ export const ShadowsField = () => {
                   <FormItem>
                     <FormLabel>Shadow Offset Height</FormLabel>
                     <FormControl>
-                      <Input {...field} type="number" placeholder="Height" />
+                      <Input
+                        {...field}
+                        onChange={handleNumberFieldChange(field.onChange)}
+                        type="number"
+                        placeholder="Height"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

@@ -18,6 +18,10 @@ import {
   SelectItem,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  handleNumberFieldChange,
+  handleSelectNumberFieldChange,
+} from "@/lib/utils";
 
 const popularFonts = [
   "Roboto",
@@ -112,7 +116,9 @@ export const TypographyField = () => {
                   <FormItem>
                     <FormLabel>Font Weight</FormLabel>
                     <Select
-                      onValueChange={field.onChange}
+                      onValueChange={handleSelectNumberFieldChange(
+                        field.onChange,
+                      )}
                       defaultValue={`${field.value}`}
                     >
                       <FormControl>
@@ -143,6 +149,7 @@ export const TypographyField = () => {
                     <FormControl>
                       <Input
                         {...field}
+                        onChange={handleNumberFieldChange(field.onChange)}
                         type="number"
                         step="0.1"
                         placeholder="Line Height"
@@ -161,6 +168,7 @@ export const TypographyField = () => {
                     <FormControl>
                       <Input
                         {...field}
+                        onChange={handleNumberFieldChange(field.onChange)}
                         type="number"
                         step="0.01"
                         placeholder="Letter Spacing"

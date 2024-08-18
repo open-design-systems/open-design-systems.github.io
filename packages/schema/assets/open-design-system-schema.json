@@ -62,6 +62,7 @@
               "properties": {
                 "hex": {
                   "pattern": "^#(?:[0-9a-fA-F]{3,4}){1,2}$",
+                  "errorMessage": "Invalid hex color",
                   "type": "string"
                 },
                 "rgba": {
@@ -107,6 +108,7 @@
               "properties": {
                 "hex": {
                   "pattern": "^#(?:[0-9a-fA-F]{3,4}){1,2}$",
+                  "errorMessage": "Invalid hex color",
                   "type": "string"
                 },
                 "rgba": {

@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { MetaField } from "./meta-field";
+import { handleNumberFieldChange } from "@/lib/utils";
 
 const hexToRgba = (hex: string) => {
   const { r, g, b, a } = colord(hex).toRgb();
@@ -206,7 +207,8 @@ const ColorSelectionField = ({ name }: { name: string }) => {
   const handleRgbaChange =
     (theme: "light" | "dark") =>
     (e: ChangeEvent<HTMLInputElement>, field: ControllerRenderProps) => {
-      field.onChange(e);
+      const handleNumberChange = handleNumberFieldChange(field.onChange);
+      handleNumberChange(e);
       const rgbaTheme = theme === "light" ? rgbaLight : rgbaDark;
 
       const hex = rgbaToHex(rgbaTheme);

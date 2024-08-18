@@ -4,6 +4,7 @@ import { MetaSchema } from './meta'
 export const ColorObjectSchema = Type.Object({
   hex: Type.String({
     pattern: '^#(?:[0-9a-fA-F]{3,4}){1,2}$',
+    errorMessage: 'Invalid hex color',
   }),
   rgba: Type.Object({
     red: Type.Number({ maximum: 255, minimum: 0 }),

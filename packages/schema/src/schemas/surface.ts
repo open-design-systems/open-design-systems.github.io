@@ -1,7 +1,6 @@
 import { Type, type Static } from '@sinclair/typebox'
 import { MetaSchema } from './meta'
 import { ColorRefSchema, ShadowRefSchema } from './ref'
-import { Nullable } from '../utils'
 
 export const SurfaceTypeObjectSchema = Type.Object(
   {
