@@ -1,6 +1,6 @@
 {
   "name": "@opends/schema",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Open Design Schema package with type definitions and json schema source of truth",
   "private": false,
   "prettier": {
@@ -14,7 +14,7 @@
   "types": "src/index.ts",
   "files": [
     "./assets/*.json",
-    "./src/*.ts"
+    "./src/**/*.ts"
   ],
   "scripts": {
     "build": "tsx src/utils/generate.ts ",
