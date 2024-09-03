@@ -1,6 +1,6 @@
 {
   "name": "@opends/tailwind",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Tailwind Plugin to use out of the box Open Design System schema",
   "private": false,
   "main": "./dist/index.js",
