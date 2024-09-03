@@ -1,4 +1,4 @@
-import { Typographies } from '@opends/schema/'
+import { Typographies } from '@opends/schema'
 
 export function makeTypographyVariables(typographies: Typographies.TypographySchema) {
   return {

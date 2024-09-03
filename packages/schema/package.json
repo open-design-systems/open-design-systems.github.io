@@ -11,14 +11,14 @@
   },
   "repository": "https://github.com/open-design-systems/open-design-systems.github.io",
   "main": "dist/index.js",
-  "types": "dist/**/*.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "./assets/*.json",
     "./dist/**/*"
   ],
   "scripts": {
     "build:generate": "tsx src/utils/generate.ts",
-    "build:lib": "tsc",
+    "build:lib": "rm -Rf dist/ && tsc",
     "build": "pnpm run build:generate && pnpm run build:lib",
     "dev": "tsx watch src/utils/generate.ts"
   },

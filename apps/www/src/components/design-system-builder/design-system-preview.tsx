@@ -2,9 +2,9 @@ import { useWatch } from "react-hook-form";
 import { useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ColorRefSchema } from "@opends/schema/src/schemas/ref";
 import {
   Meta,
+  Ref,
   Primitives,
   Colors,
   Surfaces,
@@ -22,7 +22,7 @@ function findInArray<RefObject extends { meta: Meta.MetaSchema }>(
 function resolveColors(
   colors: Array<Colors.ColorTypeObjectSchema>,
   theme: "light" | "dark",
-  value: ColorRefSchema | undefined,
+  value: Ref.ColorRefSchema | undefined,
 ) {
   if (value === undefined) {
     return undefined;
