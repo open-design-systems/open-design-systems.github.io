@@ -10,14 +10,16 @@
     "trailingComma": "es5"
   },
   "repository": "https://github.com/open-design-systems/open-design-systems.github.io",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/**/*.d.ts",
   "files": [
     "./assets/*.json",
-    "./src/**/*.ts"
+    "./dist/**/*"
   ],
   "scripts": {
-    "build": "tsx src/utils/generate.ts ",
+    "build:generate": "tsx src/utils/generate.ts",
+    "build:lib": "tsc",
+    "build": "pnpm run build:generate && pnpm run build:lib",
     "dev": "tsx watch src/utils/generate.ts"
   },
   "keywords": [
@@ -28,6 +30,9 @@
   ],
   "author": "Marcos Bérgamo <marcos@thedon.com.br>",
   "license": "MIT",
+  "peerDependencies": {
+    "@sinclair/typebox": "^0.32.34"
+  },
   "devDependencies": {
     "@open-design-system/eslint-config": "workspace:^",
     "@open-design-system/typescript-config": "workspace:^",
